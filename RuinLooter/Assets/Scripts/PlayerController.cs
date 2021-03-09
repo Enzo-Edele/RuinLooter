@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
+
     int artefact = 0;
     int coin = 0;
+    Item powerUp;
+
+    public float timeInvincible = 10.0f;
+    public float timerInvincible;
 
     float horizontal;
     float vertical;
     Vector2 jump = new Vector2(0, 2);
     float jumpforce = 2.0f;
+    public bool isOnLadder = false;
     [SerializeField]
     float speed;
-    public int PV;
+    [SerializeField]
     int fullPV = 5;
+    public int PV;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -24,7 +31,14 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         this.Move();
-        this.Jump();
+        if (Input.GetKeyDown("space"))
+        {
+            this.Jump();
+        }
+        if(isOnLadder)
+        {
+            this.UsingLadder();
+        }
     }
     void Move()
     {
@@ -33,24 +47,21 @@ public class PlayerController : MonoBehaviour
         position.x = position.x + speed * horizontal * Time.deltaTime;
         transform.position = position;
     }
-    void Jump()
+    void Jump() 
     {
-        if(Input.GetKeyDown("space"))
-        {
-            rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
-        }
+        rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
     }
-    void OnTriggerStay2D(Collider2D other)
+    void UsingLadder()
     {
         vertical = Input.GetAxis("Vertical");
         Vector2 position = transform.position;
-        position.y = position.y + speed * vertical * 2 * Time.deltaTime;
+        position.y = position.y + (speed/2) * vertical * 2 * Time.deltaTime;
         transform.position = position;
     }
     public void CoinCollect()
     {
-        Debug.Log("coin");
         coin++;
+        UIManager.Instance.UpdateCoin(coin);
     }
     public void ArtefactCollect()
     {
@@ -60,5 +71,33 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Get 3 artefact");
         }
+    }
+}
+public class Item : MonoBehaviour
+{
+    public virtual void Use()
+    {
+
+    }
+}
+public class Potion : Item
+{
+    public override void Use()
+    {
+        base.Use();
+    }
+}
+public class Cape : Item
+{
+    public override void Use()
+    {
+        base.Use();
+    }
+}
+public class Bandage : Item
+{
+    public override void Use()
+    {
+        base.Use();
     }
 }
