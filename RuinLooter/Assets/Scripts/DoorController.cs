@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChestController : MonoBehaviour
+public class DoorController : MonoBehaviour
 {
+    [SerializeField]
     bool isOpen = false;
     bool isOn = false;
     private void Update()
     {
-        if(Input.GetKeyDown("e") && !isOpen && isOn)
+        if (Input.GetKeyDown("e") && !isOpen && isOn && GameManager.Instance.coin > 4)
         {
             this.Openning();
         }
@@ -16,11 +17,12 @@ public class ChestController : MonoBehaviour
     void Openning()
     {
         isOpen = true;
-        Debug.Log("Coffre ouvert");
+        Debug.Log("Porte ouvert");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isOn = true;
+        Debug.Log("porte collier");
     }
     private void OnTriggerExit2D(Collider2D other)
     {

@@ -58,6 +58,18 @@ public class PlayerController : MonoBehaviour
         position.y = position.y + (speed/2) * vertical * 2 * Time.deltaTime;
         transform.position = position;
     }
+    public void Damage(int degat)
+    {
+        this.PV += degat;
+        if(PV > 5)
+        {
+            PV = 5;
+        }
+        if (PV < 1)
+        {
+            Debug.Log("Décés");
+        }
+    }
     public void CoinCollect()
     {
         coin++;

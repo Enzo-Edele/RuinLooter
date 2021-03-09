@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public int coin = 1;
+
     private static GameManager _instance;
     public static GameManager Instance
     {
