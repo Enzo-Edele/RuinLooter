@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 1
-  arrowPrefab: {fileID: 392601197429813461, guid: 50859c2e5defa4f4a97ffe724327aef4, type: 3}
+  projectilePrefab: {fileID: 392601197429813461, guid: 50859c2e5defa4f4a97ffe724327aef4, type: 3}
 --- !u!61 &5108378019610965219
 BoxCollider2D:
   m_ObjectHideFlags: 0
