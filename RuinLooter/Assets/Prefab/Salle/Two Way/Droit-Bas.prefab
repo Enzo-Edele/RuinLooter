@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3684323627714958201}
   - component: {fileID: 5162983346108827634}
   m_Layer: 0
-  m_Name: 2
+  m_Name: Bas-Droit 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,10 +155,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rooms:
-  - {fileID: -8546742775814268665, guid: 42a4a726a20b69843809f75458a5a8cc, type: 3}
+  - {fileID: -8257821123492009139, guid: ee04fc82d38d21341ba7ab2c4fd942fd, type: 3}
+  - {fileID: 4751640239203627078, guid: 6e0045d1c8f72624e8a14b627701cc52, type: 3}
+  - {fileID: 4615779267616814590, guid: 51539f22fc5d84746a4d8280ca0fc5b2, type: 3}
+  - {fileID: -3837261511603295625, guid: e8f3e9698191ddd4fb1cf4771c45c3cd, type: 3}
   entries:
-  - position: {x: 0, y: 10, z: 0}
-    type: 2
-  exits:
   - position: {x: -10, y: 0, z: 0}
     type: 1
+  exits:
+  - position: {x: 0, y: 10, z: 0}
+    type: 2
+  position: {x: 0, y: 0}
