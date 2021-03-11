@@ -17,12 +17,12 @@ public class DoorController : MonoBehaviour
     void Openning()
     {
         isOpen = true;
-        Debug.Log("Porte ouvert");
+        GameManager.Instance.UpdateCoin(-5);
+        Debug.Log("ouverte");
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         isOn = true;
-        Debug.Log("porte collier");
     }
     private void OnTriggerExit2D(Collider2D other)
     {

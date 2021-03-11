@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    bool isGrounded;
+    bool isCrouching = false;
 
     int artefact = 0;
     int coin = 0;
     Item powerUp;
-
     public float timeInvincible = 10.0f;
     public float timerInvincible;
+    bool isInvincible = false;
+    bool shieldOn = false;
 
     float horizontal;
     float vertical;
@@ -20,24 +24,58 @@ public class PlayerController : MonoBehaviour
     public bool isOnLadder = false;
     [SerializeField]
     float speed;
-    [SerializeField]
     int fullPV = 5;
-    public int PV;
+    int PV;
+    enum Item
+    {
+        Empty,
+        Cloak,
+        Invincible,
+        Heal,
+        TP,
+        Shield
+    }
+    Item slot = Item.Empty;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         PV = fullPV;
+        UIManager.Instance.UpdateHealth(PV);
+        UIManager.Instance.UpdateCoin(coin);
+        UIManager.Instance.UpdateArtefact(artefact);
+        UIManager.Instance.UpdateSlot("Empty");
     }
     void Update()
     {
         this.Move();
-        if (Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space"))
         {
             this.Jump();
         }
         if(isOnLadder)
         {
             this.UsingLadder();
+        }
+        if(Input.GetKeyDown("c"))
+        {
+            isCrouching = true;
+            this.Crouch();
+        }
+        if(Input.GetKeyUp("c"))
+        {
+            isCrouching = false;
+        }
+        if(Input.GetKeyDown("a"))
+        {
+            this.UseItem();
+        }
+        if(timerInvincible >= 0)
+        {
+            timerInvincible -= Time.deltaTime;
+        }
+        else
+        {
+            isInvincible = false;
         }
     }
     void Move()
@@ -47,9 +85,17 @@ public class PlayerController : MonoBehaviour
         position.x = position.x + speed * horizontal * Time.deltaTime;
         transform.position = position;
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        isGrounded = true;
+    }
     void Jump() 
     {
-        rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
+        if (isGrounded)
+        {
+            rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
+            isGrounded = false;
+        }
     }
     void UsingLadder()
     {
@@ -58,58 +104,102 @@ public class PlayerController : MonoBehaviour
         position.y = position.y + (speed/2) * vertical * 2 * Time.deltaTime;
         transform.position = position;
     }
+    void Crouch()
+    {
+        if (isGrounded)
+        {
+            Debug.Log("crouching");
+        }
+    }
+    public void ChestOpenning()
+    {
+        int dice = Random.Range(1, 6);
+        if(dice == 1)
+        {
+            slot = Item.Cloak;
+            UIManager.Instance.UpdateSlot("Cape");
+        }
+        if (dice == 2)
+        {
+            slot = Item.Invincible;
+            UIManager.Instance.UpdateSlot("Potion");
+        }
+        if (dice == 3)
+        {
+            slot = Item.Heal;
+            UIManager.Instance.UpdateSlot("Bandage");
+        }
+        if (dice == 4)
+        {
+            slot = Item.TP;
+            UIManager.Instance.UpdateSlot("Pearl");
+        }
+        if (dice == 5)
+        {
+            slot = Item.Shield;
+            UIManager.Instance.UpdateSlot("Shield");
+        }
+    }
+    void UseItem()
+    {
+        UIManager.Instance.UpdateSlot("Empty");
+        switch(slot)
+        {
+            case Item.Cloak:
+                Debug.Log("Use Cape");
+                break;
+            case Item.Invincible:
+                timerInvincible = timeInvincible;
+                isInvincible = true;
+                Debug.Log("Use Potion");
+                break;
+            case Item.Heal:
+                this.Damage(1);
+                Debug.Log("Use Bandage");
+                break;
+            case Item.TP:
+                Debug.Log("Use Pearl");
+                break;
+            case Item.Shield:
+                shieldOn = true;
+                Debug.Log("Use Shield");
+                break;
+        }
+    }
     public void Damage(int degat)
     {
-        this.PV += degat;
-        if(PV > 5)
+        if(degat > 0 && PV < 5)
         {
-            PV = 5;
+            PV += degat;
         }
-        if (PV < 1)
+       else if(degat < 0 && shieldOn && !isInvincible)
         {
-            Debug.Log("Décés");
+            shieldOn = false;
         }
+        else if(degat < 0 && !shieldOn && !isInvincible)
+        {
+            PV += degat;
+        }
+        if(PV < 1)
+        {
+            Debug.Log("Il est daicerdé");
+            Destroy(gameObject);
+        }
+
+        UIManager.Instance.UpdateHealth(PV);
     }
     public void CoinCollect()
     {
         coin++;
-        UIManager.Instance.UpdateCoin(coin);
+        GameManager.Instance.UpdateCoin(1);
     }
     public void ArtefactCollect()
     {
-        Debug.Log("Get artefact");
         artefact++;
+        UIManager.Instance.UpdateArtefact(artefact);
         if(artefact == 3)
         {
-            Debug.Log("Get 3 artefact");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-    }
-}
-public class Item : MonoBehaviour
-{
-    public virtual void Use()
-    {
-
-    }
-}
-public class Potion : Item
-{
-    public override void Use()
-    {
-        base.Use();
-    }
-}
-public class Cape : Item
-{
-    public override void Use()
-    {
-        base.Use();
-    }
-}
-public class Bandage : Item
-{
-    public override void Use()
-    {
-        base.Use();
     }
 }
