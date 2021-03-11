@@ -144,7 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27515cd585882c549bf0dfcad9e6171c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  agroRange: 0
+  player: {fileID: 2784089767087808425, guid: 38ea03849b9018845b8136a407150c44, type: 3}
+  agroRange: 8
   speed: 0.005
   distance: 4
