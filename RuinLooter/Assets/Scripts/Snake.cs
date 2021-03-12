@@ -7,17 +7,16 @@ public class Snake : MonoBehaviour
     [SerializeField]
     Transform player;
 
-    Rigidbody2D rb2d;
-
     public float agroRange;
     private float spawnPoint;
     public float speed = 0.005f;
+    private float speedagro;
     public float distance = 4f;
 
     void Start()
     {
         spawnPoint = transform.position.x;
-        rb2d = GetComponent<Rigidbody2D>();
+        speedagro = speed;
     }
 
     void Update()
@@ -29,55 +28,43 @@ public class Snake : MonoBehaviour
 
         if (distToPlayer < agroRange)
         {
-            Debug.Log("agro");
             if (transform.position.x < player.position.x)
             {
-                rb2d.velocity = new Vector2(-speed, 0);
+                snakeScale.x = -1;
+                speed = -speedagro * 10;
+            }
+            else
+            {
+                snakeScale.x = 1;
+                speed = speedagro * 10;
+            }
+
+            transform.localScale = snakeScale;
+        }
+
+        else if (transform.position.x < spawnPoint - distance || transform.position.x > spawnPoint + distance)
+        {
+            spawnPoint = transform.position.x;
+            speed = speed * -1;
+            if (speed < 0)
+            {
                 snakeScale.x = -1;
             }
             else
             {
-                rb2d.velocity = new Vector2(speed, 0);
                 snakeScale.x = 1;
             }
-        }
-        else
-        {
-            if (transform.position.x < spawnPoint - distance || transform.position.x > spawnPoint + distance)
-            {
-                speed = speed * -1;
 
-                if (speed < 0)
-                {
-                    snakeScale.x = -1;
-                }
-                else
-                {
-                    snakeScale.x = 1;
-                }
-                transform.localScale = snakeScale;
-            }
+            transform.localScale = snakeScale;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("fireBall"))
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Damage();
+            PlayerController player = collision.collider.GetComponent<PlayerController>();
+            player.Damage(-1);
         }
-    }
-
-    void Damage()
-    {
-        Debug.Log("dégats");
     }
 }

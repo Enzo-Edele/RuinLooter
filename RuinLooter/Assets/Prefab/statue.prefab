@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c73294b6ad6c8e4ea273e4b616e8867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  delay: 1
-  fireBallPrefab: {fileID: 3308265077169157334, guid: b829d932d6e6c1642a6562ab20431c39, type: 3}
+  player: {fileID: 2784089767087808425, guid: 38ea03849b9018845b8136a407150c44, type: 3}
+  agroRange: 15
+  delay: 3
+  projectilePrefab: {fileID: 3308265077169157334, guid: b829d932d6e6c1642a6562ab20431c39, type: 3}

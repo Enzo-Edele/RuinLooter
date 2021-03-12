@@ -14,6 +14,8 @@ public class Statue : Trap
     private Vector2 playerPosition;
     private Vector2 statuePosition;
 
+    public float fireBallSpeed = 50;
+    public float agroRange;
     public int delay = 3;
     public GameObject projectilePrefab;
     private bool shoot = true;
@@ -25,10 +27,12 @@ public class Statue : Trap
 
         statuePosition = new Vector2(statueX, statueY);
     }
-
+    
     public override void LaunchProjectile()
     {
-        if (shoot == true)
+        float distToPlayer = Vector2.Distance(transform.position, player.position);
+
+        if (shoot == true && distToPlayer < agroRange)
         {
             statueX = gameObject.transform.position.x;
             statueY = gameObject.transform.position.y;
@@ -44,8 +48,7 @@ public class Statue : Trap
             StartCoroutine(Delay());
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
             FireBall projectile = projectileObject.GetComponent<FireBall>();
-            projectile.Launch(dir, 50);
-            Debug.Log(dir);
+            projectile.Launch(dir, fireBallSpeed);
         }
     }
 
