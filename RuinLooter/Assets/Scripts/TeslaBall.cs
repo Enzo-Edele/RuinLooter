@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBall : Projectile
+public class TeslaBall : Projectile
 {
     Rigidbody2D rigidbody2d;
 

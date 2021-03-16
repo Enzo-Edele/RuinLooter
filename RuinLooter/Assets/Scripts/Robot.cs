@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Snake : MonoBehaviour
+public class Robot : MonoBehaviour
 {
     [SerializeField]
     Transform player;
@@ -12,6 +12,7 @@ public class Snake : MonoBehaviour
     public float speed = 0.005f;
     private float speedagro;
     public float distance = 4f;
+    public float agroSpeed = 1.2f;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class Snake : MonoBehaviour
 
     void Update()
     {
-        Vector3 snakeScale = transform.localScale;
+        Vector3 robotScale = transform.localScale;
         transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
 
         float distToPlayer = Vector2.Distance(transform.position, player.position);
@@ -30,16 +31,16 @@ public class Snake : MonoBehaviour
         {
             if (transform.position.x < player.position.x)
             {
-                snakeScale.x = -1;
-                speed = -speedagro * 10;
+                robotScale.x = -2;
+                speed = -speedagro * agroSpeed;
             }
             else
             {
-                snakeScale.x = 1;
-                speed = speedagro * 10;
+                robotScale.x = 2;
+                speed = speedagro * agroSpeed;
             }
 
-            transform.localScale = snakeScale;
+            transform.localScale = robotScale;
         }
 
         else if (transform.position.x < spawnPoint - distance || transform.position.x > spawnPoint + distance)
@@ -48,14 +49,14 @@ public class Snake : MonoBehaviour
             speed = speed * -1;
             if (speed < 0)
             {
-                snakeScale.x = -1;
+                robotScale.x = -2;
             }
             else
             {
-                snakeScale.x = 1;
+                robotScale.x = 2;
             }
 
-            transform.localScale = snakeScale;
+            transform.localScale = robotScale;
         }
     }
 

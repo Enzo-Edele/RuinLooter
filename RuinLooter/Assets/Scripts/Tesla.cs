@@ -2,30 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Statue : Trap
+public class Tesla : Trap
 {
     [SerializeField]
     Transform player;
 
     private float playerX;
     private float playerY;
-    private float statueX;
-    private float statueY;
+    private float teslaX;
+    private float teslaY;
     private Vector2 playerPosition;
-    private Vector2 statuePosition;
+    private Vector2 teslaPosition;
 
-    public float fireBallSpeed = 50;
+    public float teslaBallSpeed = 50;
     public float agroRange;
-    public int delay = 3;
+    public float delay = 3;
     public GameObject projectilePrefab;
     private bool shoot = true;
 
     private void Start()
     {
-        statueX = gameObject.transform.position.x;
-        statueY = gameObject.transform.position.y;
+        teslaX = gameObject.transform.position.x;
+        teslaY = gameObject.transform.position.y;
 
-        statuePosition = new Vector2(statueX, statueY);
+        teslaPosition = new Vector2(teslaX, teslaY);
     }
     
     public override void LaunchProjectile()
@@ -34,21 +34,21 @@ public class Statue : Trap
 
         if (shoot == true && distToPlayer < agroRange)
         {
-            statueX = gameObject.transform.position.x;
-            statueY = gameObject.transform.position.y;
+            teslaX = gameObject.transform.position.x;
+            teslaY = gameObject.transform.position.y;
 
-            statuePosition = new Vector2(statueX, statueY);
+            teslaPosition = new Vector2(teslaX, teslaY);
 
             playerX = player.transform.position.x;
             playerY = player.transform.position.y;
 
             playerPosition = new Vector2(playerX, playerY);
 
-            Vector2 dir = playerPosition - statuePosition;
+            Vector2 dir = playerPosition - teslaPosition;
             StartCoroutine(Delay());
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
-            FireBall projectile = projectileObject.GetComponent<FireBall>();
-            projectile.Launch(dir, fireBallSpeed);
+            TeslaBall projectile = projectileObject.GetComponent<TeslaBall>();
+            projectile.Launch(dir, teslaBallSpeed);
         }
     }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dispenser : Trap
 {
-    public int delay = 1;
+    public float delay = 1;
     public GameObject projectilePrefab;
     private bool shoot = true;
 
