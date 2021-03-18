@@ -5,13 +5,10 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     public List<Room> rooms = null;
+    public Room end = null;
     public List<Door> entries = new List<Door>();
     public List<Door> exits = new List<Door>();
-    public Vector2 position;
-    private void Awake()
-    {
-        position = transform.position;
-    }
+    public int count;
 }
 [System.Serializable]
 public class Door
@@ -24,6 +21,14 @@ public class Door
         int result = (int)this.type + (int)door.type;
         return result == 0;
     }
+    /*public bool IsWall(Door door)
+    {
+     || !newRoom.entries[i].IsWall()
+        if ()
+        {
+            return true;
+        }
+    }*/
 }
 
 public enum DoorType

@@ -6,14 +6,14 @@ public class Ghost : MonoBehaviour
 {
     Vector2 spawnPoint;
     public float speed = 2f;
-    public float distToSpawnPoint = 10;
+    public float moveZone = 10;
     private float ghostPositionX;
     private float ghostPositionY;
-    public float delay = 3;
+    public float delay = 5;
     private bool ghostMove = true;
     Rigidbody2D rb2d;
 
-    void Awake()
+    void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         spawnPoint = new Vector2(transform.position.x, transform.position.y);
@@ -21,22 +21,31 @@ public class Ghost : MonoBehaviour
 
     void Update()
     {
-        ghostPositionX = Random.Range(distToSpawnPoint, -distToSpawnPoint);
-        ghostPositionY = Random.Range(distToSpawnPoint, -distToSpawnPoint);
+        ghostPositionX = Random.Range(moveZone, -moveZone);
+        ghostPositionY = Random.Range(moveZone, -moveZone);
 
-        if (transform.position.x > spawnPoint.x || transform.position.y > spawnPoint.y)
+        if (transform.position.x > spawnPoint.x)
         {
-            ghostPositionX = Random.Range(-1, -distToSpawnPoint);
+            ghostPositionX = Random.Range(-1, -moveZone);
         }
-        if (transform.position.x < spawnPoint.x || transform.position.y < spawnPoint.y)
+        if (transform.position.y > spawnPoint.y)
         {
-            ghostPositionX = Random.Range(1, distToSpawnPoint);
+            ghostPositionY = Random.Range(-1, -moveZone);
+        }
+        if (transform.position.x < spawnPoint.x)
+        {
+            ghostPositionX = Random.Range(1, moveZone);
+        }
+        if (transform.position.y < spawnPoint.y)
+        {
+            ghostPositionY = Random.Range(1, moveZone);
         }
 
         Vector2 dir = new Vector2(ghostPositionX, ghostPositionY);
 
         if (ghostMove == true)
         {
+            rb2d.velocity = Vector3.zero;
             rb2d.AddForce(dir * 30);
             StartCoroutine(Move());
         }
@@ -46,8 +55,6 @@ public class Ghost : MonoBehaviour
     {
         ghostMove = false;
         yield return new WaitForSeconds(delay);
-        rb2d.velocity = Vector3.zero;
-        yield return new WaitForSeconds(delay);
         ghostMove = true;
     }
 
@@ -56,7 +63,7 @@ public class Ghost : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();
-            Debug.Log(player.PV);
+            player.Damage(-1);
         }
     }
 }

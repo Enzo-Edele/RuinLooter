@@ -19,4 +19,9 @@ public class TeslaBall : Projectile
             Destroy(gameObject);
         }
     }
+
+    public void Destroy(GameObject go)
+    {
+        Destroy(go);
+    }
 }

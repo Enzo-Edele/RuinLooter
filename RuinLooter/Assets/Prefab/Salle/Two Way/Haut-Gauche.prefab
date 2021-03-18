@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 938368459457328433}
   - component: {fileID: 4751640239203627078}
   m_Layer: 0
-  m_Name: Gauche-Haut 2
+  m_Name: Haut-Gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,11 +159,10 @@ MonoBehaviour:
   - {fileID: -8546742775814268665, guid: fa4e1e822ffaded449530e58aa1462f6, type: 3}
   - {fileID: 4615779267616814590, guid: e9c6ee6c2374da5458d6ffdea55b5097, type: 3}
   - {fileID: -3699635836614251890, guid: 4e03ed0edda3ab349ac4484b63968e3e, type: 3}
-  - {fileID: 8883058365872593175, guid: 1e5539b8957bb114daacb28af707bbe1, type: 3}
+  end: {fileID: 8883058365872593175, guid: 1e5539b8957bb114daacb28af707bbe1, type: 3}
   entries:
   - position: {x: 0, y: -10, z: 0}
     type: -2
   exits:
   - position: {x: 10, y: 0, z: 0}
     type: -1
-  position: {x: 0, y: 0}

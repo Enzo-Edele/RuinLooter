@@ -13,6 +13,7 @@ public class Tesla : Trap
     private float teslaY;
     private Vector2 playerPosition;
     private Vector2 teslaPosition;
+    private Vector3 spawn;
 
     public float teslaBallSpeed = 50;
     public float agroRange;
@@ -26,6 +27,8 @@ public class Tesla : Trap
         teslaY = gameObject.transform.position.y;
 
         teslaPosition = new Vector2(teslaX, teslaY);
+
+        spawn = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
     }
     
     public override void LaunchProjectile()
@@ -35,7 +38,7 @@ public class Tesla : Trap
         if (shoot == true && distToPlayer < agroRange)
         {
             teslaX = gameObject.transform.position.x;
-            teslaY = gameObject.transform.position.y;
+            teslaY = gameObject.transform.position.y - spawn.y;
 
             teslaPosition = new Vector2(teslaX, teslaY);
 
@@ -46,7 +49,7 @@ public class Tesla : Trap
 
             Vector2 dir = playerPosition - teslaPosition;
             StartCoroutine(Delay());
-            GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.up * 0.5f, Quaternion.identity);
+            GameObject projectileObject = Instantiate(projectilePrefab, spawn + Vector3.up * 0.5f, Quaternion.identity);
             TeslaBall projectile = projectileObject.GetComponent<TeslaBall>();
             projectile.Launch(dir, teslaBallSpeed);
         }

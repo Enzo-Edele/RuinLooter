@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     }
     public List<Room> rooms = null;
     public List<Room> first = null;
-    Room firstRoom;
+    //List<Room> use = null;
     public static int count;
     void Awake()
     {
@@ -27,15 +27,17 @@ public class MapManager : MonoBehaviour
         Vector2 spawnPos = transform.position;
         spawnPos.x = 0.0f;
         spawnPos.y = 0.0f;
-        firstRoom = Instantiate(first[random], spawnPos, Quaternion.identity);
+        Room firstRoom = Instantiate(first[random], spawnPos, Quaternion.identity);
+        //use.Add(firstRoom);
         count = 0;
         SpawnRoom(first[random]);
     }
 
     private void SpawnRoom(Room room)
     {
-        if (count > 4)
+        if (count > 50)
         {
+            Room endRoom = Instantiate(room.end, room.transform.position - room.exits[0].position, Quaternion.identity);
             return;
         }
 
@@ -45,12 +47,16 @@ public class MapManager : MonoBehaviour
         {
             for(int j=0; j < room.exits.Count; j++)
             {
-                if(newRoom.entries[i].IsDoorValid(room.exits[j]))
+                //for (int k = 0; k < use.Count; k++)
                 {
-                    Room newRoomObject = Instantiate(newRoom, newRoom.entries[i].position + room.transform.position, Quaternion.identity);
-                    SpawnRoom(newRoomObject);
-                    count += 1;
-                    break;
+                    if (newRoom.entries[i].IsDoorValid(room.exits[j]));
+                    {
+                        Room newRoomObject = Instantiate(newRoom, newRoom.entries[i].position + room.transform.position, Quaternion.identity);
+                        count += 1 + newRoom.count;
+                        //use.Add(newRoomObject);
+                        SpawnRoom(newRoomObject);
+                        break;
+                    }
                 }
             }
         }  
