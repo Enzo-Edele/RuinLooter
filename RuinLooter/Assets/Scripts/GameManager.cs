@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public int coin = 0;
+    public int artefact = 0;
+    public int health;
     public enum GameState
     {
         InGame,
@@ -35,8 +38,9 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        _gameState = GameState.InGame;
     }
-    public void StaetChange(GameState newState)
+    public void StateChange(GameState newState)
     {
         _gameState = newState;
         switch(_gameState)
@@ -48,8 +52,10 @@ public class GameManager : MonoBehaviour
                 this.Pause();
                 break;
             case GameState.Death:
+                this.Death();
                 break;
             case GameState.Victory:
+                this.Victory();
                 break;
         }
     }
@@ -63,9 +69,33 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0.0f;
         UIManager.Instance.PauseUIOn();
     }
+    void Death()
+    {
+        UIManager.Instance.DeathUI();
+        InputManager.Instance.pause = true;
+    }
+    void Victory()
+    {
+        UIManager.Instance.VictoryUI();
+        InputManager.Instance.pause = true;
+    }
+    public void UpdateHealth(int change)
+    {
+        health = change;
+        UIManager.Instance.UpdateHealth(health);
+    }
     public void UpdateCoin(int change)
     {
-        coin += change;
+        coin = change;
         UIManager.Instance.UpdateCoin(coin);
+    }
+    public void UpdateArtefact(int change)
+    {
+        artefact = change;
+        UIManager.Instance.UpdateArtefact(artefact);
+    }
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

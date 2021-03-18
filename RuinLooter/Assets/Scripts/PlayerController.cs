@@ -6,16 +6,21 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
+    BoxCollider2D bc2d;
     bool isGrounded;
     bool isCrouching = false;
 
-    int artefact = 0;
+    public int artefact = 0;
     int coin = 0;
     Item powerUp;
-    public float timeInvincible = 10.0f;
-    public float timerInvincible;
+    float timeInvincible = 10.0f;
+    float timerInvincible;
     bool isInvincible = false;
     bool shieldOn = false;
+    float timeCloak = 15.0f;
+    float timerCloak;
+    public bool isCloak = false;
+    GameObject artefactTP;
 
     float horizontal;
     float vertical;
@@ -39,43 +44,58 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        bc2d = GetComponent<BoxCollider2D>();
         PV = fullPV;
-        UIManager.Instance.UpdateHealth(PV);
-        UIManager.Instance.UpdateCoin(coin);
-        UIManager.Instance.UpdateArtefact(artefact);
-        UIManager.Instance.UpdateSlot("Empty");
+        UIManager.Instance.UpdateAll(PV, coin, artefact, "Empty");
+        DontDestroyOnLoad(this.gameObject);
     }
     void Update()
     {
-        this.Move();
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("p"))
         {
-            this.Jump();
+            this.Damage(-1);
         }
-        if(isOnLadder)
+        if (!InputManager.Instance.pause)
         {
-            this.UsingLadder();
-        }
-        if(Input.GetKeyDown("c"))
-        {
-            isCrouching = true;
-            this.Crouch();
-        }
-        if(Input.GetKeyUp("c"))
-        {
-            isCrouching = false;
-        }
-        if(Input.GetKeyDown("a"))
-        {
-            this.UseItem();
-        }
-        if(timerInvincible >= 0)
-        {
-            timerInvincible -= Time.deltaTime;
-        }
-        else
-        {
-            isInvincible = false;
+            this.Move();
+            if (Input.GetKeyDown("space"))
+            {
+                this.Jump();
+            }
+            if (isOnLadder)
+            {
+                this.UsingLadder();
+            }
+            if (Input.GetKeyDown("c") && isGrounded && !isCrouching)
+            {
+                isCrouching = true;
+                this.Crouch();
+            }
+            if (Input.GetKeyUp("c") && isGrounded && isCrouching)
+            {
+                isCrouching = false;
+                this.UnCrouch();
+            }
+            if (Input.GetKeyDown("a"))
+            {
+                this.UseItem();
+            }
+            if (timerInvincible >= 0)
+            {
+                timerInvincible -= Time.deltaTime;
+            }
+            else
+            {
+                isInvincible = false;
+            }
+            if (timerCloak >= 0)
+            {
+                timerCloak -= Time.deltaTime;
+            }
+            else
+            {
+                isCloak = false;
+            }
         }
     }
     void Move()
@@ -95,6 +115,11 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
             isGrounded = false;
+            if (isCrouching)
+            {
+                isCrouching = false;
+                this.UnCrouch();
+            }
         }
     }
     void UsingLadder()
@@ -106,35 +131,42 @@ public class PlayerController : MonoBehaviour
     }
     void Crouch()
     {
-        if (isGrounded)
-        {
-            Debug.Log("crouching");
-        }
+        Vector2 box = bc2d.size;
+        Debug.Log(box.x + ", " + box.y);
+        box.y -= box.y / 2;
+        bc2d.size = box;
+    }
+    void UnCrouch()
+    {
+        Vector2 box = bc2d.size;
+        Debug.Log(box.x + ", " + box.y);
+        box.y *= 2;
+        bc2d.size = box;
     }
     public void ChestOpenning()
     {
-        int dice = Random.Range(1, 6);
-        if(dice == 1)
+        int dice = Random.Range(1, 101);
+        if(dice >= 1 && dice < 21)
         {
             slot = Item.Cloak;
             UIManager.Instance.UpdateSlot("Cape");
         }
-        if (dice == 2)
+        if (dice >= 21 && dice < 41)
         {
             slot = Item.Invincible;
             UIManager.Instance.UpdateSlot("Potion");
         }
-        if (dice == 3)
+        if (dice >= 41 && dice < 66)
         {
             slot = Item.Heal;
             UIManager.Instance.UpdateSlot("Bandage");
         }
-        if (dice == 4)
+        if (dice >= 66 && dice < 81)
         {
             slot = Item.TP;
             UIManager.Instance.UpdateSlot("Pearl");
         }
-        if (dice == 5)
+        if (dice >= 81 && dice < 100)
         {
             slot = Item.Shield;
             UIManager.Instance.UpdateSlot("Shield");
@@ -146,23 +178,23 @@ public class PlayerController : MonoBehaviour
         switch(slot)
         {
             case Item.Cloak:
-                Debug.Log("Use Cape");
+                timerCloak = timeCloak;
+                isCloak = true;
                 break;
             case Item.Invincible:
                 timerInvincible = timeInvincible;
                 isInvincible = true;
-                Debug.Log("Use Potion");
                 break;
             case Item.Heal:
                 this.Damage(1);
-                Debug.Log("Use Bandage");
                 break;
             case Item.TP:
-                Debug.Log("Use Pearl");
+                ArtefactController anchor = FindObjectOfType(typeof(ArtefactController)) as ArtefactController;
+                Vector2 positionTP = new Vector2 (anchor.x - 1, anchor.y);
+                transform.position = positionTP;
                 break;
             case Item.Shield:
                 shieldOn = true;
-                Debug.Log("Use Shield");
                 break;
         }
     }
@@ -182,24 +214,18 @@ public class PlayerController : MonoBehaviour
         }
         if(PV < 1)
         {
-            Debug.Log("Il est daicerdé");
-            Destroy(gameObject);
+            GameManager.Instance.StateChange(GameManager.GameState.Death);
         }
-
-        UIManager.Instance.UpdateHealth(PV);
+        GameManager.Instance.UpdateHealth(PV);
     }
     public void CoinCollect()
     {
         coin++;
-        GameManager.Instance.UpdateCoin(1);
+        GameManager.Instance.UpdateCoin(coin);
     }
-    public void ArtefactCollect()
+    public void ArtefactCollect(int change)
     {
-        artefact++;
-        UIManager.Instance.UpdateArtefact(artefact);
-        if(artefact == 3)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
+        artefact += change;
+        GameManager.Instance.UpdateArtefact(artefact);
     }
 }

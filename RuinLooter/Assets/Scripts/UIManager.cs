@@ -19,6 +19,13 @@ public class UIManager : MonoBehaviour
     TMP_Text Level;
     [SerializeField]
     GameObject pauseMenu;
+    [SerializeField]
+    GameObject deathScreen;
+    [SerializeField]
+    GameObject victoryScreen;
+
+    public readonly string tuto = "Il faut récolter les 3 morceaux d'artefact pour reactiver la machine.";
+    public readonly string nextLevel = "Vous avez rassembler les artefact";
 
     private static UIManager _instance;
     public static UIManager Instance
@@ -35,7 +42,23 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        UpdateLevel(SceneManager.GetActiveScene().buildIndex);
+        this.Deactivate();
+    }
+    public void UpdateAll(int health, int coin, int artefact, string item)
+    {
+        this.UpdateHealth(health);
+        this.UpdateCoin(coin);
+        this.UpdateArtefact(artefact);
+        this.UpdateSlot(item);
+        this.UpdateLevel();
+    }
+    void Deactivate()
+    {
+        HP.text = "";
+        Coin.text = "";
+        Artefact.text = "";
+        Slot.text = "";
+        Level.text = "";
     }
     public void UpdateHealth(int health)
     {
@@ -53,9 +76,17 @@ public class UIManager : MonoBehaviour
     {
         Slot.text = item;
     }
-    public void UpdateLevel(int level)
+    public void UpdateLevel()
     {
-        Level.text = "Level : " + level;
+        Level.text = "Level : " + SceneManager.GetActiveScene().buildIndex;
+    }
+    public void DeathUI()
+    {
+        deathScreen.SetActive(true);
+    }
+    public void VictoryUI()
+    {
+        victoryScreen.SetActive(true);
     }
     public void PauseUIOn()
     {
@@ -70,7 +101,7 @@ public class UIManager : MonoBehaviour
     }
     public void ResumeButton()
     {
-        GameManager.Instance.StaetChange(GameManager.GameState.InGame);
+        InputManager.Instance.UnpauseState();
     }
     public void QuitButton()
     {
