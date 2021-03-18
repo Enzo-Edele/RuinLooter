@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 492767729575352962}
   - component: {fileID: -4102449110227374484}
   m_Layer: 0
-  m_Name: Salle Gauche 2
+  m_Name: Gauche 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,10 +99,11 @@ MonoBehaviour:
   - {fileID: 5162983346108827634, guid: bf13b284d9d093648a7bb834d218b2a7, type: 3}
   - {fileID: -8546742775814268665, guid: fa4e1e822ffaded449530e58aa1462f6, type: 3}
   - {fileID: 4615779267616814590, guid: e9c6ee6c2374da5458d6ffdea55b5097, type: 3}
+  end: {fileID: 0}
   entries:
   - position: {x: -10, y: 0, z: 0}
     type: 1
   exits:
   - position: {x: 10, y: 0, z: 0}
     type: -1
-  position: {x: 0, y: 0}
+  count: 0

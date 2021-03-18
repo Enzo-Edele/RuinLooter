@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     }
     public List<Room> rooms = null;
     public List<Room> first = null;
-    //List<Room> use = null;
+    List<Room> memory = null;
     public static int count;
     void Awake()
     {
@@ -28,7 +28,7 @@ public class MapManager : MonoBehaviour
         spawnPos.x = 0.0f;
         spawnPos.y = 0.0f;
         Room firstRoom = Instantiate(first[random], spawnPos, Quaternion.identity);
-        //use.Add(firstRoom);
+        //memory.Add(firstRoom);
         count = 0;
         SpawnRoom(first[random]);
     }
@@ -47,13 +47,13 @@ public class MapManager : MonoBehaviour
         {
             for(int j=0; j < room.exits.Count; j++)
             {
-                //for (int k = 0; k < use.Count; k++)
+                //for (int k = 0; k < memory.Count; k++)
                 {
-                    if (newRoom.entries[i].IsDoorValid(room.exits[j]));
+                    if (newRoom.entries[i].IsDoorValid(room.exits[j])/* || memory[k].wall[i].IsDoorValid(room.exits[j])*/)
                     {
                         Room newRoomObject = Instantiate(newRoom, newRoom.entries[i].position + room.transform.position, Quaternion.identity);
                         count += 1 + newRoom.count;
-                        //use.Add(newRoomObject);
+                        //memory.Add(newRoomObject);
                         SpawnRoom(newRoomObject);
                         break;
                     }

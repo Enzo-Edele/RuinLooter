@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField]
-    bool pause = false;
+    public bool pause = false;
+    public bool begin = false;
     private static InputManager _instance;
     public static InputManager Instance
     {
@@ -24,23 +24,32 @@ public class InputManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown("escape") && !pause)
+        if (Input.GetKeyDown("escape") && !pause && begin)
         {
             this.PauseState();
-            pause = false;
         }
-        if (Input.GetKeyDown("escape") && pause)
+        else if(Input.GetKeyDown("escape") && pause && begin)
         {
             this.UnpauseState();
-            pause = true;
+        }
+        if(Input.anyKey && !begin)
+        {
+            this.StartGame();
         }
     }
-    void PauseState()
+    void StartGame()
     {
-        GameManager.Instance.StaetChange(GameManager.GameState.Pause);
+        begin = true;
+        GameManager.Instance.NextLevel();
     }
-    void UnpauseState()
+    public void PauseState()
     {
-        GameManager.Instance.StaetChange(GameManager.GameState.InGame);
+        GameManager.Instance.StateChange(GameManager.GameState.Pause);
+        pause = true;
+    }
+     public void UnpauseState()
+    {
+        GameManager.Instance.StateChange(GameManager.GameState.InGame);
+        pause = false;
     }
 }

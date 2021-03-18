@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 250178280116970618}
   - component: {fileID: -7865031938507243706}
   m_Layer: 0
-  m_Name: Salle Centre 2
+  m_Name: Centre 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,10 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rooms:
   - {fileID: -4102449110227374484, guid: 00f0e1901988a194aa3a3961c288bfee, type: 3}
+  end: {fileID: 0}
   entries:
   - position: {x: -10, y: 0, z: 0}
     type: 1
   exits:
   - position: {x: 10, y: 0, z: 0}
     type: -1
-  position: {x: 0, y: 0}
+  count: 0
