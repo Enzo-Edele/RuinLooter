@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             PlayerController player = collision.GetComponent<PlayerController>();
+            Destroy(gameObject);
             player.Damage(-1);
         }
         if (!collision.gameObject.CompareTag("Enemy"))
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
 
     public virtual void Launch(Vector2 direction, float force)
     {
-        if (transform.position.magnitude > 30)
+        if (transform.position.magnitude > 60)
         {
             Destroy(gameObject);
         }

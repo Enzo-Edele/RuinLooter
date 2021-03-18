@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : Projectile
+public class TeslaBall : Projectile
 {
     Rigidbody2D rigidbody2d;
 
@@ -14,13 +14,14 @@ public class Arrow : Projectile
     public override void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
+        if (transform.position.magnitude > 30)
         {
             Destroy(gameObject);
         }
+    }
+
+    public void Destroy(GameObject go)
+    {
+        Destroy(go);
     }
 }
