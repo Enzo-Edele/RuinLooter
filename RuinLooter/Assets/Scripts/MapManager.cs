@@ -18,7 +18,7 @@ public class MapManager : MonoBehaviour
     }
     public List<Room> rooms = null;
     public List<Room> first = null;
-    List<Room> memory = null;
+    //List<Room> memory = null;
     public static int count;
     void Awake()
     {
