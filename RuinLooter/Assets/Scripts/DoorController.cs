@@ -24,7 +24,7 @@ public class DoorController : MonoBehaviour
             porte.y -= Time.deltaTime;
             bc2d.size = porte;
         }
-        if (isOpen && bc2d.offset.y > 1.2f)
+        if (isOpen && bc2d.offset.y < 1.2f)
         {
             Vector2 centre = bc2d.offset;
             centre.y += Time.deltaTime;
@@ -35,7 +35,6 @@ public class DoorController : MonoBehaviour
     {
         isOpen = true;
         player.CoinCollect(-5);
-        Debug.Log("ouverte");
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
