@@ -15,7 +15,7 @@ public class Dispenser : Trap
             StartCoroutine(Delay());
             GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.down * 0.5f, Quaternion.identity);
             Arrow projectile = projectileObject.GetComponent<Arrow>();
-            projectile.Launch(Vector2.down, 1000);
+            projectile.Launch(Vector2.down, 500);
         }
     }
 

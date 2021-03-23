@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8108151055924826184}
   - component: {fileID: 9104040530094298953}
   - component: {fileID: 7842122586576040363}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: artefact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62be1cf0c8ac794469de0c1d6718221a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  y: 0
 --- !u!61 &7842122586576040363
 BoxCollider2D:
   m_ObjectHideFlags: 0

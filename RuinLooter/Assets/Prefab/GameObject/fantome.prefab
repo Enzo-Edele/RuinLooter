@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1531725292030187655}
   - component: {fileID: 1531725292030187654}
   - component: {fileID: -9132226575949080023}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: fantome
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  distToSpawnPoint: 10
+  moveZone: 10
   delay: 1
 --- !u!50 &1531725292030187654
 Rigidbody2D:
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.045933723, y: -0.008156776}

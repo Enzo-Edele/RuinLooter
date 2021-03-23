@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7567304500198693222}
   - component: {fileID: 7567304500198693223}
   - component: {fileID: 7567304500198693220}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MachineDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 7567304501596796572}
   - component: {fileID: 7567304501596796574}
   - component: {fileID: 7567304501596796575}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 7567304501990901183}
   - component: {fileID: 7567304501990901153}
   - component: {fileID: 7567304501990901182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +322,7 @@ GameObject:
   - component: {fileID: 7567304501998056756}
   - component: {fileID: 7567304501998056757}
   - component: {fileID: 7567304501998056758}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: machine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa985ed5885019d468115ca914086ed5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timePopUp: 10
-  timerPopUp: 0
+  x: 0
+  y: 0
   machineDialogue: {fileID: 7567304500198693218}
   dialogueBox: {fileID: 7567304501596796575}

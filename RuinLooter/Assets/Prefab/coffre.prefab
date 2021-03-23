@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 55647074477091104}
   - component: {fileID: 55647074477091132}
   - component: {fileID: 55647074477091106}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: coffre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158f3af5d4f5ece478e0bea0f3d6d9b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOn: 0
 --- !u!61 &55647074477091106
 BoxCollider2D:
   m_ObjectHideFlags: 0

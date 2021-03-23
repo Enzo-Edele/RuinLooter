@@ -10,10 +10,12 @@ public class Pipe : Trap
     public float delay = 6;
     private bool shoot = true;
     private Vector3 spawn;
+    private float projectileScale;
 
     private void Start()
     {
-        spawn = new Vector3(transform.position.x, transform.position.y + 2, transform.position.z);
+        projectileScale = transform.localScale.x;
+        spawn = new Vector3(transform.position.x, transform.position.y + projectileScale/4, transform.position.z);
     }
 
     public override void LaunchProjectile()

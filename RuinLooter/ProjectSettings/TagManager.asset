@@ -10,12 +10,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Collectible
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Ghost
   - 
   - 
   - 
