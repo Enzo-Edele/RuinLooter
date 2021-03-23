@@ -162,7 +162,7 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
                 rand = Random.Range(0, limit.Count);
-                Instantiate(limit[rand], transform.position, templates.salleBasse[rand].transform.rotation);
+                Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
             }
             else if (direction == 2)
             {
@@ -302,7 +302,7 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
                 rand = Random.Range(0, limit.Count);
-                Instantiate(limit[rand], transform.position, templates.salleGauche[rand].transform.rotation);
+                Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
             }
             else if (direction == 3)
             {
@@ -442,7 +442,7 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
                 rand = Random.Range(0, limit.Count);
-                Instantiate(limit[rand], transform.position, templates.salleHaute[rand].transform.rotation);
+                Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
             }
             else if (direction == 4)
             {
@@ -582,7 +582,7 @@ public class RoomSpawner : MonoBehaviour
                     }
                 }
                 rand = Random.Range(0, limit.Count);
-                Instantiate(limit[rand], transform.position, templates.salleDroite[rand].transform.rotation);
+                Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
             }
             isSpawn = true;
         }   
