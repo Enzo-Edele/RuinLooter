@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D bc2d;
     bool isGrounded;
     bool isCrouching = false;
+    public int scenePlayer;
 
     public int artefact = 0;
     int coin = 0;
@@ -47,6 +48,8 @@ public class PlayerController : MonoBehaviour
         bc2d = GetComponent<BoxCollider2D>();
         PV = fullPV;
         UIManager.Instance.UpdateAll(PV, coin, artefact, "Empty");
+        scenePlayer = SceneManager.GetActiveScene().buildIndex;
+        DontDestroyOnLoad(this.gameObject);
     }
     void Update()
     {
