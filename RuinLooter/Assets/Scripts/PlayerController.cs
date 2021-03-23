@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         bc2d = GetComponent<BoxCollider2D>();
         PV = fullPV;
         UIManager.Instance.UpdateAll(PV, coin, artefact, "Empty");
-        DontDestroyOnLoad(this.gameObject);
     }
     void Update()
     {
@@ -55,8 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             this.Damage(-1);
         }
+        /*
         if (!InputManager.Instance.pause)
         {
+        */
             this.Move();
             if (Input.GetKeyDown("space"))
             {
@@ -96,7 +97,8 @@ public class PlayerController : MonoBehaviour
             {
                 isCloak = false;
             }
-        }
+            /*
+        }*/
     }
     void Move()
     {
@@ -190,8 +192,17 @@ public class PlayerController : MonoBehaviour
                 break;
             case Item.TP:
                 ArtefactController anchor = FindObjectOfType(typeof(ArtefactController)) as ArtefactController;
-                Vector2 positionTP = new Vector2 (anchor.x - 1, anchor.y);
-                transform.position = positionTP;
+                if (anchor != null)
+                {
+                    Vector2 positionTP = new Vector2(anchor.x - 1, anchor.y);
+                    transform.position = positionTP;
+                }
+                else
+                {
+                    LaMontreController gate = FindObjectOfType(typeof(LaMontreController)) as LaMontreController;
+                    Vector2 positionTP = new Vector2(gate.x, gate.y);
+                    transform.position = positionTP;
+                }
                 break;
             case Item.Shield:
                 shieldOn = true;
@@ -204,7 +215,7 @@ public class PlayerController : MonoBehaviour
         {
             PV += degat;
         }
-       else if(degat < 0 && shieldOn && !isInvincible)
+        else if(degat < 0 && shieldOn && !isInvincible)
         {
             shieldOn = false;
         }
@@ -218,9 +229,9 @@ public class PlayerController : MonoBehaviour
         }
         GameManager.Instance.UpdateHealth(PV);
     }
-    public void CoinCollect()
+    public void CoinCollect(int change)
     {
-        coin++;
+        coin += change;
         GameManager.Instance.UpdateCoin(coin);
     }
     public void ArtefactCollect(int change)

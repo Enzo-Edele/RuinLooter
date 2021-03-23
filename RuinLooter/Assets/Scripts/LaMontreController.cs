@@ -9,8 +9,10 @@ public class LaMontreController : MonoBehaviour
     bool isOn = false;
     bool popUpOn = false;
     bool canGoNextLevel = false;
-    float timePopUp = 10.0f;
+    float timePopUp = 5.0f;
     float timerPopUp;
+    public float x;
+    public float y;
 
     [SerializeField]
     GameObject machineDialogue;
@@ -20,6 +22,9 @@ public class LaMontreController : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.UpdateLevel();
+        Vector2 pos = transform.position;
+        x = pos.x;
+        y = pos.y;
     }
     private void Update()
     {
