@@ -57,11 +57,16 @@ public class LaMontreController : MonoBehaviour
         {
             machineDialogue.SetActive(true);
             timerPopUp = timePopUp;
-            if(player.artefact == 3 || canGoNextLevel)
+            if(player.artefact == 3)
             {
                 dialogueBox.text = UIManager.Instance.nextLevel;
                 player.ArtefactCollect(-3);
+                player.PrepareNewLevel();
                 canGoNextLevel = true;
+            }
+            else if(canGoNextLevel)
+            {
+                dialogueBox.text = UIManager.Instance.nextLevel;
             }
             else if(!canGoNextLevel)
             {

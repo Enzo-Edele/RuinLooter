@@ -12,7 +12,12 @@ GameObject:
   - component: {fileID: 55647074477091104}
   - component: {fileID: 55647074477091132}
   - component: {fileID: 55647074477091106}
+<<<<<<< Updated upstream
   m_Layer: 3
+=======
+  - component: {fileID: 7742052781174129279}
+  m_Layer: 0
+>>>>>>> Stashed changes
   m_Name: coffre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,3 +127,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &7742052781174129279
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55647074477091111}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ef40647b334db1449f686ae5a6da0d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

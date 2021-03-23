@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public bool pause = false;
-    public bool begin = true;//false;
+    public bool begin = false;
     private static InputManager _instance;
     public static InputManager Instance
     {
@@ -34,13 +34,13 @@ public class InputManager : MonoBehaviour
         }
         if(Input.anyKey && !begin)
         {
-            //this.StartGame();
+            this.StartGame();
         }
     }
     void StartGame()
     {
         begin = true;
-        GameManager.Instance.NextLevel();
+        //GameManager.Instance.NextLevel();
     }
     public void PauseState()
     {
