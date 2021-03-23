@@ -15,7 +15,10 @@ public class ArtefactController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
-        player.ArtefactCollect(1);
+        if (player != null)
+        {
+            player.ArtefactCollect(1);
+        }
         Destroy(gameObject);
     }
 }

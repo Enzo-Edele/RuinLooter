@@ -7,7 +7,10 @@ public class CoinController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
-        player.CoinCollect();
+        if (player != null)
+        {
+            player.CoinCollect(1);
+        }
         Destroy(gameObject);
     }
 }
