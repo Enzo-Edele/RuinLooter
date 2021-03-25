@@ -74,14 +74,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown("c") && isGrounded && !isCrouching)
             {
                 isCrouching = true;
-            anim.SetBool("Crouch", true);
-            this.Crouch();
+                anim.SetBool("Crouch", true);
+                this.Crouch();
             }
             if (Input.GetKeyUp("c") && isGrounded && isCrouching)
             {
                 isCrouching = false;
-            anim.SetBool("Crouch", false);
-            this.UnCrouch();
+                anim.SetBool("Crouch", false);
+                this.UnCrouch();
             }
             if (Input.GetKeyDown("a"))
             {
@@ -134,6 +134,7 @@ public class PlayerController : MonoBehaviour
             if (isCrouching)
             {
                 isCrouching = false;
+                anim.SetBool("Crouch", false);
                 this.UnCrouch();
             }
         }

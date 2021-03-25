@@ -7,27 +7,55 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    HealthBarController HealthBar;
     [SerializeField]
     GameObject HP;
     [SerializeField]
-    GameObject HPEgalUn;
+    Sprite HPEgalUn;
     [SerializeField]
-    GameObject HPEgalDeux;
+    Sprite HPEgalDeux;
     [SerializeField]
-    GameObject HPEgalTrois;
+    Sprite HPEgalTrois;
     [SerializeField]
-    GameObject HPEgalQuatre;
+    Sprite HPEgalQuatre;
     [SerializeField]
-    GameObject HPEgalCinq;
+    Sprite HPEgalCinq;
     [SerializeField]
-    GameObject HPEgalSix;
-    GameObject HPCurrent;
+    Sprite HPEgalSix;
+
     [SerializeField]
     TMP_Text Coin;
     [SerializeField]
-    TMP_Text Artefact;
+    GameObject laBanque;
+
+    ProgressionArtefactController artefactProgress;
     [SerializeField]
-    TMP_Text Slot;
+    GameObject artefactFragments;
+    [SerializeField]
+    Sprite artefactStep0;
+    [SerializeField]
+    Sprite artefactStep1;
+    [SerializeField]
+    Sprite artefactStep2;
+    [SerializeField]
+    Sprite artefactStep3;
+
+    ItemSlotController slot;
+    [SerializeField]
+    GameObject Slot;
+    [SerializeField]
+    Sprite empty;
+    [SerializeField]
+    Sprite cape;
+    [SerializeField]
+    Sprite potion;
+    [SerializeField]
+    Sprite bandage;
+    [SerializeField]
+    Sprite pearl;
+    [SerializeField]
+    Sprite shield;
+
     [SerializeField]
     TMP_Text Level;
     [SerializeField]
@@ -89,65 +117,107 @@ public class UIManager : MonoBehaviour
         {
             HP.SetActive(false);
         }
-        Coin.text = "";
-        Artefact.text = "";
-        Slot.text = "";
+        if(laBanque != null)
+        {
+            laBanque.SetActive(false);
+        }
+        if(artefactFragments != null)
+        {
+            artefactFragments.SetActive(false);
+        }
+        if(Slot != null)
+        {
+            Slot.SetActive(false);
+        }
         Level.text = "";
-        Debug.Log("je desactive");
     }
     public void UpdateHealth(int health)
     {
-        if (health != 0)
-        {
-            HP.SetActive(true);
-        }
-        if (HPCurrent != null)
-        {
-            HPCurrent.SetActive(false);
-        }
-        HPCurrent = null;
+        HP.SetActive(true);
+        HealthBar = FindObjectOfType(typeof(HealthBarController)) as HealthBarController;
         if(health == 5)
         {
-            HPCurrent = HPEgalSix;
+            HealthBar.actualSprite = HPEgalSix;
         }
-        if (health == 4)
+        else if (health == 4)
         {
-            HPCurrent = HPEgalCinq;
+            HealthBar.actualSprite = HPEgalCinq;
         }
-        if (health == 3)
+        else if (health == 3)
         {
-            HPCurrent = HPEgalQuatre;
+            HealthBar.actualSprite = HPEgalQuatre;
         }
-        if (health == 2)
+        else if (health == 2)
         {
-            HPCurrent = HPEgalTrois;
+            HealthBar.actualSprite = HPEgalTrois;
         }
-        if (health == 1)
+        else if (health == 1)
         {
-            HPCurrent = HPEgalDeux;
+            HealthBar.actualSprite = HPEgalDeux;
         }
-        if (health == 0)
+        else if (health == 0)
         {
-            HPCurrent = HPEgalUn;
+            HealthBar.actualSprite = HPEgalUn;
         }
-        HPCurrent.SetActive(true);
-        Debug.Log("j'actualise");
     }
     public void UpdateCoin(int coin)
     {
-        Coin.text = "Coin : " + coin;
+        laBanque.SetActive(true);
+        Coin.text = " : " + coin;
     }
     public void UpdateArtefact(int artefact)
     {
-        Artefact.text = "Artefatc : " + artefact;
+        artefactFragments.SetActive(true);
+        artefactProgress = FindObjectOfType(typeof(ProgressionArtefactController)) as ProgressionArtefactController;
+        if (artefact == 0)
+        {
+            artefactProgress.actualSprite = artefactStep0;
+        }
+        else if (artefact == 1)
+        {
+            artefactProgress.actualSprite = artefactStep1;
+        }
+        else if (artefact == 2)
+        {
+            artefactProgress.actualSprite = artefactStep2;
+        }
+        else if (artefact == 3)
+        {
+            artefactProgress.actualSprite = artefactStep3;
+        }
     }
     public void UpdateSlot(string item)
     {
-        Slot.text = item;
+        Slot.SetActive(true);
+        slot = FindObjectOfType(typeof(ItemSlotController)) as ItemSlotController;
+        if(item == "Empty")
+        {
+            slot.actualSprite = empty;
+        }
+        else if (item == "Cape")
+        {
+            slot.actualSprite = cape;
+        }
+        else if (item == "Potion")
+        {
+            slot.actualSprite = potion;
+        }
+        else if (item == "Bandage")
+        {
+            slot.actualSprite = bandage;
+        }
+        else if (item == "Pearl")
+        {
+            slot.actualSprite = pearl;
+        }
+        else if (item == "Shield")
+        {
+            slot.actualSprite = shield;
+        }
     }
     public void UpdateLevel()
     {
-        Level.text = "Level : " + SceneManager.GetActiveScene().buildIndex;
+        Level.text = "Level : " + (SceneManager.GetActiveScene().buildIndex - 1);
     }
     public void Full()
     {
@@ -180,5 +250,16 @@ public class UIManager : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+    public void MainMenuButton()
+    {
+        InputManager.Instance.UnpauseState();
+        InputManager.Instance.ReturnMenu();
+        SceneManager.LoadScene("main");
+        this.Deactivate();
+    }
+    public void OptionButton()
+    {
+        Debug.Log("Option");
     }
 }
