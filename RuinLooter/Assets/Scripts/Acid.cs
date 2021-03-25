@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : Projectile
+public class Acid : Projectile
 {
     Rigidbody2D rigidbody2d;
 
