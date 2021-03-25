@@ -18,7 +18,7 @@ public class RoomSpawner : MonoBehaviour
     void Awake()
     {
         templates = GameObject.FindGameObjectWithTag("rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.1f);
+        Invoke("Spawn", 0.05f);
     }
     void Spawn()
     {
@@ -29,21 +29,21 @@ public class RoomSpawner : MonoBehaviour
                 //il faut une salle qui s'ouvrent depuis le bas
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= 250.0f)
+                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 1");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= -250.0f)
+                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 2");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= 250.0f)
+                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 3");
                     sansHaut = true;
@@ -163,30 +163,48 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
+                RoomTemplates.Instance.count += 1;
+                test = this.transform.position;
+                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
             }
             else if (direction == 2)
             {
                 //il faut une salle qui s'ouvre depuis la gauche
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= 250.0f)
+                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 4");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= -250.0f)
+                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 5");
                     sansBas = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= 250.0f)
+                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 6");
                     sansHaut = true;
+                }
+                test.x = this.transform.position.x + 10.0f;
+                test.y = this.transform.position.y;
+                if (test.x / 10 <= 14.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] == false
+                        && RoomTemplates.Instance.max[(int)test.x / 10 + 2, (int)test.y / 10] == false)
+                {
+                    limit.Add(RoomTemplates.Instance.roomGauche);
+                    if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10 + 1] == false)
+                    {
+                        limit.Add(RoomTemplates.Instance.roomGaucheHaut);
+                    }
+                    else if (test.y > 1.0f && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10 - 1] == false)
+                    {
+                        limit.Add(RoomTemplates.Instance.roomGaucheBas);
+                    }
                 }
                 if (sansDroite && sansBas && sansHaut)
                 {
@@ -303,27 +321,35 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
+                RoomTemplates.Instance.count += 1;
+                test = this.transform.position;
+                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
+                if (limit[rand] == RoomTemplates.Instance.roomGauche || limit[rand] == RoomTemplates.Instance.roomGaucheHaut || limit[rand] == RoomTemplates.Instance.roomGaucheBas)
+                {
+                    RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] = true;
+                    RoomTemplates.Instance.max[(int)test.x / 10 + 2, (int)test.y / 10] = true;
+                }
             }
             else if (direction == 3)
             {
                 //il faut une salle qui s'ouvre depuis le haut
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= 250.0f)
+                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 7");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= -250.0f)
+                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 8");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= -250.0f)
+                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 9");
                     sansBas = true;
@@ -443,30 +469,48 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
+                RoomTemplates.Instance.count += 1;
+                test = this.transform.position;
+                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
             }
             else if (direction == 4)
             {
                 //il faut une salle qui s'ouvre depuis la droite
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= -250.0f)
+                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 10");
                     sansBas = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.x >= -250.0f)
+                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 11");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (GameObject.FindGameObjectWithTag("rooms").transform.position == test || this.transform.position.y >= 250.0f)
+                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
                     Debug.Log("Check 12");
                     sansHaut = true;
+                }
+                test.x = this.transform.position.x - 10.0f;
+                test.y = this.transform.position.y;
+                if (test.x / 10 >= 5.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] == false
+                        && RoomTemplates.Instance.max[(int)test.x / 10 - 2, (int)test.y / 10] == false)
+                {
+                    limit.Add(RoomTemplates.Instance.roomDroit);
+                    if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10 + 1] == false)
+                    {
+                        limit.Add(RoomTemplates.Instance.roomDroitHaut);
+                    }
+                    else if (test.y > 1.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10 - 1] == false)
+                    {
+                        limit.Add(RoomTemplates.Instance.roomDroitBas);
+                    }
                 }
                 if (sansBas && sansGauche && sansHaut)
                 {
@@ -583,6 +627,14 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
+                RoomTemplates.Instance.count += 1;
+                test = this.transform.position;
+                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
+                if(limit[rand] == RoomTemplates.Instance.roomDroit || limit[rand] == RoomTemplates.Instance.roomDroitHaut || limit[rand] == RoomTemplates.Instance.roomDroitBas)
+                {
+                    RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] = true;
+                    RoomTemplates.Instance.max[(int)test.x / 10 - 2, (int)test.y / 10] = true;
+                }
             }
             isSpawn = true;
         }   
