@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CoffreInventaireFull
+  m_Name: IdleChest
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,12 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 1960045344739294903, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - time: 0.25
-      value: {fileID: -2018764162339800698, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - time: 0.5
-      value: {fileID: 8595619273923371436, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - time: 0.75
-      value: {fileID: 8807706531163765897, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
+      value: {fileID: 21300000, guid: 4052bbf9bca955749a0c8326695bcf49, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 4
+  m_SampleRate: 1
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,10 +40,7 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 1960045344739294903, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - {fileID: -2018764162339800698, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - {fileID: 8595619273923371436, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
-    - {fileID: 8807706531163765897, guid: 40cb44009e968db4ca4fd6b22f3de6e4, type: 3}
+    - {fileID: 21300000, guid: 4052bbf9bca955749a0c8326695bcf49, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
