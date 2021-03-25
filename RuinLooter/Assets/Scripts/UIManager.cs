@@ -8,7 +8,20 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    TMP_Text HP;
+    GameObject HP;
+    [SerializeField]
+    GameObject HPEgalUn;
+    [SerializeField]
+    GameObject HPEgalDeux;
+    [SerializeField]
+    GameObject HPEgalTrois;
+    [SerializeField]
+    GameObject HPEgalQuatre;
+    [SerializeField]
+    GameObject HPEgalCinq;
+    [SerializeField]
+    GameObject HPEgalSix;
+    GameObject HPCurrent;
     [SerializeField]
     TMP_Text Coin;
     [SerializeField]
@@ -70,17 +83,55 @@ public class UIManager : MonoBehaviour
         this.UpdateSlot(item);
         this.UpdateLevel();
     }
-    void Deactivate()
+    public void Deactivate()
     {
-        HP.text = "";
+        if (HP != null)
+        {
+            HP.SetActive(false);
+        }
         Coin.text = "";
         Artefact.text = "";
         Slot.text = "";
         Level.text = "";
+        Debug.Log("je desactive");
     }
     public void UpdateHealth(int health)
     {
-        HP.text = "HP : " + health;
+        if (health != 0)
+        {
+            HP.SetActive(true);
+        }
+        if (HPCurrent != null)
+        {
+            HPCurrent.SetActive(false);
+        }
+        HPCurrent = null;
+        if(health == 5)
+        {
+            HPCurrent = HPEgalSix;
+        }
+        if (health == 4)
+        {
+            HPCurrent = HPEgalCinq;
+        }
+        if (health == 3)
+        {
+            HPCurrent = HPEgalQuatre;
+        }
+        if (health == 2)
+        {
+            HPCurrent = HPEgalTrois;
+        }
+        if (health == 1)
+        {
+            HPCurrent = HPEgalDeux;
+        }
+        if (health == 0)
+        {
+            HPCurrent = HPEgalUn;
+        }
+        HPCurrent.SetActive(true);
+        Debug.Log("j'actualise");
     }
     public void UpdateCoin(int coin)
     {
