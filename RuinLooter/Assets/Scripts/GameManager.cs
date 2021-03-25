@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
     void Death()
     {
         UIManager.Instance.DeathUI();
+        UIManager.Instance.Deactivate();
         InputManager.Instance.pause = true;
     }
     void Victory()

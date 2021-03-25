@@ -74,14 +74,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown("c") && isGrounded && !isCrouching)
             {
                 isCrouching = true;
-            anim.SetBool("Crouch", true);
-            this.Crouch();
+                anim.SetBool("Crouch", true);
+                this.Crouch();
             }
             if (Input.GetKeyUp("c") && isGrounded && isCrouching)
             {
                 isCrouching = false;
-            anim.SetBool("Crouch", false);
-            this.UnCrouch();
+                anim.SetBool("Crouch", false);
+                this.UnCrouch();
             }
             if (Input.GetKeyDown("a"))
             {
@@ -118,6 +118,11 @@ public class PlayerController : MonoBehaviour
     {
         isGrounded = true;
         anim.SetBool("Ground", true);
+        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Ghost"))
+        {
+            Damage(-1);
+            StartCoroutine(TimeInvincible());
+        }
     }
     void Jump() 
     {
@@ -129,6 +134,7 @@ public class PlayerController : MonoBehaviour
             if (isCrouching)
             {
                 isCrouching = false;
+                anim.SetBool("Crouch", false);
                 this.UnCrouch();
             }
         }
@@ -253,6 +259,14 @@ public class PlayerController : MonoBehaviour
     }
     public void PrepareNewLevel()
     {
+        Physics2D.IgnoreLayerCollision(6, 7, false);
+        Physics2D.IgnoreLayerCollision(7, 8, false);
+    }
+    public IEnumerator TimeInvincible()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7, true);
+        Physics2D.IgnoreLayerCollision(7, 8, true);
+        yield return new WaitForSeconds(3);
         Physics2D.IgnoreLayerCollision(6, 7, false);
         Physics2D.IgnoreLayerCollision(7, 8, false);
     }
