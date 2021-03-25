@@ -4,20 +4,6 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            Destroy(gameObject);
-            player.Damage(-1);
-            Debug.Log("b");
-        }
-        if (!collision.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
-    }
 
     public virtual void Launch(Vector2 direction, float force)
     {
@@ -25,5 +11,16 @@ public class Projectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator Damage()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
     }
 }
