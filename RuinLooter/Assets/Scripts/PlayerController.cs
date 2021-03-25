@@ -7,13 +7,13 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb2d;
     BoxCollider2D bc2d;
+    public Animator anim;
     bool isGrounded;
     bool isCrouching = false;
     public int scenePlayer;
 
     public int artefact = 0;
     int coin = 0;
-    Item powerUp;
     float timeInvincible = 10.0f;
     float timerInvincible;
     bool isInvincible = false;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     float speed;
     int fullPV = 5;
     int PV;
-    enum Item
+    public enum Item
     {
         Empty,
         Cloak,
@@ -41,11 +41,12 @@ public class PlayerController : MonoBehaviour
         TP,
         Shield
     }
-    Item slot = Item.Empty;
+    public Item slot = Item.Empty;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
         PV = fullPV;
         UIManager.Instance.UpdateAll(PV, coin, artefact, "Empty");
         scenePlayer = SceneManager.GetActiveScene().buildIndex;
@@ -73,12 +74,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown("c") && isGrounded && !isCrouching)
             {
                 isCrouching = true;
-                this.Crouch();
+            anim.SetBool("Crouch", true);
+            this.Crouch();
             }
             if (Input.GetKeyUp("c") && isGrounded && isCrouching)
             {
                 isCrouching = false;
-                this.UnCrouch();
+            anim.SetBool("Crouch", false);
+            this.UnCrouch();
             }
             if (Input.GetKeyDown("a"))
             {
@@ -106,6 +109,7 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         horizontal = Input.GetAxis("Horizontal");
+        anim.SetFloat("Mouv", Mathf.Abs(horizontal));
         Vector2 position = transform.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
         transform.position = position;
@@ -113,6 +117,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGrounded = true;
+        anim.SetBool("Ground", true);
     }
     void Jump() 
     {
@@ -120,6 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             rb2d.AddForce(jump * jumpforce, ForceMode2D.Impulse);
             isGrounded = false;
+            anim.SetBool("Ground", false);
             if (isCrouching)
             {
                 isCrouching = false;
@@ -137,21 +143,19 @@ public class PlayerController : MonoBehaviour
     void Crouch()
     {
         Vector2 box = bc2d.size;
-        Debug.Log(box.x + ", " + box.y);
         box.y -= box.y / 2;
         bc2d.size = box;
     }
     void UnCrouch()
     {
         Vector2 box = bc2d.size;
-        Debug.Log(box.x + ", " + box.y);
         box.y *= 2;
         bc2d.size = box;
     }
     public void ChestOpenning()
     {
         int dice = Random.Range(1, 101);
-        if(dice >= 1 && dice < 21)
+        if (dice >= 1 && dice < 21)
         {
             slot = Item.Cloak;
             UIManager.Instance.UpdateSlot("Cape");
@@ -185,13 +189,16 @@ public class PlayerController : MonoBehaviour
             case Item.Cloak:
                 timerCloak = timeCloak;
                 isCloak = true;
+                slot = Item.Empty;
                 break;
             case Item.Invincible:
                 timerInvincible = timeInvincible;
                 isInvincible = true;
+                slot = Item.Empty;
                 break;
             case Item.Heal:
                 this.Damage(1);
+                slot = Item.Empty;
                 break;
             case Item.TP:
                 ArtefactController anchor = FindObjectOfType(typeof(ArtefactController)) as ArtefactController;
@@ -206,9 +213,11 @@ public class PlayerController : MonoBehaviour
                     Vector2 positionTP = new Vector2(gate.x, gate.y);
                     transform.position = positionTP;
                 }
+                slot = Item.Empty;
                 break;
             case Item.Shield:
                 shieldOn = true;
+                slot = Item.Empty;
                 break;
         }
     }
@@ -241,5 +250,10 @@ public class PlayerController : MonoBehaviour
     {
         artefact += change;
         GameManager.Instance.UpdateArtefact(artefact);
+    }
+    public void PrepareNewLevel()
+    {
+        Physics2D.IgnoreLayerCollision(6, 7, false);
+        Physics2D.IgnoreLayerCollision(7, 8, false);
     }
 }

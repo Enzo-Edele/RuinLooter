@@ -18,6 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     TMP_Text Level;
     [SerializeField]
+    GameObject fullPopup;
+    float timerPopup = 5.0f;
+    float timePopup;
+    [SerializeField]
     GameObject pauseMenu;
     [SerializeField]
     GameObject deathScreen;
@@ -43,6 +47,20 @@ public class UIManager : MonoBehaviour
     {
         _instance = this;
         this.Deactivate();
+    }
+    private void Update()
+    {
+        if(timePopup >= 0)
+        {
+            timePopup -= Time.deltaTime;
+        }
+        else
+        {
+            if(fullPopup != null)
+            {
+                fullPopup.SetActive(false);
+            }
+        }
     }
     public void UpdateAll(int health, int coin, int artefact, string item)
     {
@@ -79,6 +97,11 @@ public class UIManager : MonoBehaviour
     public void UpdateLevel()
     {
         Level.text = "Level : " + SceneManager.GetActiveScene().buildIndex;
+    }
+    public void Full()
+    {
+        fullPopup.SetActive(true);
+        timePopup = timerPopup;
     }
     public void DeathUI()
     {

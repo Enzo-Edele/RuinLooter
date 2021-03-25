@@ -6,17 +6,18 @@ TagManager:
   tags:
   - Enemy
   - Projectile
+  - Ghost
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Collectible
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - Player
+  - Ghost
+  - Pipe
   - 
   - 
   - 

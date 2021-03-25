@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8184334109047516587}
   - component: {fileID: 2279859373562692195}
   - component: {fileID: 3929766745797327815}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: echelle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

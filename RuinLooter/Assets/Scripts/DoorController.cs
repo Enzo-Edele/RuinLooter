@@ -6,11 +6,13 @@ public class DoorController : MonoBehaviour
 {
     BoxCollider2D bc2d;
     PlayerController player;
+    Animator animm;
     bool isOpen = false;
     bool isOn = false;
     private void Start()
     {
         bc2d = GetComponent<BoxCollider2D>();
+        animm = GetComponent<Animator>();
     }
     private void Update()
     {
@@ -24,17 +26,19 @@ public class DoorController : MonoBehaviour
             porte.y -= Time.deltaTime;
             bc2d.size = porte;
         }
-        if (isOpen && bc2d.offset.y < 1.2f)
+        if (isOpen && bc2d.offset.y > -1.5f)
         {
             Vector2 centre = bc2d.offset;
-            centre.y += Time.deltaTime;
+            centre.y -= Time.deltaTime;
             bc2d.offset = centre;
         }
     }
     void Openning()
     {
+        animm.SetTrigger("Openning");
         isOpen = true;
         player.CoinCollect(-5);
+        animm.SetBool("Open", true);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

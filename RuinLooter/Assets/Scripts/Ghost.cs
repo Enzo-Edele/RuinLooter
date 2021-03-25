@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : MonoBehaviour
+public class Ghost : Enemy
 {
     Vector2 spawnPoint;
     public float speed = 2f;
@@ -56,14 +56,5 @@ public class Ghost : MonoBehaviour
         ghostMove = false;
         yield return new WaitForSeconds(delay);
         ghostMove = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            player.Damage(-1);
-        }
     }
 }

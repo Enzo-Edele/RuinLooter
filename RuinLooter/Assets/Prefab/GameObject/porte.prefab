@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8693351519573397060}
   - component: {fileID: 8693351519573397063}
   - component: {fileID: 8693351519573397062}
+  - component: {fileID: 6185166700654010440}
   m_Layer: 0
   m_Name: porte
   m_TagString: Untagged
@@ -97,7 +98,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a66f333d2f3e4404d85fe0e9d0927599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isOpen: 0
 --- !u!61 &8693351519573397063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,3 +150,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.469677, y: 2.433701}
   m_EdgeRadius: 0
+--- !u!95 &6185166700654010440
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8693351519573397115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 199a12ffdc9e8fa4db6950099129e76b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

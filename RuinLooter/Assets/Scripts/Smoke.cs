@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Smoke : MonoBehaviour
+public class Smoke : Enemy
 {
     Rigidbody2D rigidbody2d;
     public float delay = 3f;
@@ -10,15 +10,6 @@ public class Smoke : MonoBehaviour
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            PlayerController player = collision.GetComponent<PlayerController>();
-            player.Damage(-1);
-        }
     }
 
     public void Launch(Vector2 direction, float force)

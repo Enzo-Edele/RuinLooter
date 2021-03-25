@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Tesla : Trap
 {
-    [SerializeField]
-    Transform player;
+    private Transform player;
 
     private float playerX;
     private float playerY;
@@ -16,10 +15,16 @@ public class Tesla : Trap
     private Vector3 spawn;
 
     public float teslaBallSpeed = 50;
+    private float defaultTeslaBallSpeed;
     public float agroRange;
     public float delay = 3;
     public GameObject projectilePrefab;
     private bool shoot = true;
+
+    private void Awake()
+    {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void Start()
     {
@@ -27,15 +32,17 @@ public class Tesla : Trap
         teslaY = gameObject.transform.position.y;
 
         teslaPosition = new Vector2(teslaX, teslaY);
+        defaultTeslaBallSpeed = teslaBallSpeed;
 
-        spawn = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
+        spawn = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
     }
-    
+
     public override void LaunchProjectile()
     {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
+        teslaBallSpeed = teslaBallSpeed / distToPlayer;
 
-        if (shoot == true && distToPlayer < agroRange)
+        if (shoot == true && distToPlayer < agroRange && distToPlayer > 3)
         {
             teslaX = gameObject.transform.position.x;
             teslaY = gameObject.transform.position.y - spawn.y;
@@ -53,6 +60,8 @@ public class Tesla : Trap
             TeslaBall projectile = projectileObject.GetComponent<TeslaBall>();
             projectile.Launch(dir, teslaBallSpeed);
         }
+
+        teslaBallSpeed = defaultTeslaBallSpeed;
     }
 
     IEnumerator Delay()
