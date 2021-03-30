@@ -551,8 +551,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -125, y: -199.99997}
-  m_SizeDelta: {x: 250, y: 400}
+  m_AnchoredPosition: {x: -114, y: -148.5}
+  m_SizeDelta: {x: 228, y: 297}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1385258286
 CanvasRenderer:
@@ -582,7 +582,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5841485879002927835, guid: 6cdbfc20c772fb144b1c51a4162dcf79, type: 3}
+  m_Sprite: {fileID: 7640542643180250072, guid: dd112751f61a2be4fac3b9b380ecf999, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -738,10 +738,10 @@ MonoBehaviour:
   Coin: {fileID: 1518469066212172964}
   laBanque: {fileID: 1518469067387977794}
   artefactFragments: {fileID: 1385258283}
-  artefactStep0: {fileID: -5841485879002927835, guid: 6cdbfc20c772fb144b1c51a4162dcf79, type: 3}
-  artefactStep1: {fileID: 2781501995737512194, guid: 6cdbfc20c772fb144b1c51a4162dcf79, type: 3}
-  artefactStep2: {fileID: -6699875974865259331, guid: 6cdbfc20c772fb144b1c51a4162dcf79, type: 3}
-  artefactStep3: {fileID: 813860532988214734, guid: 6cdbfc20c772fb144b1c51a4162dcf79, type: 3}
+  artefactStep0: {fileID: 7640542643180250072, guid: dd112751f61a2be4fac3b9b380ecf999, type: 3}
+  artefactStep1: {fileID: -7585147694680528965, guid: dd112751f61a2be4fac3b9b380ecf999, type: 3}
+  artefactStep2: {fileID: -7077227952197408518, guid: dd112751f61a2be4fac3b9b380ecf999, type: 3}
+  artefactStep3: {fileID: -270262405481520874, guid: dd112751f61a2be4fac3b9b380ecf999, type: 3}
   Slot: {fileID: 232682896}
   empty: {fileID: 21300000, guid: d89d030facee3374d8eb43ae6c8b7428, type: 3}
   cape: {fileID: 21300000, guid: a94d5228ee3576640ac5cab5ab6ae707, type: 3}
@@ -1492,7 +1492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427910075451328782, guid: 685f540433add0d4ebb7b72458e66587, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 602
+      value: 625.26
       objectReference: {fileID: 0}
     - target: {fileID: 427910075451328782, guid: 685f540433add0d4ebb7b72458e66587, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -1730,6 +1730,10 @@ PrefabInstance:
     - target: {fileID: 8818585655681019360, guid: 178754c4b04a7334f809bfc24feade5d, type: 3}
       propertyPath: m_Name
       value: InputManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8818585655681019361, guid: 178754c4b04a7334f809bfc24feade5d, type: 3}
+      propertyPath: begin
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8818585655681019366, guid: 178754c4b04a7334f809bfc24feade5d, type: 3}
       propertyPath: m_RootOrder

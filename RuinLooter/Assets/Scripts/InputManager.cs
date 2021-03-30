@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public bool pause = false;
-    public bool begin = true;//false;
+    public bool begin = false;
     private static InputManager _instance;
     public static InputManager Instance
     {

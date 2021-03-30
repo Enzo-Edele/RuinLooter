@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         Shield
     }
     public Item slot = Item.Empty;
-    void Start()
+    void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();
@@ -60,10 +60,8 @@ public class PlayerController : MonoBehaviour
             this.Damage(-1);
         }
         */
-        /*
         if (!InputManager.Instance.pause)
         {
-        */
             this.Move();
             if (Input.GetKeyDown("space"))
             {
@@ -105,8 +103,7 @@ public class PlayerController : MonoBehaviour
             {
                 isCloak = false;
             }
-            /*
-        }*/
+        }
     }
     void Move()
     {
