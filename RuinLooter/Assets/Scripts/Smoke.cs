@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Smoke : Enemy
+public class Smoke : MonoBehaviour
 {
     Rigidbody2D rigidbody2d;
     public float delay = 3f;

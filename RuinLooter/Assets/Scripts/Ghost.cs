@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : Enemy
+public class Ghost : MonoBehaviour
 {
     Vector2 spawnPoint;
     public float speed = 2f;

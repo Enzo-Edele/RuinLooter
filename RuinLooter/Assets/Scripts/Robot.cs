@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Robot : Enemy
+public class Robot : MonoBehaviour
 {
     
     private Transform player;
