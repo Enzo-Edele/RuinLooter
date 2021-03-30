@@ -46,6 +46,7 @@ public class InputManager : MonoBehaviour
     public void UnpauseState()
     {
         GameManager.Instance.StateChange(GameManager.GameState.InGame);
+        begin = true;
         pause = false;
     }
     public void ReturnMenu()
