@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour
             slot = Item.TP;
             UIManager.Instance.UpdateSlot("Pearl");
         }
-        if (dice >= 81 && dice < 100)
+        if (dice >= 81 && dice <= 100)
         {
             slot = Item.Shield;
             UIManager.Instance.UpdateSlot("Shield");
