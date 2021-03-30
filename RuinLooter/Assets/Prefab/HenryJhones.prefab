@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5545486521608269598}
   - component: {fileID: 5545486521608269599}
   - component: {fileID: 5545486521608269596}
+  - component: {fileID: 2486599004077200423}
   m_Layer: 7
   m_Name: HenryJhones
   m_TagString: Player
@@ -173,6 +174,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!81 &2486599004077200423
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5545486521608269597}
+  m_Enabled: 1
 --- !u!1 &5545486522169222760
 GameObject:
   m_ObjectHideFlags: 0

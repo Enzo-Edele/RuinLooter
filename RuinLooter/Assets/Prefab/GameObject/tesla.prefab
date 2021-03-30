@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   charge: {fileID: 8300000, guid: 759f1caf2c3a4734b961dbd8818df9a9, type: 3}
+  shootsound: {fileID: 8300000, guid: f7851fcbb81b486488231626bdcdf26f, type: 3}
   teslaBallSpeed: 50
   agroRange: 15
   delay: 3

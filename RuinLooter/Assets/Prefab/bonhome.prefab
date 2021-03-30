@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 2784089767087808423}
   - component: {fileID: 2784089767087808427}
   - component: {fileID: 2784089767087808424}
+  - component: {fileID: -4945220875236045156}
   m_Layer: 7
   m_Name: bonhome
   m_TagString: Player
@@ -182,11 +183,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2d: {fileID: 0}
+  anim: {fileID: 0}
   scenePlayer: 0
   artefact: 0
   isCloak: 0
   isOnLadder: 0
   speed: 5
+  slot: 0
 --- !u!61 &2784089767087808427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -234,3 +237,11 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!81 &-4945220875236045156
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2784089767087808420}
+  m_Enabled: 1
