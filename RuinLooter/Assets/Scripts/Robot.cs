@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Robot : Enemy
+public class Robot : MonoBehaviour
 {
     
     private Transform player;
@@ -29,7 +29,6 @@ public class Robot : Enemy
 
     void Update()
     {
-        Physics2D.GetIgnoreLayerCollision(6, 7);
         Vector3 robotScale = transform.localScale;
         transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
 

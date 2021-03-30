@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8165929137186725298}
   m_Layer: 6
   m_Name: "\xE9gouts"
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,5 +112,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155bd4712e8f77a43b60ea697a44c4b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 1
+  delay: 1.2
   projectilePrefab: {fileID: 392601197429813461, guid: 50859c2e5defa4f4a97ffe724327aef4, type: 3}

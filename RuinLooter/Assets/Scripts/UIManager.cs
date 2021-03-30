@@ -63,7 +63,11 @@ public class UIManager : MonoBehaviour
     float timerPopup = 5.0f;
     float timePopup;
     [SerializeField]
+    GameObject mainMenu;
+    [SerializeField]
     GameObject pauseMenu;
+    [SerializeField]
+    GameObject menuScreen;
     [SerializeField]
     GameObject deathScreen;
     [SerializeField]
@@ -232,6 +236,28 @@ public class UIManager : MonoBehaviour
     {
         victoryScreen.SetActive(true);
     }
+    public void ActiveMenuScreen()
+    {
+        menuScreen.SetActive(true);
+    }
+    public void DeactivateMenuScreen()
+    {
+        if (menuScreen != null)
+        {
+            menuScreen.SetActive(false);
+        }
+    }
+    public void ActiveMainMenu()
+    {
+        mainMenu.SetActive(true);
+    }
+    public void DeactivateMainMenu()
+    {
+        if (mainMenu != null)
+        {
+            mainMenu.SetActive(false);
+        }
+    }
     public void PauseUIOn()
     {
         pauseMenu.SetActive(true);
@@ -253,13 +279,31 @@ public class UIManager : MonoBehaviour
     }
     public void MainMenuButton()
     {
-        InputManager.Instance.UnpauseState();
+        this.PauseUIOff();
         InputManager.Instance.ReturnMenu();
         SceneManager.LoadScene("main");
         this.Deactivate();
+        this.ActiveMenuScreen();
+        this.ActiveMainMenu();
     }
     public void OptionButton()
     {
         Debug.Log("Option");
+        this.DeactivateMainMenu();
+        this.PauseUIOff();
+    }
+    public void StartButton()
+    {
+        InputManager.Instance.UnpauseState();
+        InputManager.Instance.StartGame();
+        this.DeactivateMenuScreen();
+        this.DeactivateMainMenu();
+    }
+    public void TutoButton()
+    {
+        InputManager.Instance.UnpauseState();
+        SceneManager.LoadScene("tuto");
+        this.DeactivateMenuScreen();
+        this.DeactivateMainMenu();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     public bool pause = false;
-    public bool begin = false;
+    public bool begin = true;//false;
     private static InputManager _instance;
     public static InputManager Instance
     {
@@ -32,15 +32,11 @@ public class InputManager : MonoBehaviour
         {
             this.UnpauseState();
         }
-        if(Input.anyKey && !begin)
-        {
-            this.StartGame();
-        }
     }
-    void StartGame()
+    public void StartGame()
     {
         begin = true;
-        //GameManager.Instance.NextLevel();
+        GameManager.Instance.NextLevel();
     }
     public void PauseState()
     {
@@ -50,6 +46,7 @@ public class InputManager : MonoBehaviour
     public void UnpauseState()
     {
         GameManager.Instance.StateChange(GameManager.GameState.InGame);
+        begin = true;
         pause = false;
     }
     public void ReturnMenu()

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Tesla : Trap
 {
     private Transform player;
+    public AudioClip charge;
 
     private float playerX;
     private float playerY;
@@ -35,6 +36,8 @@ public class Tesla : Trap
         defaultTeslaBallSpeed = teslaBallSpeed;
 
         spawn = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
+
+        AudioManager.Instance.Playsound(charge);
     }
 
     public override void LaunchProjectile()
@@ -44,15 +47,15 @@ public class Tesla : Trap
 
         if (shoot == true && distToPlayer < agroRange && distToPlayer > 3)
         {
-            teslaX = gameObject.transform.position.x;
-            teslaY = gameObject.transform.position.y - spawn.y;
-
-            teslaPosition = new Vector2(teslaX, teslaY);
-
             playerX = player.transform.position.x;
             playerY = player.transform.position.y;
 
             playerPosition = new Vector2(playerX, playerY);
+
+            teslaX = gameObject.transform.position.x;
+            teslaY = gameObject.transform.position.y;
+
+            teslaPosition = new Vector2(teslaX, teslaY);
 
             Vector2 dir = playerPosition - teslaPosition;
             StartCoroutine(Delay());
