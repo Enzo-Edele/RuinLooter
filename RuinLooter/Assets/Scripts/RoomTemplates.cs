@@ -18,48 +18,62 @@ public class RoomTemplates : MonoBehaviour
         }
     }
     public GameObject start;
+    public GameObject gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
     public List<GameObject> salleHaute;
     public List<GameObject> salleBasse;
     public List<GameObject> salleDroite;
     public List<GameObject> salleGauche;
     public GameObject roomGauche;
-    public GameObject roomGaucheHaut;
-    public GameObject roomGaucheBas;
+    //public GameObject roomGaucheHaut;
+    //public GameObject roomGaucheBas;
     public GameObject roomDroit;
-    public GameObject roomDroitHaut;
+    /*public GameObject roomDroitHaut;
     public GameObject roomDroitBas;
     public List<GameObject> sansHaute;
     public List<GameObject> sansBasse;
     public List<GameObject> sansDroite;
-    public List<GameObject> sansGauche;
+    public List<GameObject> sansGauche;*/
 
     int height;
     int width;
-    public int count;
-    public bool[,] max = new bool[20, 20];
+    public int maxRoom;
+    [HideInInspector]
+    public int roomCount = 0;
+    public int size;
+    public bool[,] max;
     private void Awake()
     {
         _instance = this;
-        for (int i = 0; i < 20; i++)
+        max = new bool[size, size];
+        for (int i = 0; i < size; i++)
         {
-            for (int j = 0; j < 20; j++)
+            for (int j = 0; j < size; j++)
             {
                 max[i, j] = false;
             }
         }
-        height = Random.Range(5, 15);
-        width = Random.Range(5, 15);
+        height = Random.Range(5, size - 5);
+        width = Random.Range(5, size - 5);
         Vector2 spawnPos;
         spawnPos.x = height * 10;
         spawnPos.y = width * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        count += 1;
         max[width, height] = true;
-        Invoke("Reload", 2.0f);
+        max[width + 1, height] = true;
+        max[width - 1, height] = true;
+        roomCount += 1;
+        Invoke("Reload", 1.0f);
     }
     void Reload()
     {
-        if(count < 100)
+        if(roomCount < 4)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+    void Update()
+    {
+        if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

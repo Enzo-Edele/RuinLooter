@@ -18,7 +18,7 @@ public class MazeManager : MonoBehaviour
     }
     public bool[,] datas = new bool[20, 20];
     public RoomDatas startRoom;
-    private int maxRoom;
+    //private int maxRoom;
     void Awake()
     {
         _instance = this;
@@ -39,21 +39,21 @@ public class MazeManager : MonoBehaviour
         {
             Instantiate(room, position, Quaternion.identity);
             datas[xPos, yPos] = true;
-            RoomDatas newRoom;
-            foreach (Spawner spawn in room.spawners)
+        }
+        RoomDatas newRoom;
+        foreach (Spawner spawn in room.spawners)
+        {
+            if (spawn.direction == 1)
             {
-                if (spawn.direction == 1)
-                {
-                    xPos += 1;
-                    newRoom = room;
-                    Spawn(newRoom, xPos, yPos, spawn.transform.position);
-                }
-                else if (spawn.direction == 2)
-                { 
-                    yPos -= 1;
-                    newRoom = room;
-                    Spawn(newRoom, xPos, yPos, spawn.transform.position);
-                }
+                xPos += 1;
+                newRoom = room;
+                Spawn(newRoom, xPos, yPos, spawn.transform.position);
+            }
+            if (spawn.direction == 2)
+            {
+                xPos -= 1;
+                newRoom = room;
+                Spawn(newRoom, xPos, yPos, spawn.transform.position);
             }
         }
     }

@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170160901810290322}
   - component: {fileID: 872875968802515217}
+  - component: {fileID: 469044908529549356}
   m_Layer: 0
   m_Name: Bas
   m_TagString: Untagged
@@ -176,3 +177,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &469044908529549356
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216359713381544633}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -5, y: 5}
+      - {x: -5, y: -5}
+      - {x: -1.550142, y: -4.950495}
+      - {x: -1.5092278, y: -4.0491962}
+      - {x: -4.0467963, y: -3.9920056}
+      - {x: -3.9784744, y: 3.9792624}
+      - {x: 3.9870799, y: 4.0409193}
+      - {x: 4.0461006, y: -3.9962444}
+      - {x: 1.5973969, y: -4.0716257}
+      - {x: 1.6422534, y: -4.987096}
+      - {x: 5, y: -5}
+      - {x: 5, y: 5}

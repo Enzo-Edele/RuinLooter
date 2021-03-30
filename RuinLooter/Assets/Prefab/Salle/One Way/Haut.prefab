@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5216939035931063479}
   - component: {fileID: 4462834893860196460}
+  - component: {fileID: 444337125508500410}
   m_Layer: 0
   m_Name: Haut
   m_TagString: Untagged
@@ -83,6 +84,43 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &444337125508500410
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380151859078112210}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.5195607, y: 5.0264025}
+      - {x: 1.5870173, y: 3.9999776}
+      - {x: 4.0311885, y: 3.9572024}
+      - {x: 3.9609547, y: -3.9775624}
+      - {x: -4.012785, y: -3.9783773}
+      - {x: -3.9299774, y: 4.0215836}
+      - {x: -1.5560136, y: 3.9975753}
+      - {x: -1.5293303, y: 5.0088315}
+      - {x: -5, y: 5}
+      - {x: -5, y: -5}
+      - {x: 5, y: -5}
+      - {x: 5, y: 5}
 --- !u!1 &3377307408207826199
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,11 @@ public class RoomSpawner : MonoBehaviour
     bool sansDroite = false;
     bool sansHaut = false;
     bool sansBas = false;
+    /*bool gauche = true;
+    bool droit = true;
+    bool haut = true;
+    bool bas = true;*/
+
     Vector3 test;
     int rand;
     bool isSpawn = false;
@@ -18,7 +23,7 @@ public class RoomSpawner : MonoBehaviour
     void Awake()
     {
         templates = GameObject.FindGameObjectWithTag("rooms").GetComponent<RoomTemplates>();
-        Invoke("Spawn", 0.05f);
+        Invoke("Spawn", 0.025f);
     }
     void Spawn()
     {
@@ -29,130 +34,61 @@ public class RoomSpawner : MonoBehaviour
                 //il faut une salle qui s'ouvrent depuis le bas
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 1");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 2");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 3");
                     sansHaut = true;
                 }
                 if(sansDroite && sansGauche && sansHaut)
                 {
-                    for(int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for(int j = 0; j < templates.sansGauche.Count; j++)
-                        {
-                            for(int k = 0; k < templates.sansHaute.Count; k++)
-                            {
-                                for(int l = 0; l < templates.salleBasse.Count; l++)
-                                {
-                                    if(templates.salleBasse[l] == templates.sansHaute[k] == templates.sansGauche[j] == templates.sansDroite[i])
-                                    {
-                                        limit.Add(templates.salleBasse[l]);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    limit.Add(templates.bas);
                 }
                 else if (sansDroite && sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleBasse.Count; k++)
-                            {
-                                if (templates.salleBasse[k] == templates.sansDroite[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleBasse[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.basHaut);
                 }
                 else if (sansDroite && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleBasse.Count; k++)
-                            {
-                                if (templates.salleBasse[k] == templates.sansDroite[j] == templates.sansHaute[i])
-                                {
-                                    limit.Add(templates.salleBasse[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.gaucheBas);
                 }
                 else if (sansGauche && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansHaute.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleBasse.Count; k++)
-                            {
-                                if (templates.salleBasse[k] == templates.sansHaute[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleBasse[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.basDroit);
                 }
                 else if (sansDroite)
                 {
-                    for (int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleBasse.Count; j++)
-                        {
-                            if (templates.salleBasse[j] == templates.sansDroite[i])
-                            {
-                                limit.Add(templates.salleBasse[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.basHaut);
+                    limit.Add(templates.gaucheBas);
+                    limit.Add(templates.tGauche);
                 }
                 else if (sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleBasse.Count; j++)
-                        {
-                            if (templates.salleBasse[j] == templates.sansGauche[i])
-                            {
-                                limit.Add(templates.salleBasse[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.basHaut);
+                    limit.Add(templates.basDroit);
+                    limit.Add(templates.tDroit);
                 }
                 else if (sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleBasse.Count; j++)
-                        {
-                            if (templates.salleBasse[j] == templates.sansHaute[i])
-                            {
-                                limit.Add(templates.salleBasse[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.bas);
+                    limit.Add(templates.basDroit);
+                    limit.Add(templates.gaucheBas);
+                    limit.Add(templates.tBas);
                 }
                 else
                 {
@@ -163,7 +99,6 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
-                RoomTemplates.Instance.count += 1;
                 test = this.transform.position;
                 RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
             }
@@ -172,145 +107,76 @@ public class RoomSpawner : MonoBehaviour
                 //il faut une salle qui s'ouvre depuis la gauche
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 4");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 5");
                     sansBas = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 6");
                     sansHaut = true;
                 }
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 <= 14.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] == false
-                        && RoomTemplates.Instance.max[(int)test.x / 10 + 2, (int)test.y / 10] == false)
+                if (RoomTemplates.Instance.roomCount < RoomTemplates.Instance.maxRoom && test.x / 10 <= 14.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false && 
+                    RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 + 2, (int)test.y / 10] == false)
                 {
                     limit.Add(RoomTemplates.Instance.roomGauche);
-                    if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10 + 1] == false)
+                    /*if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10 + 1] == false)
                     {
                         limit.Add(RoomTemplates.Instance.roomGaucheHaut);
                     }
                     else if (test.y > 1.0f && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10 - 1] == false)
                     {
                         limit.Add(RoomTemplates.Instance.roomGaucheBas);
-                    }
+                    }*/
                 }
                 if (sansDroite && sansBas && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansBasse.Count; j++)
-                        {
-                            for (int k = 0; k < templates.sansHaute.Count; k++)
-                            {
-                                for (int l = 0; l < templates.salleGauche.Count; l++)
-                                {
-                                    if (templates.salleGauche[l] == templates.sansHaute[k] == templates.sansBasse[j] == templates.sansDroite[i])
-                                    {
-                                        limit.Add(templates.salleGauche[l]);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    limit.Add(templates.gauche);
                 }
                 else if (sansDroite && sansBas)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleGauche.Count; k++)
-                            {
-                                if (templates.salleGauche[k] == templates.sansDroite[j] == templates.sansBasse[i])
-                                {
-                                    limit.Add(templates.salleGauche[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheHaut);
                 }
                 else if (sansDroite && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleGauche.Count; k++)
-                            {
-                                if (templates.salleGauche[k] == templates.sansDroite[j] == templates.sansHaute[i])
-                                {
-                                    limit.Add(templates.salleGauche[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheBas);
                 }
                 else if (sansBas && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansHaute.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleGauche.Count; k++)
-                            {
-                                if (templates.salleGauche[k] == templates.sansHaute[j] == templates.sansBasse[i])
-                                {
-                                    limit.Add(templates.salleGauche[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheDroit);
                 }
                 else if (sansDroite)
                 {
-                    for (int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleGauche.Count; j++)
-                        {
-                            if (templates.salleGauche[j] == templates.sansDroite[i])
-                            {
-                                limit.Add(templates.salleGauche[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheHaut);
+                    limit.Add(templates.gaucheBas);
+                    limit.Add(templates.tGauche);
                 }
                 else if (sansBas)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleGauche.Count; j++)
-                        {
-                            if (templates.salleGauche[j] == templates.sansBasse[i])
-                            {
-                                limit.Add(templates.salleGauche[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheHaut);
+                    limit.Add(templates.gaucheDroit);
+                    limit.Add(templates.tHaut);
                 }
                 else if (sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleGauche.Count; j++)
-                        {
-                            if (templates.salleGauche[j] == templates.sansHaute[i])
-                            {
-                                limit.Add(templates.salleGauche[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.gauche);
+                    limit.Add(templates.gaucheDroit);
+                    limit.Add(templates.gaucheBas);
+                    limit.Add(templates.tBas);
                 }
                 else
                 {
@@ -321,13 +187,13 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
-                RoomTemplates.Instance.count += 1;
                 test = this.transform.position;
                 RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
-                if (limit[rand] == RoomTemplates.Instance.roomGauche || limit[rand] == RoomTemplates.Instance.roomGaucheHaut || limit[rand] == RoomTemplates.Instance.roomGaucheBas)
+                if (limit[rand] == RoomTemplates.Instance.roomGauche/* || limit[rand] == RoomTemplates.Instance.roomGaucheHaut || limit[rand] == RoomTemplates.Instance.roomGaucheBas*/)
                 {
                     RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] = true;
                     RoomTemplates.Instance.max[(int)test.x / 10 + 2, (int)test.y / 10] = true;
+                    RoomTemplates.Instance.roomCount += 1;
                 }
             }
             else if (direction == 3)
@@ -335,130 +201,61 @@ public class RoomSpawner : MonoBehaviour
                 //il faut une salle qui s'ouvre depuis le haut
                 test.x = this.transform.position.x + 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 7");
                     sansDroite = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 8");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 9");
                     sansBas = true;
                 }
                 if (sansDroite && sansGauche && sansBas)
                 {
-                    for (int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansGauche.Count; j++)
-                        {
-                            for (int k = 0; k < templates.sansBasse.Count; k++)
-                            {
-                                for (int l = 0; l < templates.salleHaute.Count; l++)
-                                {
-                                    if (templates.salleHaute[l] == templates.sansBasse[k] == templates.sansGauche[j] == templates.sansDroite[i])
-                                    {
-                                        limit.Add(templates.salleHaute[l]);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    limit.Add(templates.haut);
                 }
                 else if (sansDroite && sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleHaute.Count; k++)
-                            {
-                                if (templates.salleHaute[k] == templates.sansDroite[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleHaute[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.basHaut);
                 }
                 else if (sansDroite && sansBas)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansDroite.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleHaute.Count; k++)
-                            {
-                                if (templates.salleHaute[k] == templates.sansDroite[j] == templates.sansBasse[i])
-                                {
-                                    limit.Add(templates.salleHaute[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.gaucheHaut);
                 }
                 else if (sansGauche && sansBas)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansBasse.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleHaute.Count; k++)
-                            {
-                                if (templates.salleHaute[k] == templates.sansBasse[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleHaute[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.hautDroit);
                 }
                 else if (sansDroite)
                 {
-                    for (int i = 0; i < templates.sansDroite.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleHaute.Count; j++)
-                        {
-                            if (templates.salleHaute[j] == templates.sansDroite[i])
-                            {
-                                limit.Add(templates.salleHaute[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.basHaut);
+                    limit.Add(templates.gaucheHaut);
+                    limit.Add(templates.tGauche);
                 }
                 else if (sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleHaute.Count; j++)
-                        {
-                            if (templates.salleHaute[j] == templates.sansGauche[i])
-                            {
-                                limit.Add(templates.salleHaute[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.basHaut);
+                    limit.Add(templates.hautDroit);
+                    limit.Add(templates.tDroit);
                 }
                 else if (sansBas)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleHaute.Count; j++)
-                        {
-                            if (templates.salleHaute[j] == templates.sansBasse[i])
-                            {
-                                limit.Add(templates.salleHaute[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.haut);
+                    limit.Add(templates.hautDroit);
+                    limit.Add(templates.gaucheHaut);
+                    limit.Add(templates.tHaut);
                 }
                 else
                 {
@@ -469,7 +266,6 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
-                RoomTemplates.Instance.count += 1;
                 test = this.transform.position;
                 RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
             }
@@ -478,145 +274,76 @@ public class RoomSpawner : MonoBehaviour
                 //il faut une salle qui s'ouvre depuis la droite
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y - 10.0f;
-                if (test.y / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 10");
                     sansBas = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 <= 2.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.x <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 11");
                     sansGauche = true;
                 };
                 test.x = this.transform.position.x;
                 test.y = this.transform.position.y + 10.0f;
-                if (test.y / 10 >= 17.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
+                if (test.y >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == true)
                 {
-                    Debug.Log("Check 12");
                     sansHaut = true;
                 }
                 test.x = this.transform.position.x - 10.0f;
                 test.y = this.transform.position.y;
-                if (test.x / 10 >= 5.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] == false
-                        && RoomTemplates.Instance.max[(int)test.x / 10 - 2, (int)test.y / 10] == false)
+                if (RoomTemplates.Instance.roomCount < RoomTemplates.Instance.maxRoom && test.x / 10 >= 5.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false &&
+                    RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] == false && RoomTemplates.Instance.max[(int)test.x / 10 - 2, (int)test.y / 10] == false)
                 {
                     limit.Add(RoomTemplates.Instance.roomDroit);
-                    if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10 + 1] == false)
+                    /*if (test.y < 18.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10 + 1] == false)
                     {
                         limit.Add(RoomTemplates.Instance.roomDroitHaut);
                     }
                     else if (test.y > 1.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10 - 1] == false)
                     {
                         limit.Add(RoomTemplates.Instance.roomDroitBas);
-                    }
+                    }*/
                 }
                 if (sansBas && sansGauche && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansGauche.Count; j++)
-                        {
-                            for (int k = 0; k < templates.sansHaute.Count; k++)
-                            {
-                                for (int l = 0; l < templates.salleDroite.Count; l++)
-                                {
-                                    if (templates.salleDroite[l] == templates.sansHaute[k] == templates.sansGauche[j] == templates.sansBasse[i])
-                                    {
-                                        limit.Add(templates.salleDroite[l]);
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    limit.Add(templates.droit);
                 }
                 else if (sansBas && sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansBasse.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleDroite.Count; k++)
-                            {
-                                if (templates.salleDroite[k] == templates.sansBasse[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleDroite[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.hautDroit);
                 }
                 else if (sansBas && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansBasse.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleDroite.Count; k++)
-                            {
-                                if (templates.salleDroite[k] == templates.sansBasse[j] == templates.sansHaute[i])
-                                {
-                                    limit.Add(templates.salleDroite[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.gaucheDroit);
                 }
                 else if (sansGauche && sansHaut)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.sansHaute.Count; j++)
-                        {
-                            for (int k = 0; k < templates.salleDroite.Count; k++)
-                            {
-                                if (templates.salleDroite[k] == templates.sansHaute[j] == templates.sansGauche[i])
-                                {
-                                    limit.Add(templates.salleDroite[k]);
-                                }
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.basDroit);
                 }
                 else if (sansBas)
                 {
-                    for (int i = 0; i < templates.sansBasse.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleDroite.Count; j++)
-                        {
-                            if (templates.salleDroite[j] == templates.sansBasse[i])
-                            {
-                                limit.Add(templates.salleDroite[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.hautDroit);
+                    limit.Add(templates.gaucheDroit);
+                    limit.Add(templates.tHaut);
                 }
                 else if (sansGauche)
                 {
-                    for (int i = 0; i < templates.sansGauche.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleDroite.Count; j++)
-                        {
-                            if (templates.salleDroite[j] == templates.sansGauche[i])
-                            {
-                                limit.Add(templates.salleDroite[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.hautDroit);
+                    limit.Add(templates.basDroit);
+                    limit.Add(templates.tDroit);
                 }
                 else if (sansHaut)
                 {
-                    for (int i = 0; i < templates.sansHaute.Count; i++)
-                    {
-                        for (int j = 0; j < templates.salleDroite.Count; j++)
-                        {
-                            if (templates.salleDroite[j] == templates.sansHaute[i])
-                            {
-                                limit.Add(templates.salleDroite[j]);
-                            }
-                        }
-                    }
+                    //limit.Add(templates.droit);
+                    limit.Add(templates.basDroit);
+                    limit.Add(templates.gaucheDroit);
+                    limit.Add(templates.tBas);
                 }
                 else
                 {
@@ -627,13 +354,13 @@ public class RoomSpawner : MonoBehaviour
                 }
                 rand = Random.Range(0, limit.Count);
                 Instantiate(limit[rand], transform.position, limit[rand].transform.rotation);
-                RoomTemplates.Instance.count += 1;
                 test = this.transform.position;
                 RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
-                if(limit[rand] == RoomTemplates.Instance.roomDroit || limit[rand] == RoomTemplates.Instance.roomDroitHaut || limit[rand] == RoomTemplates.Instance.roomDroitBas)
+                if(limit[rand] == RoomTemplates.Instance.roomDroit /*|| limit[rand] == RoomTemplates.Instance.roomDroitHaut || limit[rand] == RoomTemplates.Instance.roomDroitBas*/)
                 {
                     RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] = true;
                     RoomTemplates.Instance.max[(int)test.x / 10 - 2, (int)test.y / 10] = true;
+                    RoomTemplates.Instance.roomCount += 1;
                 }
             }
             isSpawn = true;
@@ -645,7 +372,82 @@ public class RoomSpawner : MonoBehaviour
         {
             if(collision.GetComponent<RoomSpawner>().isSpawn == false && isSpawn == false)
             {
-                
+                RaycastHit2D up = Physics2D.Raycast(transform.position, Vector2.up, 6.0f);
+                RaycastHit2D down = Physics2D.Raycast(transform.position, Vector2.down, 6.0f);
+                RaycastHit2D left = Physics2D.Raycast(transform.position, Vector2.left, 6.0f);
+                RaycastHit2D right = Physics2D.Raycast(transform.position, Vector2.right, 6.0f);
+                Debug.Log(up);
+                Debug.Log(down);
+                Debug.Log(left);
+                Debug.Log(right);
+                if (up.collider == null && transform.position.y < RoomTemplates.Instance.size * 10 - 30)
+                {
+                    //haut = false;
+                    Debug.Log("Raycast haut");
+                }
+                if (down.collider == null && transform.position.y > 20.0f)
+                {
+                    //bas = false;
+                    Debug.Log("Raycast bas");
+                }
+                if (left.collider == null && transform.position.x > 20.0f)
+                {
+                    //gauche = false;
+                    Debug.Log("Raycast gauche");
+                }
+                if (right.collider == null && transform.position.x < RoomTemplates.Instance.size * 10 - 30)
+                {
+                    //droit = false;
+                    Debug.Log("Raycast droit");
+                }
+
+                /*if(haut && bas && gauche && droit)
+                {
+                    Instantiate(RoomTemplates.Instance.x, transform.position, Quaternion.identity);
+                }
+                if (haut && bas && gauche)
+                {
+                    Instantiate(RoomTemplates.Instance.tGauche, transform.position, Quaternion.identity);
+                }
+                if (haut && bas && droit)
+                {
+                    Instantiate(RoomTemplates.Instance.tDroit, transform.position, Quaternion.identity);
+                }
+                if (haut && droit && gauche)
+                {
+                    Instantiate(RoomTemplates.Instance.tHaut, transform.position, Quaternion.identity);
+                }
+                if (droit && bas && gauche)
+                {
+                    Instantiate(RoomTemplates.Instance.tBas, transform.position, Quaternion.identity);
+                }
+                if (haut && bas)
+                {
+                    Instantiate(RoomTemplates.Instance.basHaut, transform.position, Quaternion.identity);
+                }
+                if (haut && gauche)
+                {
+                    Instantiate(RoomTemplates.Instance.gaucheHaut, transform.position, Quaternion.identity);
+                }
+                if (haut && droit)
+                {
+                    Instantiate(RoomTemplates.Instance.hautDroit, transform.position, Quaternion.identity);
+                }
+                if (gauche && bas)
+                {
+                    Instantiate(RoomTemplates.Instance.gaucheBas, transform.position, Quaternion.identity);
+                }
+                if (gauche && droit)
+                {
+                    Instantiate(RoomTemplates.Instance.gaucheDroit, transform.position, Quaternion.identity);
+                }
+                if (droit && bas)
+                {
+                    Instantiate(RoomTemplates.Instance.basDroit, transform.position, Quaternion.identity);
+                }
+                test = transform.position;
+                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;*/
+
                 Destroy(gameObject);
             }
             isSpawn = true;
