@@ -25,6 +25,9 @@ public class LaMontreController : MonoBehaviour
         Vector2 pos = transform.position;
         x = pos.x;
         y = pos.y;
+        player = FindObjectOfType(typeof(PlayerController)) as PlayerController;
+        player.PlacementNewLevel(pos.x,pos.y);
+        player = null;
     }
     private void Update()
     {
@@ -36,7 +39,6 @@ public class LaMontreController : MonoBehaviour
         {
             this.DisplayMessage();
         }
-        
         if (timerPopUp >= 0)
         {
             timerPopUp -= Time.deltaTime;

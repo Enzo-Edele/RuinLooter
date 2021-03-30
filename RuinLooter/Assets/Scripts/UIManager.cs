@@ -294,6 +294,7 @@ public class UIManager : MonoBehaviour
     }
     public void StartButton()
     {
+        InputManager.Instance.UnpauseState();
         InputManager.Instance.StartGame();
         this.DeactivateMenuScreen();
         this.DeactivateMainMenu();

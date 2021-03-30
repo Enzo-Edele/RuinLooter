@@ -54,10 +54,12 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        /*
         if(Input.GetKeyDown("p"))
         {
             this.Damage(-1);
         }
+        */
         /*
         if (!InputManager.Instance.pause)
         {
@@ -164,32 +166,45 @@ public class PlayerController : MonoBehaviour
         if (dice >= 1 && dice < 21)
         {
             slot = Item.Cloak;
-            UIManager.Instance.UpdateSlot("Cape");
         }
         if (dice >= 21 && dice < 41)
         {
             slot = Item.Invincible;
-            UIManager.Instance.UpdateSlot("Potion");
         }
         if (dice >= 41 && dice < 66)
         {
             slot = Item.Heal;
-            UIManager.Instance.UpdateSlot("Bandage");
         }
         if (dice >= 66 && dice < 81)
         {
             slot = Item.TP;
-            UIManager.Instance.UpdateSlot("Pearl");
         }
         if (dice >= 81 && dice <= 100)
         {
             slot = Item.Shield;
-            UIManager.Instance.UpdateSlot("Shield");
+        }
+        UIManager.Instance.UpdateSlot(ItemInSlot());
+    }
+    string ItemInSlot()
+    {
+        switch(slot)
+        {
+            case Item.Cloak:
+                return "Cape";
+            case Item.Invincible:
+                return "Potion";
+            case Item.Heal:
+                return "Bandage";
+            case Item.TP:
+                return "Pearl";
+            case Item.Shield:
+                return "Shield";
+            default:
+                return "Empty";
         }
     }
     void UseItem()
     {
-        UIManager.Instance.UpdateSlot("Empty");
         switch(slot)
         {
             case Item.Cloak:
@@ -226,6 +241,7 @@ public class PlayerController : MonoBehaviour
                 slot = Item.Empty;
                 break;
         }
+        UIManager.Instance.UpdateSlot(ItemInSlot());
     }
     public void Damage(int degat)
     {
@@ -256,6 +272,14 @@ public class PlayerController : MonoBehaviour
     {
         artefact += change;
         GameManager.Instance.UpdateArtefact(artefact);
+    }
+    public void PlacementNewLevel(float coorX, float coorY)
+    {
+        Vector2 position = transform.position;
+        position.x = coorX;
+        position.y = coorY;
+        transform.position = position;
+        UIManager.Instance.UpdateAll(PV, coin, artefact, ItemInSlot());
     }
     public void PrepareNewLevel()
     {
