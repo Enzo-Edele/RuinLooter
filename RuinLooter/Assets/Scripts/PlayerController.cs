@@ -54,12 +54,14 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        /*
-        if(Input.GetKeyDown("p"))
+        if(Input.GetKeyDown("m"))
         {
             this.Damage(-1);
         }
-        */
+        if (Input.GetKeyDown("l"))
+        {
+            this.Damage(1);
+        }
         if (!InputManager.Instance.pause)
         {
             this.Move();
@@ -200,23 +202,38 @@ public class PlayerController : MonoBehaviour
                 return "Empty";
         }
     }
+    Item ItemSave(string item)
+    {
+        switch (item)
+        {
+            case "Cape":
+                return Item.Cloak;
+            case "Potion":
+                return Item.Invincible;
+            case "Bandage":
+                return Item.Heal;
+            case "Pearl":
+                return Item.TP;
+            case "Shield":
+                return Item.Shield;
+            default:
+                return Item.Empty;
+        }
+    }
     void UseItem()
     {
-        switch(slot)
+        switch (slot)
         {
             case Item.Cloak:
                 timerCloak = timeCloak;
                 isCloak = true;
-                slot = Item.Empty;
                 break;
             case Item.Invincible:
                 timerInvincible = timeInvincible;
                 isInvincible = true;
-                slot = Item.Empty;
                 break;
             case Item.Heal:
                 this.Damage(1);
-                slot = Item.Empty;
                 break;
             case Item.TP:
                 ArtefactController anchor = FindObjectOfType(typeof(ArtefactController)) as ArtefactController;
@@ -231,13 +248,12 @@ public class PlayerController : MonoBehaviour
                     Vector2 positionTP = new Vector2(gate.x, gate.y);
                     transform.position = positionTP;
                 }
-                slot = Item.Empty;
                 break;
             case Item.Shield:
                 shieldOn = true;
-                slot = Item.Empty;
                 break;
         }
+        slot = Item.Empty;
         UIManager.Instance.UpdateSlot(ItemInSlot());
     }
     public void Damage(int degat)
@@ -276,6 +292,13 @@ public class PlayerController : MonoBehaviour
         position.x = coorX;
         position.y = coorY;
         transform.position = position;
+        PV = 0;
+        coin = 0;
+        artefact = 0;
+        slot = ItemSave(GameManager.Instance.item);
+        this.Damage(GameManager.Instance.health);
+        this.CoinCollect(GameManager.Instance.coin);
+        this.ArtefactCollect(GameManager.Instance.artefact);
         UIManager.Instance.UpdateAll(PV, coin, artefact, ItemInSlot());
     }
     public void PrepareNewLevel()

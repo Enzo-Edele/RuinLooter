@@ -35,8 +35,8 @@ public class InputManager : MonoBehaviour
     }
     public void StartGame()
     {
-        begin = true;
         GameManager.Instance.NextLevel();
+        begin = true;
     }
     public void PauseState()
     {
@@ -51,6 +51,7 @@ public class InputManager : MonoBehaviour
     }
     public void ReturnMenu()
     {
+        GameManager.Instance.StateChange(GameManager.GameState.MainMenu);
         begin = false;
     }
 }
