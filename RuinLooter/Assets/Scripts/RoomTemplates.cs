@@ -17,30 +17,13 @@ public class RoomTemplates : MonoBehaviour
             return _instance;
         }
     }
-    public GameObject start;
-    public GameObject gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
-    public List<GameObject> salleHaute;
-    public List<GameObject> salleBasse;
-    public List<GameObject> salleDroite;
-    public List<GameObject> salleGauche;
-    public GameObject roomGauche;
-    //public GameObject roomGaucheHaut;
-    //public GameObject roomGaucheBas;
-    public GameObject roomDroit;
-    /*public GameObject roomDroitHaut;
-    public GameObject roomDroitBas;
-    public List<GameObject> sansHaute;
-    public List<GameObject> sansBasse;
-    public List<GameObject> sansDroite;
-    public List<GameObject> sansGauche;*/
+    public GameObject start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
+    public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
 
-    int height;
-    int width;
-    public int maxRoom;
-    [HideInInspector]
-    public int roomCount = 0;
     public int size;
     public bool[,] max;
+    int spawnX;
+    int spawnY;
     private void Awake()
     {
         _instance = this;
@@ -52,24 +35,15 @@ public class RoomTemplates : MonoBehaviour
                 max[i, j] = false;
             }
         }
-        height = Random.Range(5, size - 5);
-        width = Random.Range(5, size - 5);
+        spawnX = Random.Range(5, size - 5);
+        spawnY = Random.Range(5, size - 5);
         Vector2 spawnPos;
-        spawnPos.x = height * 10;
-        spawnPos.y = width * 10;
+        spawnPos.x = spawnX * 10;
+        spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        max[width, height] = true;
-        max[width + 1, height] = true;
-        max[width - 1, height] = true;
-        roomCount += 1;
-        Invoke("Reload", 1.0f);
-    }
-    void Reload()
-    {
-        if(roomCount < 4)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
+        max[spawnX, spawnY] = true;
+        max[spawnX + 1, spawnY] = true;
+        max[spawnX - 1, spawnY] = true;
     }
     void Update()
     {
@@ -77,5 +51,12 @@ public class RoomTemplates : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+    void Reload()
+    {
+        /*if(roomCount < 4)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }*/
     }
 }

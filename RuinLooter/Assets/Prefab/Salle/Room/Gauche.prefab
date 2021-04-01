@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 492767729575352962}
   - component: {fileID: 4050252195131349174}
   - component: {fileID: 1653319183917169118}
+  - component: {fileID: -8802392196972821989}
   m_Layer: 0
   m_Name: Gauche
   m_TagString: Untagged
@@ -146,3 +147,24 @@ PolygonCollider2D:
       - {x: -5, y: -5}
       - {x: 5, y: -5}
       - {x: 4.9719377, y: -4.0361557}
+--- !u!50 &-8802392196972821989
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8663693576739782755}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

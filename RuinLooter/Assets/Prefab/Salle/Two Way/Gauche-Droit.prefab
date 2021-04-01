@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2433522620922338719}
   - component: {fileID: 6527905075395918919}
   - component: {fileID: 7450783426517561754}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 7450068039698990752}
   - component: {fileID: 5843191693591687513}
   - component: {fileID: 2482723712430549132}
+  - component: {fileID: 4388729395494783821}
   m_Layer: 0
   m_Name: Gauche-Droit
   m_TagString: Untagged
@@ -231,6 +232,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10, y: 2.7879124}
   m_EdgeRadius: 0
+--- !u!50 &4388729395494783821
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6410011065852880466}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8201690867510865578
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +265,7 @@ GameObject:
   - component: {fileID: 494770403361214916}
   - component: {fileID: 8945239683404052617}
   - component: {fileID: 4436596967874944485}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

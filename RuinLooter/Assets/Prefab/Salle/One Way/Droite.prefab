@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8133949330692750432}
   - component: {fileID: 3417808717697064107}
   - component: {fileID: 5587675345740772427}
+  - component: {fileID: -5541604732978942612}
   m_Layer: 0
   m_Name: Droite
   m_TagString: Untagged
@@ -117,6 +118,27 @@ PolygonCollider2D:
       - {x: -1.926177, y: 2.1987863}
       - {x: 4.935319, y: 2.2753804}
       - {x: 5, y: 5}
+--- !u!50 &-5541604732978942612
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4571606066005919674}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &5578432280126184580
 GameObject:
   m_ObjectHideFlags: 0
