@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int coin = 0;
     public int artefact = 0;
-    public int health;
+    public int health = 5;
     public string item;
     public enum GameState
     {

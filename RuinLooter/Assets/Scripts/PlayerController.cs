@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
                 return "Empty";
         }
     }
-    Item ItemSave(string item)
+    public Item ItemSave(string item)
     {
         switch (item)
         {
@@ -292,7 +292,7 @@ public class PlayerController : MonoBehaviour
         position.x = coorX;
         position.y = coorY;
         transform.position = position;
-        PV = 0;
+        PV = 5;//0;
         coin = 0;
         artefact = 0;
         slot = ItemSave(GameManager.Instance.item);

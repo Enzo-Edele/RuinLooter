@@ -8,6 +8,8 @@ public class ChestController : MonoBehaviour
     bool isOn = false;
     PlayerController player;
     Animator anim;
+    [SerializeField]
+    string cheat;
 
     float timeAnim = 0.8f;
     float timerAnim;
@@ -41,6 +43,10 @@ public class ChestController : MonoBehaviour
             if(player.slot == PlayerController.Item.Empty)
             {
                 player.ChestOpenning();
+                if (cheat != "")
+                {
+                    player.slot = player.ItemSave(cheat);
+                }
                 anim.SetTrigger("Openning");
                 isOpen = true;
                 timerAnim = timeAnim;

@@ -10,7 +10,9 @@ public class LaMontreController : MonoBehaviour
     bool popUpOn = false;
     bool canGoNextLevel = false;
     float timePopUp = 5.0f;
-    float timerPopUp;
+    float timerPopUp = 0;
+    float timeAnim = 3.7f;
+    float timerAnim = 0;
     public float x;
     public float y;
 
@@ -39,7 +41,7 @@ public class LaMontreController : MonoBehaviour
         {
             this.DisplayMessage();
         }
-        if (timerPopUp >= 0)
+        if (timerPopUp > 0)
         {
             timerPopUp -= Time.deltaTime;
         }
@@ -50,6 +52,14 @@ public class LaMontreController : MonoBehaviour
                 machineDialogue.SetActive(false);
             }
             popUpOn = false;
+        }
+        if (timerAnim > 0)
+        {
+            timerAnim -= Time.deltaTime;
+        }
+        else if(timerAnim < 0)
+        {
+            GameManager.Instance.NextLevel();
         }
     }
     void DisplayMessage()
@@ -84,7 +94,8 @@ public class LaMontreController : MonoBehaviour
         }
         else
         {
-            GameManager.Instance.NextLevel();
+            UIManager.Instance.LaunchEndLevelAnimation();
+            timerAnim = timeAnim;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
