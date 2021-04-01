@@ -8,15 +8,21 @@ public class RoomSpawner : MonoBehaviour
     RoomTemplates templates;
     List<GameObject> limit = new List<GameObject>();
     bool sansGauche = false;
-    bool sansDroite = false;
+    bool sansDroit = false;
     bool sansHaut = false;
     bool sansBas = false;
-    bool gauche = true;
-    bool droit = true;
-    bool haut = true;
-    bool bas = true;
+    bool gauche = false;
+    bool droit = false;
+    bool haut = false;
+    bool bas = false;
 
     Vector3 test;
+    string data;
+    string testD = "d";
+    string testG = "g";
+    string testH = "h";
+    string testB = "b";
+
     int rand;
     public bool isSpawn = false;
 
@@ -28,21 +34,21 @@ public class RoomSpawner : MonoBehaviour
     void Spawn()
     {
         test = this.transform.position;
-        if (isSpawn == false && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == false)
+        if (isSpawn == false && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == null)
         {
-            if (test.x + 10.0f >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] == true)
+            if (test.x + 10.0f >= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] != null)
             {
-                sansDroite = true;
+                sansDroit = true;
             }
-            if (test.x - 10.0f <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] == true)
+            if (test.x - 10.0f <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] != null)
             {
                 sansGauche = true;
             }
-            if (test.y + 10.0f>= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1] == true)
+            if (test.y + 10.0f>= RoomTemplates.Instance.size * 10 - 30.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1] != null)
             {
                 sansHaut = true;
             }
-            if (test.y - 10.0f <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1] == true)
+            if (test.y - 10.0f <= 20.0f || RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1] != null)
             {
                 sansBas = true;
             }
@@ -50,15 +56,15 @@ public class RoomSpawner : MonoBehaviour
             {
                 case 1:
                     //il faut une salle qui s'ouvrent depuis le bas
-                    if (sansDroite && sansGauche && sansHaut)
+                    if (sansDroit && sansGauche && sansHaut)
                     {
                         limit.Add(templates.bas);
                     }
-                    else if (sansDroite && sansGauche)
+                    else if (sansDroit && sansGauche)
                     {
                         limit.Add(templates.basHaut);
                     }
-                    else if (sansDroite && sansHaut)
+                    else if (sansDroit && sansHaut)
                     {
                         limit.Add(templates.gaucheBas);
                     }
@@ -66,7 +72,7 @@ public class RoomSpawner : MonoBehaviour
                     {
                         limit.Add(templates.basDroit);
                     }
-                    else if (sansDroite)
+                    else if (sansDroit)
                     {
                         limit.Add(templates.basHaut);
                         limit.Add(templates.gaucheBas);
@@ -94,15 +100,15 @@ public class RoomSpawner : MonoBehaviour
                     break;
                 case 2:
                     //il faut une salle qui s'ouvre depuis la gauche
-                    if (sansDroite && sansBas && sansHaut)
+                    if (sansDroit && sansBas && sansHaut)
                     {
                         limit.Add(templates.gauche);
                     }
-                    else if (sansDroite && sansBas)
+                    else if (sansDroit && sansBas)
                     {
                         limit.Add(templates.gaucheHaut);
                     }
-                    else if (sansDroite && sansHaut)
+                    else if (sansDroit && sansHaut)
                     {
                         limit.Add(templates.gaucheBas);
                     }
@@ -110,7 +116,7 @@ public class RoomSpawner : MonoBehaviour
                     {
                         limit.Add(templates.gaucheDroit);
                     }
-                    else if (sansDroite)
+                    else if (sansDroit)
                     {
                         limit.Add(templates.gaucheHaut);
                         limit.Add(templates.gaucheBas);
@@ -138,15 +144,15 @@ public class RoomSpawner : MonoBehaviour
                     break;
                 case 3:
                     //il faut une salle qui s'ouvre depuis le haut
-                    if (sansDroite && sansGauche && sansBas)
+                    if (sansDroit && sansGauche && sansBas)
                     {
                         limit.Add(templates.haut);
                     }
-                    else if (sansDroite && sansGauche)
+                    else if (sansDroit && sansGauche)
                     {
                         limit.Add(templates.basHaut);
                     }
-                    else if (sansDroite && sansBas)
+                    else if (sansDroit && sansBas)
                     {
                         limit.Add(templates.gaucheHaut);
                     }
@@ -154,7 +160,7 @@ public class RoomSpawner : MonoBehaviour
                     {
                         limit.Add(templates.hautDroit);
                     }
-                    else if (sansDroite)
+                    else if (sansDroit)
                     {
                         limit.Add(templates.basHaut);
                         limit.Add(templates.gaucheHaut);
@@ -227,96 +233,154 @@ public class RoomSpawner : MonoBehaviour
             }
             rand = Random.Range(0, limit.Count);
             Instantiate(limit[rand], transform.position, Quaternion.identity);
-            RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;
+            if(limit[rand] == templates.bas)
+            {
+                data = "b";
+            }
+            else if(limit[rand] == templates.haut)
+            {
+                data = "h";
+            }
+            else if (limit[rand] == templates.droit)
+            {
+                data = "d";
+            }
+            else if (limit[rand] == templates.gauche)
+            {
+                data = "g";
+            }
+            else if (limit[rand] == templates.gaucheBas)
+            {
+                data = "gb";
+            }
+            else if (limit[rand] == templates.gaucheDroit)
+            {
+                data = "gd";
+            }
+            else if (limit[rand] == templates.gaucheHaut)
+            {
+                data = "gh";
+            }
+            else if (limit[rand] == templates.basDroit)
+            {
+                data = "bd";
+            }
+            else if (limit[rand] == templates.basHaut)
+            {
+                data = "bh";
+            }
+            else if (limit[rand] == templates.hautDroit)
+            {
+                data = "hd";
+            }
+            else if (limit[rand] == templates.tBas)
+            {
+                data = "gbd";
+            }
+            else if (limit[rand] == templates.tHaut)
+            {
+                data = "ghd";
+            }
+            else if (limit[rand] == templates.tGauche)
+            {
+                data = "ghb";
+            }
+            else if (limit[rand] == templates.tDroit)
+            {
+                data = "dhb";
+            }
+            else if (limit[rand] == templates.x)
+            {
+                data = "hdbg";
+            }
+            RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = data;
             isSpawn = true;
         }   
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("spawn"))
+        test = this.transform.position;
+        if (collision.CompareTag("spawn"))
         {
-            if(collision.GetComponent<RoomSpawner>().isSpawn == false && isSpawn == false)
+            if (RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == null)
             {
-                RaycastHit2D up = Physics2D.Raycast(transform.position, Vector2.up, 6.0f);
-                RaycastHit2D down = Physics2D.Raycast(transform.position, Vector2.down, 6.0f);
-                RaycastHit2D left = Physics2D.Raycast(transform.position, Vector2.left, 6.0f);
-                RaycastHit2D right = Physics2D.Raycast(transform.position, Vector2.right, 6.0f);
-                /*if (up || transform.position.y > RoomTemplates.Instance.size * 10 - 30)
+                if (transform.position.y < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1] != null &&
+                        RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1].Contains(testB))
                 {
-                    haut = false;
-                    Debug.Log("Raycast haut");
+                    haut = true;
                 }
-                if (down || transform.position.y < 20.0f)
+                if (transform.position.y > 20.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1] != null &&
+                        RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1].Contains(testH))
                 {
-                    bas = false;
-                    Debug.Log("Raycast bas");
+                    bas = true;
                 }
-                if (left || transform.position.x < 20.0f)
+                if (transform.position.x > 20.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] != null &&
+                        RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10].Contains(testD))
                 {
-                    gauche = false;
-                    Debug.Log("Raycast gauche");
+                    gauche = true;
                 }
-                if (right || transform.position.x > RoomTemplates.Instance.size * 10 - 30)
+                if (transform.position.x < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] != null &&
+                        RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10].Contains(testG))
                 {
-                    droit = false;
-                    Debug.Log("Raycast droit");
+                    droit = true;
                 }
-
-                if(haut && bas && gauche && droit)
+                if (haut && bas && gauche && droit)
                 {
                     Instantiate(RoomTemplates.Instance.x, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hdbg";
                 }
                 if (haut && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tGauche, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hgb";
                 }
                 if (haut && bas && droit)
                 {
                     Instantiate(RoomTemplates.Instance.tDroit, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "dhb";
                 }
                 if (haut && droit && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tHaut, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "ghd";
                 }
                 if (droit && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tBas, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gbd";
                 }
                 if (haut && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basHaut, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "bh";
                 }
                 if (haut && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheHaut, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gh";
                 }
                 if (haut && droit)
                 {
                     Instantiate(RoomTemplates.Instance.hautDroit, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hd";
                 }
                 if (gauche && bas)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheBas, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gb";
                 }
                 if (gauche && droit)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheDroit, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gd";
                 }
                 if (droit && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basDroit, transform.position, Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "bd";
                 }
-                test = transform.position;
-                RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = true;*/
             }
             isSpawn = true;
         }
     }
-}
-public enum direction
-{
-    haut    = 1,
-    droite  = 2,
-    bas     = 3,
-    gauche  = 4,
 }

@@ -21,29 +21,29 @@ public class RoomTemplates : MonoBehaviour
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
 
     public int size;
-    public bool[,] max;
+    public string[,] max;
     int spawnX;
     int spawnY;
     private void Awake()
     {
         _instance = this;
-        max = new bool[size, size];
+        max = new string[size, size];
         for (int i = 0; i < size; i++)
         {
             for (int j = 0; j < size; j++)
             {
-                max[i, j] = false;
+                max[i, j] = null;
             }
         }
         spawnX = Random.Range(5, size - 5);
-        spawnY = Random.Range(5, size - 5);
+        spawnY = Random.Range(2, size - 2);
         Vector2 spawnPos;
         spawnPos.x = spawnX * 10;
         spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        max[spawnX, spawnY] = true;
-        max[spawnX + 1, spawnY] = true;
-        max[spawnX - 1, spawnY] = true;
+        max[spawnX, spawnY] = "gd";
+        max[spawnX + 1, spawnY] = "gd";
+        max[spawnX - 1, spawnY] = "gd";
     }
     void Update()
     {
