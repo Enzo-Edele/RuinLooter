@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6961494912859319488}
   - component: {fileID: 6420100118330086637}
+  - component: {fileID: 387312170956228866}
   - component: {fileID: 639732858159340280}
   - component: {fileID: 5433007379010319363}
   - component: {fileID: 164478655294004961}
@@ -371,6 +372,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &387312170956228866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3672167417305154560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8326b18d77a2f074f8f09d8720d174dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gousset: {fileID: 0}
+  spawnables:
+  - entity: {fileID: 8165929137186725301, guid: 5f8550fe604c13b49aa8b74d4fe00e7e, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: 1.5
+  - entity: {fileID: 2333458831478902541, guid: c63617c611e9bc74fbce829530ac08d2, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: -2
 --- !u!61 &639732858159340280
 BoxCollider2D:
   m_ObjectHideFlags: 0

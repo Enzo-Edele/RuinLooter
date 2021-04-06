@@ -104,6 +104,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8996110133665735861}
   - component: {fileID: 4095163521439235008}
+  - component: {fileID: 1289983582476780748}
   - component: {fileID: 6929751577180066668}
   - component: {fileID: 8897996482139638064}
   - component: {fileID: 8006582390061132326}
@@ -181,6 +182,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1289983582476780748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106872640254288952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8326b18d77a2f074f8f09d8720d174dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gousset: {fileID: 0}
+  spawnables:
+  - entity: {fileID: 8165929137186725301, guid: 5f8550fe604c13b49aa8b74d4fe00e7e, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: 1.5
+  - entity: {fileID: 2333458831478902541, guid: c63617c611e9bc74fbce829530ac08d2, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: -2
 --- !u!60 &6929751577180066668
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -292,6 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7445633274724311053}
   - component: {fileID: 3474120299642830516}
+  - component: {fileID: 6917908889763860487}
   - component: {fileID: 8478683500229143112}
   - component: {fileID: 791114631560382576}
   - component: {fileID: 8744925649113863014}
@@ -371,6 +372,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6917908889763860487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8120102288209504451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8326b18d77a2f074f8f09d8720d174dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gousset: {fileID: 7370835827466113284, guid: 5e444981dabeed24fb23d64d331d786d, type: 3}
+  spawnables:
+  - entity: {fileID: 8165929137186725301, guid: 5f8550fe604c13b49aa8b74d4fe00e7e, type: 3}
+    uneChanceSur: 6
+    xPos: -3.5
+    yPos: 1.5
+  - entity: {fileID: 2333458831478902541, guid: c63617c611e9bc74fbce829530ac08d2, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: -2
+  - entity: {fileID: 1531725292030187650, guid: c08b3192d5e4b56449bd0495b1cf1434, type: 3}
+    uneChanceSur: 6
+    xPos: 0
+    yPos: 0
+  - entity: {fileID: 8165929137186725301, guid: 5f8550fe604c13b49aa8b74d4fe00e7e, type: 3}
+    uneChanceSur: 6
+    xPos: 3.5
+    yPos: 1.5
+  - entity: {fileID: 8165929137186725301, guid: 5f8550fe604c13b49aa8b74d4fe00e7e, type: 3}
+    uneChanceSur: 6
+    xPos: -3.5
+    yPos: -2
 --- !u!61 &8478683500229143112
 BoxCollider2D:
   m_ObjectHideFlags: 0

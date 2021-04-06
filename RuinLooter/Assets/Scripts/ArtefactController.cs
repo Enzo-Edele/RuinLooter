@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class ArtefactController : MonoBehaviour
 {
+    [HideInInspector]
     public float x;
+    [HideInInspector]
     public float y;
     private void Start()
     {
@@ -18,7 +20,7 @@ public class ArtefactController : MonoBehaviour
         if (player != null)
         {
             player.ArtefactCollect(1);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 }
