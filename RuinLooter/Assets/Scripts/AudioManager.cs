@@ -20,7 +20,6 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Playsound(AudioClip audio, float volume, bool spatial, float distance)
