@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public AudioClip[] audios;
+    public List<AudioSource> audios = new List<AudioSource>();
     private static AudioManager _instance;
     public static AudioManager Instance
     {
@@ -25,15 +25,31 @@ public class AudioManager : MonoBehaviour
 
     public void Playsound(AudioClip audio, bool spatial, float distance)
     {
-        AudioSource Sound = gameObject.GetComponent<AudioSource>();
-        Sound.clip = audio;
-        if (spatial == true)
+        bool soundCreate = true;
+        for (int i = 0; i < audios.Count; i++)
         {
-            Sound.volume = 1 / distance;
+            if (audios[i] == null)
+            {
+                audios.Remove(audios[i]);
+            }
+            if (audios[i].clip == audio)
+            {
+                if (spatial == true)
+                {
+                    audios[i].volume = 1 / distance;
+                    Destroy(audios[i], audio.length);
+                }
+                soundCreate = false;
+            }
         }
-        if (Sound.isPlaying == false)
+
+        if (soundCreate == true)
         {
+            AudioSource Sound = gameObject.AddComponent<AudioSource>();
+            audios.Add(Sound);
+            Sound.clip = audio;
             Sound.PlayOneShot(audio, Sound.volume);
+            Destroy(Sound, audio.length);
         }
     }
 }
