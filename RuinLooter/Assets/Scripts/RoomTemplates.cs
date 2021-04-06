@@ -45,7 +45,7 @@ public class RoomTemplates : MonoBehaviour
         spawnPos.x = spawnX * 10;
         spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        spawnPos.x = spawnX;
+        spawnPos.x = spawnX - 20;
         spawnPos.y = spawnY;
         Instantiate(spawn, spawnPos, Quaternion.identity);
         max[spawnX, spawnY] = "gd";

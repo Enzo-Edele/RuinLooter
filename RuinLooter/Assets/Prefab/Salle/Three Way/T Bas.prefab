@@ -408,6 +408,10 @@ MonoBehaviour:
     uneChanceSur: 6
     xPos: -3.5
     yPos: -2
+  - entity: {fileID: 3390536550374359648, guid: 49621a5308f79bd4b894a2e70d8970d2, type: 3}
+    uneChanceSur: 2
+    xPos: 0
+    yPos: 0
 --- !u!61 &8478683500229143112
 BoxCollider2D:
   m_ObjectHideFlags: 0

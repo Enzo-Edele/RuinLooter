@@ -862,6 +862,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: coffre
       objectReference: {fileID: 0}
+    - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.73
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
 --- !u!1001 &1008126666558100517
