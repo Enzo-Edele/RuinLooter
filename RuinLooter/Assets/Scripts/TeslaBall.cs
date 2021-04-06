@@ -14,14 +14,5 @@ public class TeslaBall : Projectile
     public override void Launch(Vector2 direction, float force)
     {
         rigidbody2d.AddForce(direction * force);
-        if (transform.position.magnitude > 30)
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    public void Destroy(GameObject go)
-    {
-        Destroy(go);
     }
 }
