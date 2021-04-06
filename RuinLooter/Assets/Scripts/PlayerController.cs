@@ -188,7 +188,7 @@ public class PlayerController : MonoBehaviour
         }
         UIManager.Instance.UpdateSlot(ItemInSlot());
     }
-    string ItemInSlot()
+    public string ItemInSlot()
     {
         switch(slot)
         {

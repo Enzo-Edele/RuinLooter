@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public int coin;
     public int artefact;
-    public int health = 5;
+    public int health;
     public string item;
     public enum GameState
     {
@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         coin = 0;
         artefact = 0;
         item = "Empty";
-        Time.timeScale = 0.1f;
+        Time.timeScale = 0.0f;
         SceneManager.LoadScene("main");
     }
     void InGame()

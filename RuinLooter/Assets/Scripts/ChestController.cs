@@ -46,6 +46,7 @@ public class ChestController : MonoBehaviour
                 if (cheat != "")
                 {
                     player.slot = player.ItemSave(cheat);
+                    UIManager.Instance.UpdateSlot(player.ItemInSlot());
                 }
                 anim.SetTrigger("Openning");
                 isOpen = true;

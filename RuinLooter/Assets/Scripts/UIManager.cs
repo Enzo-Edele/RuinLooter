@@ -241,7 +241,14 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateLevel()
     {
-        Level.text = "Level : " + (SceneManager.GetActiveScene().buildIndex - 1);
+        if (SceneManager.GetActiveScene().buildIndex == 17)
+        {
+            Level.text = "Level : Tuto";
+        }
+        else
+        {
+            Level.text = "Level : " + (SceneManager.GetActiveScene().buildIndex - 1);
+        }
     }
     public void Full()
     {

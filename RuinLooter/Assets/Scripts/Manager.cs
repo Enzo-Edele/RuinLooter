@@ -8,6 +8,6 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        //UIManager.Instance.MainMenuButton();
+        UIManager.Instance.MainMenuButton();
     }
 }
