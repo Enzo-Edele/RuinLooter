@@ -71,6 +71,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject menuScreen;
     [SerializeField]
+    GameObject loadScreen;
+    [SerializeField]
     GameObject deathScreen;
     [SerializeField]
     GameObject victoryScreen;
@@ -276,6 +278,17 @@ public class UIManager : MonoBehaviour
             menuScreen.SetActive(false);
         }
     }
+    public void ActiveLoad()
+    {
+        loadScreen.SetActive(true);
+    }
+    public void DeactivateLoad()
+    {
+        if (loadScreen != null)
+        {
+            loadScreen.SetActive(false);
+        }
+    }
     public void ActiveMainMenu()
     {
         mainMenu.SetActive(true);
@@ -424,6 +437,7 @@ public class UIManager : MonoBehaviour
             anim2.x = anim1.x + 8;
             anim3.x = anim1.x + 22;
             anim4.x = anim1.x + 28;
+            this.DeactivateLoad();
             animArtefact.SetActive(false);
         }
         artAnimArmature.transform.position = anim1;

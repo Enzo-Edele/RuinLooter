@@ -11,7 +11,7 @@ public class LaMontreController : MonoBehaviour
     bool canGoNextLevel = false;
     float timePopUp = 5.0f;
     float timerPopUp = 0;
-    float timeAnim = 3.7f;
+    float timeAnim = 2.0f;//3.7f;
     float timerAnim = 0;
     public float x;
     public float y;
@@ -60,6 +60,7 @@ public class LaMontreController : MonoBehaviour
         else if(timerAnim < 0)
         {
             GameManager.Instance.NextLevel();
+            UIManager.Instance.ActiveLoad();
         }
     }
     void DisplayMessage()
