@@ -87,12 +87,14 @@ public class GameManager : MonoBehaviour
     {
         UIManager.Instance.DeathUI();
         UIManager.Instance.Deactivate();
+        SceneManager.LoadScene(18);
         InputManager.Instance.pause = true;
         AudioManager.Instance.StopSound();
     }
     void Victory()
     {
         UIManager.Instance.VictoryUI();
+        SceneManager.LoadScene(18);
         InputManager.Instance.pause = true;
     }
     public void UpdateHealth(int change)
