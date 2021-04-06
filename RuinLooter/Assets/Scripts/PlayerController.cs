@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool isCrouching = false;
     public int scenePlayer;
+    public AudioClip ambianceSound;
+    public AudioClip music;
 
     public int artefact = 0;
     int coin = 0;
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         Shield
     }
     public Item slot = Item.Empty;
+
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        AudioManager.Instance.Playsound(ambianceSound, false, 0);
         /*
         if(Input.GetKeyDown("p"))
         {

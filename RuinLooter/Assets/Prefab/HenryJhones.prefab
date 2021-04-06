@@ -103,6 +103,8 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   anim: {fileID: 0}
   scenePlayer: 0
+  ambianceSound: {fileID: 8300000, guid: 779ef1e59a82ca64da8c1d08c2a376d8, type: 3}
+  music: {fileID: 0}
   artefact: 0
   isCloak: 0
   isOnLadder: 0

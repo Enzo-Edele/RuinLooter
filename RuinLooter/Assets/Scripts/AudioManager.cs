@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    private float soundVolume;
-    private float soundDistance;
-    public AudioSource Sound;
-
     private static AudioManager _instance;
     public static AudioManager Instance
     {
@@ -23,23 +19,19 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
-        soundVolume = Sound.volume;
     }
 
-    public void Playsound(AudioClip audio)
+    public void Playsound(AudioClip audio, bool spatial, float distance)
     {
-        Sound.PlayOneShot (audio, 1);
-        Sound.Play();
-    }
-
-    public void SpacialSound(AudioClip audio, float distance)
-    {
+        AudioSource Sound = gameObject.GetComponent<AudioSource>();
         Sound.clip = audio;
-        soundDistance = soundVolume / distance;
-        Sound.volume = soundDistance;
-        if (soundDistance < soundVolume / 100)
+        if (spatial == true)
         {
-            Sound.volume = 0;
+            Sound.volume = 1 / distance;
+        }
+        if (Sound.isPlaying == false)
+        {
+            Sound.PlayOneShot(audio, Sound.volume);
         }
     }
 }

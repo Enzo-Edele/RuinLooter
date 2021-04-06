@@ -9,11 +9,12 @@ public class Robot : MonoBehaviour
     private Transform player;
     public float agroRange;
     private float spawnPoint;
-    public float speed = 0.005f;
-    private float speedagro;
-    public float distance = 4f;
+    public float defaultSpeed = 0.005f;
+    private float speed;
     public float agroSpeed = 1.2f;
+    public float distance = 4f;
     private float defaultSize;
+    public AudioClip bip;
 
     private void Awake()
     {
@@ -23,45 +24,47 @@ public class Robot : MonoBehaviour
     void Start()
     {
         spawnPoint = transform.position.x;
-        speedagro = speed;
+        speed = defaultSpeed;
         defaultSize = transform.localScale.x;
     }
 
     void Update()
     {
-        speed *= Time.timeScale;
-        Vector3 robotScale = transform.localScale;
-        transform.position = new Vector3(transform.position.x - speed, transform.position.y, transform.position.z);
-
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-
-        if (distToPlayer < agroRange)
+        //AudioManager.Instance.Playsound(bip, true, distToPlayer);
+        if (transform.position.x.ToString("0000.00") != player.transform.position.x.ToString("0000.00"))
         {
-            if (transform.position.x < player.position.x)
+            Vector3 robotScale = transform.localScale;
+            transform.position = new Vector3(transform.position.x - speed * Time.timeScale, transform.position.y, transform.position.z);
+
+            if (distToPlayer <= agroRange)
             {
-                robotScale.x = -defaultSize;
-                speed = -speedagro * agroSpeed;
-            }
-            else
-            {
-                robotScale.x = defaultSize;
-                speed = speedagro * agroSpeed;
+                if (transform.position.x < player.position.x)
+                {
+                    robotScale.x = -defaultSize;
+                    speed = -defaultSpeed * agroSpeed;
+                }
+                else
+                {
+                    robotScale.x = defaultSize;
+                    speed = defaultSpeed * agroSpeed;
+                }
             }
 
-            transform.localScale = robotScale;
-        }
-
-        else if (transform.position.x < spawnPoint - distance || transform.position.x > spawnPoint + distance)
-        {
-            spawnPoint = transform.position.x;
-            speed = speed * -1;
-            if (speed < 0)
+            else 
             {
-                robotScale.x = -defaultSize;
-            }
-            else
-            {
-                robotScale.x = defaultSize;
+                if (transform.position.x < spawnPoint - distance)
+                {
+                    spawnPoint = transform.position.x;
+                    robotScale.x = -defaultSize;
+                    speed = -defaultSpeed;
+                }
+                else if (transform.position.x > spawnPoint + distance)
+                {
+                    spawnPoint = transform.position.x;
+                    robotScale.x = defaultSize;
+                    speed = defaultSpeed;
+                }
             }
 
             transform.localScale = robotScale;
