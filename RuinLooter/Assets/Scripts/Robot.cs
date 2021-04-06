@@ -31,7 +31,6 @@ public class Robot : MonoBehaviour
     void Update()
     {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        //AudioManager.Instance.Playsound(bip, true, distToPlayer);
         if (transform.position.x.ToString("0000.00") != player.transform.position.x.ToString("0000.00"))
         {
             Vector3 robotScale = transform.localScale;
@@ -39,6 +38,7 @@ public class Robot : MonoBehaviour
 
             if (distToPlayer <= agroRange)
             {
+                AudioManager.Instance.Playsound(bip, 0.2f);
                 if (transform.position.x < player.position.x)
                 {
                     robotScale.x = -defaultSize;

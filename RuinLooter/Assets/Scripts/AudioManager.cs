@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
         _instance = this;
     }
 
-    public void Playsound(AudioClip audio, float volume, bool spatial, float distance)
+    public void Playsound(AudioClip audio, float volume)
     {
         bool soundCreate = true;
         for (int i = 0; i < audios.Count; i++)
@@ -31,13 +31,11 @@ public class AudioManager : MonoBehaviour
             {
                 audios.Remove(audios[i]);
             }
+        }
+        for (int i = 0; i < audios.Count; i++)
+        {
             if (audios[i].clip == audio)
             {
-                if (spatial == true)
-                {
-                    audios[i].volume = volume / distance;
-                    Destroy(audios[i], audio.length);
-                }
                 soundCreate = false;
             }
         }
@@ -47,7 +45,8 @@ public class AudioManager : MonoBehaviour
             AudioSource Sound = gameObject.AddComponent<AudioSource>();
             audios.Add(Sound);
             Sound.clip = audio;
-            Sound.PlayOneShot(audio, volume);
+            Sound.volume = volume;
+            Sound.PlayOneShot(audio);
             Destroy(Sound, audio.length);
         }
     }

@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        AudioManager.Instance.Playsound(ambianceSound, 0.2f, false, 0);
+        AudioManager.Instance.Playsound(ambianceSound, 0.2f);
         if (Input.GetKeyDown("m"))
         {
             this.Damage(-1);
