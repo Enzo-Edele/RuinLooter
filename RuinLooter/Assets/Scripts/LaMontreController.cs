@@ -59,8 +59,8 @@ public class LaMontreController : MonoBehaviour
         }
         else if(timerAnim < 0)
         {
-            GameManager.Instance.NextLevel();
             UIManager.Instance.ActiveLoad();
+            GameManager.Instance.NextLevel();
         }
     }
     void DisplayMessage()
