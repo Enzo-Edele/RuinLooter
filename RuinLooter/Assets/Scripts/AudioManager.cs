@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    public AudioClip[] audios;
     private static AudioManager _instance;
     public static AudioManager Instance
     {
@@ -19,6 +20,7 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        DontDestroyOnLoad(this.gameObject);
     }
 
     public void Playsound(AudioClip audio, bool spatial, float distance)

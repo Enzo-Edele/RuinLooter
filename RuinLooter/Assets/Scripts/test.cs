@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class test : MonoBehaviour
 {
-    // Start is called before the first frame update
+    GameObject objToSpawn;
     void Start()
     {
-        
+        objToSpawn = new GameObject("Cool GameObject made from Code");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
