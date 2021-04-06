@@ -67,6 +67,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject pauseMenu;
     [SerializeField]
+    GameObject endMenu;
+    [SerializeField]
     GameObject menuScreen;
     [SerializeField]
     GameObject deathScreen;
@@ -249,10 +251,12 @@ public class UIManager : MonoBehaviour
     public void DeathUI()
     {
         deathScreen.SetActive(true);
+        endMenu.SetActive(true);
     }
     public void VictoryUI()
     {
         victoryScreen.SetActive(true);
+        endMenu.SetActive(true);
     }
     public void ActiveMenuScreen()
     {
@@ -285,6 +289,18 @@ public class UIManager : MonoBehaviour
         if (pauseMenu != null)
         {
             pauseMenu.SetActive(false);
+        }
+        if (endMenu != null)
+        {
+            endMenu.SetActive(false);
+        }
+        if(victoryScreen != null)
+        {
+            victoryScreen.SetActive(false);
+        }
+        if(deathScreen != null)
+        {
+            deathScreen.SetActive(false);
         }
     }
     public void ResumeButton()
@@ -336,6 +352,8 @@ public class UIManager : MonoBehaviour
         Vector2 anim2 = artAnimGear.transform.position;
         Vector2 anim3 = artAnimCadran.transform.position;
         Vector2 anim4 = artAnimAiguilles.transform.position;
+        Debug.Log(anim1.x);
+        Debug.Log(anim1.y);
         if (premierePhase)
         {
             if (anim1.x < 1285)
@@ -393,7 +411,19 @@ public class UIManager : MonoBehaviour
         {
             InputManager.Instance.pause = false;
             endLevel = false;
+            Vector2 posInitial = new Vector2(960, 190);
+            anim1 = posInitial;
+            anim2 = posInitial;
+            anim3 = posInitial;
+            anim4 = posInitial;
+            anim2.x = anim1.x + 8;
+            anim3.x = anim1.x + 22;
+            anim4.x = anim1.x + 28;
             animArtefact.SetActive(false);
         }
+        artAnimArmature.transform.position = anim1;
+        artAnimGear.transform.position = anim2;
+        artAnimCadran.transform.position = anim3;
+        artAnimAiguilles.transform.position = anim4;
     }
 }

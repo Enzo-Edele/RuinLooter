@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public int coin = 0;
-    public int artefact = 0;
-    public int health = 5;
+    public int coin;
+    public int artefact;
+    public int health;
     public string item;
     public enum GameState
     {
@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
         coin = 0;
         artefact = 0;
         item = "Empty";
+        Time.timeScale = 0.1f;
         SceneManager.LoadScene("main");
     }
     void InGame()
