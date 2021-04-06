@@ -6,6 +6,7 @@ public class Tesla : Trap
 {
     private Transform player;
     public AudioClip shootSound;
+    public AudioClip charge;
 
     private float playerX;
     private float playerY;
@@ -29,8 +30,8 @@ public class Tesla : Trap
 
     private void Start()
     {
-        teslaX = gameObject.transform.position.x;
-        teslaY = gameObject.transform.position.y;
+        teslaX = this.gameObject.transform.position.x;
+        teslaY = this.gameObject.transform.position.y;
 
         teslaPosition = new Vector2(teslaX, teslaY);
         defaultTeslaBallSpeed = teslaBallSpeed;
@@ -40,7 +41,7 @@ public class Tesla : Trap
 
     public override void LaunchProjectile()
     {
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
+        float distToPlayer = Vector2.Distance(this.transform.position, player.position);
         teslaBallSpeed = teslaBallSpeed / distToPlayer;
 
         if (shoot == true && distToPlayer < agroRange && distToPlayer > 3)
@@ -50,8 +51,8 @@ public class Tesla : Trap
 
             playerPosition = new Vector2(playerX, playerY);
 
-            teslaX = gameObject.transform.position.x;
-            teslaY = gameObject.transform.position.y;
+            teslaX = this.gameObject.transform.position.x;
+            teslaY = this.gameObject.transform.position.y;
 
             teslaPosition = new Vector2(teslaX, teslaY);
 
