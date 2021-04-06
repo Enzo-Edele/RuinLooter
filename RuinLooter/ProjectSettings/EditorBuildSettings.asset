@@ -59,4 +59,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/tuto.unity
     guid: 5d5187c19cd33224cbebde155a909c5c
+  - enabled: 1
+    path: Assets/Scenes/death.unity
+    guid: 1e52cb499c062f64d9d578c362b0c76b
   m_configObjects: {}

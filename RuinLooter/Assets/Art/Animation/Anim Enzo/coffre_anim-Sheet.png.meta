@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: b38778a10c108a347836c1dc7b7bf20a
+guid: ec11c78e14e60114388e1484adbe9d66
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3016459375819719682
-    second: coffre anim_0
+      213: 6130194073022331649
+    second: coffre_anim-Sheet_0
   - first:
-      213: 5524576088688394004
-    second: coffre anim_1
+      213: -2107796897943620844
+    second: coffre_anim-Sheet_1
   - first:
-      213: 1345361506761065201
-    second: coffre anim_2
+      213: 4206725537272850824
+    second: coffre_anim-Sheet_2
   - first:
-      213: 911031030585616017
-    second: coffre anim_3
+      213: 1828204505709330930
+    second: coffre_anim-Sheet_3
+  - first:
+      213: -1214604835279966388
+    second: coffre_anim-Sheet_4
+  - first:
+      213: -4174598481287800346
+    second: coffre_anim-Sheet_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -103,55 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: coffre anim_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 50
-        width: 75
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: efb7ed8fd226326d0800000000000000
-      internalID: -3016459375819719682
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: coffre anim_1
-      rect:
-        serializedVersion: 2
-        x: 75
-        y: 50
-        width: 75
-        height: 50
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 41f73e4aeac3bac40800000000000000
-      internalID: 5524576088688394004
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: coffre anim_2
+      name: coffre_anim-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 75
-        height: 50
+        width: 250
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f24af0992faba210800000000000000
-      internalID: 1345361506761065201
+      spriteID: 10b73beb703d21550800000000000000
+      internalID: 6130194073022331649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: coffre anim_3
+      name: coffre_anim-Sheet_1
       rect:
         serializedVersion: 2
-        x: 75
+        x: 250
         y: 0
-        width: 75
-        height: 50
+        width: 250
+        height: 200
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -180,8 +144,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 196e96d35e1a4ac00800000000000000
-      internalID: 911031030585616017
+      spriteID: 413766f83e99fb2e0800000000000000
+      internalID: -2107796897943620844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffre_anim-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 250
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88966b4869a416a30800000000000000
+      internalID: 4206725537272850824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffre_anim-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0
+        width: 250
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1c29bcf461f5910800000000000000
+      internalID: 1828204505709330930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffre_anim-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 250
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f6aaa665bd42fe0800000000000000
+      internalID: -1214604835279966388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: coffre_anim-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 0
+        width: 250
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e994fa9cc8d016c0800000000000000
+      internalID: -4174598481287800346
       vertices: []
       indices: 
       edges: []

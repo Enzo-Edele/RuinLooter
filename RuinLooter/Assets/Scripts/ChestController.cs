@@ -10,10 +10,6 @@ public class ChestController : MonoBehaviour
     Animator anim;
     [SerializeField]
     string cheat;
-
-    float timeAnim = 0.8f;
-    float timerAnim;
-    bool isMove = false;
     private void Start()
     {
         anim = GetComponent<Animator>();
@@ -23,17 +19,6 @@ public class ChestController : MonoBehaviour
         if(Input.GetKeyDown("e") && !isOpen && isOn)
         {
             this.Openning();
-        }
-        if(timerAnim > 0)
-        {
-            timerAnim -= Time.deltaTime;
-        }
-        if(timerAnim < 0 && !isMove)
-        {
-            Vector2 position = transform.position;
-            position.y += 0.23f;
-            transform.position = position;
-            isMove = true;
         }
     }
     void Openning()
@@ -50,7 +35,9 @@ public class ChestController : MonoBehaviour
                 }
                 anim.SetTrigger("Openning");
                 isOpen = true;
-                timerAnim = timeAnim;
+                Vector2 position = transform.position;
+                position.y += 0.23f;
+                transform.position = position;
             }
             else
             {
