@@ -352,8 +352,6 @@ public class UIManager : MonoBehaviour
         Vector2 anim2 = artAnimGear.transform.position;
         Vector2 anim3 = artAnimCadran.transform.position;
         Vector2 anim4 = artAnimAiguilles.transform.position;
-        Debug.Log(anim1.x);
-        Debug.Log(anim1.y);
         if (premierePhase)
         {
             if (anim1.x < 1285)
