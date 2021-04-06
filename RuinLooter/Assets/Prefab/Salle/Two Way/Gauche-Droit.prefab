@@ -200,8 +200,12 @@ MonoBehaviour:
     uneChanceSur: 3
     xPos: 0
     yPos: -1.7
-  - entity: {fileID: 1531725292030187650, guid: c08b3192d5e4b56449bd0495b1cf1434, type: 3}
-    uneChanceSur: 6
+  - entity: {fileID: 9024552632300522415, guid: 001c9ce765bc3c944b7008038ac469f6, type: 3}
+    uneChanceSur: 3
+    xPos: 0
+    yPos: -1
+  - entity: {fileID: 3390536550374359648, guid: 49621a5308f79bd4b894a2e70d8970d2, type: 3}
+    uneChanceSur: 2
     xPos: 0
     yPos: 0
 --- !u!61 &5843191693591687513

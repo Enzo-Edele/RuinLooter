@@ -10,7 +10,7 @@ public class EntitySpawn : MonoBehaviour
     Vector2 entityPos;
     void Awake()
     {
-        artefact = Random.Range(0, 10);
+        artefact = Random.Range(0, 5);
         if (gousset != null && artefact == 0 && RoomTemplates.Instance.artefactCount < 3)
         {
             Instantiate(gousset, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
