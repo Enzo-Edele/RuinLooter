@@ -17,16 +17,20 @@ public class RoomTemplates : MonoBehaviour
             return _instance;
         }
     }
-    public GameObject start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
+    public GameObject remplis, start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
+    public GameObject spawn, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite;
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
 
     public int size;
     public string[,] max;
+    [HideInInspector]
+    public int artefactCount;
     int spawnX;
     int spawnY;
     private void Awake()
     {
         _instance = this;
+        artefactCount = 0;
         max = new string[size, size];
         for (int i = 0; i < size; i++)
         {
@@ -41,9 +45,14 @@ public class RoomTemplates : MonoBehaviour
         spawnPos.x = spawnX * 10;
         spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
+        spawnPos.x = spawnX;
+        spawnPos.y = spawnY;
+        Instantiate(spawn, spawnPos, Quaternion.identity);
         max[spawnX, spawnY] = "gd";
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
+        Invoke("Reload", 1.0f);
+
     }
     void Update()
     {
@@ -54,9 +63,19 @@ public class RoomTemplates : MonoBehaviour
     }
     void Reload()
     {
-        /*if(roomCount < 4)
+        if(artefactCount < 3)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }*/
+        }
+        for(int i = 0; i < size; i++)
+        {
+            for(int j = 0; j < size; j++)
+            {
+                if(max[i,j] == null)
+                {
+                    Instantiate(remplis, new Vector2(i * 10, j * 10), Quaternion.identity);
+                }
+            }
+        }
     }
 }

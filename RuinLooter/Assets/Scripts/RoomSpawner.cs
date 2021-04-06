@@ -7,6 +7,7 @@ public class RoomSpawner : MonoBehaviour
     public int direction;
     RoomTemplates templates;
     List<GameObject> limit = new List<GameObject>();
+    GameObject minimap;
     bool sansGauche = false;
     bool sansDroit = false;
     bool sansHaut = false;
@@ -236,148 +237,178 @@ public class RoomSpawner : MonoBehaviour
             if(limit[rand] == templates.bas)
             {
                 data = "b";
+                minimap = templates.b;
             }
             else if(limit[rand] == templates.haut)
             {
                 data = "h";
+                minimap = templates.h;
             }
             else if (limit[rand] == templates.droit)
             {
                 data = "d";
+                minimap = templates.d;
             }
             else if (limit[rand] == templates.gauche)
             {
                 data = "g";
+                minimap = templates.g;
             }
             else if (limit[rand] == templates.gaucheBas)
             {
                 data = "gb";
+                minimap = templates.gb;
             }
             else if (limit[rand] == templates.gaucheDroit)
             {
                 data = "gd";
+                minimap = templates.gd;
             }
             else if (limit[rand] == templates.gaucheHaut)
             {
                 data = "gh";
+                minimap = templates.gh;
             }
             else if (limit[rand] == templates.basDroit)
             {
                 data = "bd";
+                minimap = templates.bd;
             }
             else if (limit[rand] == templates.basHaut)
             {
                 data = "bh";
+                minimap = templates.bh;
             }
             else if (limit[rand] == templates.hautDroit)
             {
                 data = "hd";
+                minimap = templates.hd;
             }
             else if (limit[rand] == templates.tBas)
             {
                 data = "gbd";
+                minimap = templates.tb;
             }
             else if (limit[rand] == templates.tHaut)
             {
                 data = "ghd";
+                minimap = templates.th;
             }
             else if (limit[rand] == templates.tGauche)
             {
                 data = "ghb";
+                minimap = templates.tg;
             }
             else if (limit[rand] == templates.tDroit)
             {
                 data = "dhb";
+                minimap = templates.td;
             }
             else if (limit[rand] == templates.x)
             {
                 data = "hdbg";
+                minimap = templates.xSprite;
             }
-            RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = data;
+            test.x = (int)this.transform.position.x / 10;
+            test.y = (int)this.transform.position.y / 10;
+            Instantiate(minimap, test, Quaternion.identity);
+            RoomTemplates.Instance.max[(int)test.x, (int)test.y] = data;
             isSpawn = true;
         }   
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        test = this.transform.position;
+        test.x = (int)this.transform.position.x / 10;
+        test.y = (int)this.transform.position.y / 10;
         if (collision.CompareTag("spawn"))
         {
-            if (RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] == null)
+            if (RoomTemplates.Instance.max[(int)test.x, (int)test.y] == null)
             {
-                if (transform.position.y < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1] != null &&
-                        RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 + 1].Contains(testB))
+                if (transform.position.y < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x, (int)test.y + 1] != null &&
+                        RoomTemplates.Instance.max[(int)test.x, (int)test.y + 1].Contains(testB))
                 {
                     haut = true;
                 }
-                if (transform.position.y > 20.0f && RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1] != null &&
-                        RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10 - 1].Contains(testH))
+                if (transform.position.y > 20.0f && RoomTemplates.Instance.max[(int)test.x, (int)test.y - 1] != null &&
+                        RoomTemplates.Instance.max[(int)test.x, (int)test.y - 1].Contains(testH))
                 {
                     bas = true;
                 }
-                if (transform.position.x > 20.0f && RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10] != null &&
-                        RoomTemplates.Instance.max[(int)test.x / 10 - 1, (int)test.y / 10].Contains(testD))
+                if (transform.position.x > 20.0f && RoomTemplates.Instance.max[(int)test.x - 1, (int)test.y] != null &&
+                        RoomTemplates.Instance.max[(int)test.x - 1, (int)test.y].Contains(testD))
                 {
                     gauche = true;
                 }
-                if (transform.position.x < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10] != null &&
-                        RoomTemplates.Instance.max[(int)test.x / 10 + 1, (int)test.y / 10].Contains(testG))
+                if (transform.position.x < RoomTemplates.Instance.size * 10 - 30 && RoomTemplates.Instance.max[(int)test.x + 1, (int)test.y] != null &&
+                        RoomTemplates.Instance.max[(int)test.x + 1, (int)test.y].Contains(testG))
                 {
                     droit = true;
                 }
                 if (haut && bas && gauche && droit)
                 {
                     Instantiate(RoomTemplates.Instance.x, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hdbg";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "hdbg";
+                    Instantiate(templates.xSprite, test, Quaternion.identity);
                 }
-                if (haut && bas && gauche)
+                else if (haut && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tGauche, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hgb";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "hgb";
+                    Instantiate(templates.tg, test, Quaternion.identity);
                 }
-                if (haut && bas && droit)
+                else if (haut && bas && droit)
                 {
                     Instantiate(RoomTemplates.Instance.tDroit, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "dhb";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "dhb";
+                    Instantiate(templates.td, test, Quaternion.identity);
                 }
-                if (haut && droit && gauche)
+                else if (haut && droit && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tHaut, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "ghd";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "ghd";
+                    Instantiate(templates.th, test, Quaternion.identity);
                 }
-                if (droit && bas && gauche)
+                else if (droit && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tBas, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gbd";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "gbd";
+                    Instantiate(templates.tb, test, Quaternion.identity);
                 }
-                if (haut && bas)
+                else if (haut && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basHaut, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "bh";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "bh";
+                    Instantiate(templates.bh, test, Quaternion.identity);
                 }
-                if (haut && gauche)
+                else if (haut && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheHaut, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gh";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "gh";
+                    Instantiate(templates.gh, test, Quaternion.identity);
                 }
-                if (haut && droit)
+                else if (haut && droit)
                 {
                     Instantiate(RoomTemplates.Instance.hautDroit, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "hd";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "hd";
+                    Instantiate(templates.hd, test, Quaternion.identity);
                 }
-                if (gauche && bas)
+                else if (gauche && bas)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheBas, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gb";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "gb";
+                    Instantiate(templates.gb, test, Quaternion.identity);
                 }
-                if (gauche && droit)
+                else if (gauche && droit)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheDroit, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "gd";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "gd";
+                    Instantiate(templates.gd, test, Quaternion.identity);
                 }
-                if (droit && bas)
+                else if (droit && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basDroit, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)test.x / 10, (int)test.y / 10] = "bd";
+                    RoomTemplates.Instance.max[(int)test.x, (int)test.y] = "bd";
+                    Instantiate(templates.bd, test, Quaternion.identity);
                 }
             }
             isSpawn = true;
