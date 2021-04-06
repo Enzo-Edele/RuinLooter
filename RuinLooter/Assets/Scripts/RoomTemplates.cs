@@ -17,6 +17,7 @@ public class RoomTemplates : MonoBehaviour
             return _instance;
         }
     }
+    public float speed;
     public GameObject remplis, start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
     public GameObject spawn, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite;
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
@@ -51,7 +52,7 @@ public class RoomTemplates : MonoBehaviour
         max[spawnX, spawnY] = "gd";
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
-        Invoke("Reload", 1.0f);
+        Invoke("Reload", speed * 30);
 
     }
     void Update()

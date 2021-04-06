@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3210b4447fb4f4c4196901fef60f3f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.025
   remplis: {fileID: 5840086232261849028, guid: 229bf2ddd654f8043a7283c8aae039fe, type: 3}
   start: {fileID: 5570548336195935657, guid: 9e07d214abbd7de44b9a08704938ebf7, type: 3}
   gauche: {fileID: 5290507607090983114, guid: baaab3b6bf41b4f4bb9dec93606e94ea, type: 3}
@@ -108,5 +109,5 @@ MonoBehaviour:
   - {fileID: 5210495791416541853, guid: ca88aa3b084a4f3428425147c9bfe407, type: 3}
   - {fileID: 7796860284196743558, guid: bdfd6f1a49e96c84695acc21c50a516c, type: 3}
   - {fileID: 8120102288209504451, guid: efc19923ccc7e194ebe1e36a5f72bc9e, type: 3}
-  size: 15
+  size: 11
   artefactCount: 0
