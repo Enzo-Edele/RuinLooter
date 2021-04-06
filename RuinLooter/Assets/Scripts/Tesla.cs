@@ -42,7 +42,7 @@ public class Tesla : Trap
     public override void LaunchProjectile()
     {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        AudioManager.Instance.Playsound(charge, true, distToPlayer);
+        AudioManager.Instance.Playsound(charge, 1, true, distToPlayer);
         teslaBallSpeed = teslaBallSpeed / distToPlayer;
 
         if (shoot == true && distToPlayer < agroRange && distToPlayer > 3)
@@ -62,7 +62,7 @@ public class Tesla : Trap
             GameObject projectileObject = Instantiate(projectilePrefab, spawn + Vector3.up * 0.5f, Quaternion.identity);
             TeslaBall projectile = projectileObject.GetComponent<TeslaBall>();
             projectile.Launch(dir, teslaBallSpeed);
-            AudioManager.Instance.Playsound(shootSound, true, distToPlayer);
+            AudioManager.Instance.Playsound(shootSound, 0.2f, false, distToPlayer);
         }
 
         teslaBallSpeed = defaultTeslaBallSpeed;

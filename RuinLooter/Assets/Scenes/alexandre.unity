@@ -731,7 +731,7 @@ Transform:
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2013964487
 BoxCollider2D:
@@ -885,7 +885,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2333458831478902528, guid: c63617c611e9bc74fbce829530ac08d2, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2333458831478902528, guid: c63617c611e9bc74fbce829530ac08d2, type: 3}
       propertyPath: m_LocalPosition.x
