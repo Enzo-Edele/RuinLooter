@@ -51,4 +51,12 @@ public class AudioManager : MonoBehaviour
             Destroy(Sound, audio.length);
         }
     }
+
+    public void StopSound()
+    {
+        for (int i = 0; i < audios.Count; i++)
+        {
+            Destroy(audios[i]);
+        }
+    }
 }

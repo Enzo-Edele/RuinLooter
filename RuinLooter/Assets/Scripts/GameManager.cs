@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.DeathUI();
         UIManager.Instance.Deactivate();
         InputManager.Instance.pause = true;
+        AudioManager.Instance.StopSound();
     }
     void Victory()
     {

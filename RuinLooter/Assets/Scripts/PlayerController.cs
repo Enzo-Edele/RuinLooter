@@ -154,12 +154,14 @@ public class PlayerController : MonoBehaviour
     void Crouch()
     {
         Vector2 box = bc2d.size;
+        speed /= 2;
         box.y -= box.y / 2;
         bc2d.size = box;
     }
     void UnCrouch()
     {
         Vector2 box = bc2d.size;
+        speed *= 2;
         box.y *= 2;
         bc2d.size = box;
     }

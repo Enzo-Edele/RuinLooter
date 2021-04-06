@@ -20,6 +20,7 @@ public class LadderController : MonoBehaviour
         {
             player.isOnLadder = true;
             player.anim.SetBool("IsLaddered", true);
+            player.rb2d.bodyType = RigidbodyType2D.Static;
             player.rb2d.gravityScale = 0;
         }
     }
@@ -30,6 +31,7 @@ public class LadderController : MonoBehaviour
         {
             player.isOnLadder = false;
             player.anim.SetBool("IsLaddered", false);
+            player.rb2d.bodyType = RigidbodyType2D.Dynamic;
             player.rb2d.gravityScale = 1;
         }
     }
