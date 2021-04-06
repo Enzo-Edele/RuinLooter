@@ -51,6 +51,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void SpacialSound(AudioClip audio, float distToPlayer)
+    {
+        for (int i = 0; i < audios.Count; i++)
+        {
+            if (audios[i].clip == audio)
+            {
+                audios[i].volume = 1 / distToPlayer;
+            }
+        }
+    }
+
     public void StopSound()
     {
         for (int i = 0; i < audios.Count; i++)
