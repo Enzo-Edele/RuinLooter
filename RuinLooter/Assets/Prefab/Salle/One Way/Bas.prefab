@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
+  isSpawn: 0
 --- !u!61 &6446624796692773800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -104,6 +105,7 @@ GameObject:
   - component: {fileID: 170160901810290322}
   - component: {fileID: 872875968802515217}
   - component: {fileID: 469044908529549356}
+  - component: {fileID: -6663394623166785615}
   m_Layer: 0
   m_Name: Bas
   m_TagString: Untagged
@@ -165,7 +167,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 5454eb4b77bf00a4ba4421d455f2b84e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -214,3 +216,24 @@ PolygonCollider2D:
       - {x: 1.6422534, y: -4.987096}
       - {x: 5, y: -5}
       - {x: 5, y: 5}
+--- !u!50 &-6663394623166785615
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216359713381544633}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

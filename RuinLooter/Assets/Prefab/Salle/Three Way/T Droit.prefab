@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8754697481043945890}
   - component: {fileID: 4925371751955300208}
   - component: {fileID: 3498970828982096996}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 2
+  isSpawn: 0
 --- !u!61 &4925371751955300208
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105,7 +106,7 @@ GameObject:
   - component: {fileID: 872170069654191429}
   - component: {fileID: 5259342188492549800}
   - component: {fileID: 2990557753490343182}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
+  isSpawn: 0
 --- !u!61 &5259342188492549800
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -198,7 +200,7 @@ GameObject:
   - component: {fileID: 3469873423678632118}
   - component: {fileID: 4143899843755374556}
   - component: {fileID: 5819485658166580913}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -232,6 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+  isSpawn: 0
 --- !u!61 &4143899843755374556
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -292,6 +295,7 @@ GameObject:
   - component: {fileID: 639732858159340280}
   - component: {fileID: 5433007379010319363}
   - component: {fileID: 164478655294004961}
+  - component: {fileID: 1079548215768806688}
   m_Layer: 0
   m_Name: T Droit
   m_TagString: Untagged
@@ -355,7 +359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 42190fbab5702f54bb0e3d5750aca473, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -445,3 +449,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.4894762, y: 2.75985}
   m_EdgeRadius: 0
+--- !u!50 &1079548215768806688
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3672167417305154560}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

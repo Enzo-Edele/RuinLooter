@@ -8,6 +8,6 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         DontDestroyOnLoad(this.gameObject);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //UIManager.Instance.MainMenuButton();
     }
 }

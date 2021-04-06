@@ -72,8 +72,21 @@ public class UIManager : MonoBehaviour
     GameObject deathScreen;
     [SerializeField]
     GameObject victoryScreen;
+    [SerializeField]
+    GameObject artAnimArmature;
+    [SerializeField]
+    GameObject artAnimGear;
+    [SerializeField]
+    GameObject artAnimCadran;
+    [SerializeField]
+    GameObject artAnimAiguilles;
+    [SerializeField]
+    GameObject animArtefact;
+    bool endLevel = false;
+    bool premierePhase = false;
+    float speedAnimEndLevel = 100.0f;
 
-    public readonly string tuto = "Il faut récolter les 3 morceaux d'artefact pour reactiver la machine.";
+    public readonly string tuto = "Rapporter 3 morceaux d'artefact à la machine.";
     public readonly string nextLevel = "Vous avez rassembler les artefact";
 
     private static UIManager _instance;
@@ -105,6 +118,10 @@ public class UIManager : MonoBehaviour
             {
                 fullPopup.SetActive(false);
             }
+        }
+        if (endLevel)
+        {
+            this.EndLevelAnimation();
         }
     }
     public void UpdateAll(int health, int coin, int artefact, string item)
@@ -192,6 +209,7 @@ public class UIManager : MonoBehaviour
     }
     public void UpdateSlot(string item)
     {
+        GameManager.Instance.UpdateItem(item);
         Slot.SetActive(true);
         slot = FindObjectOfType(typeof(ItemSlotController)) as ItemSlotController;
         if(item == "Empty")
@@ -281,7 +299,6 @@ public class UIManager : MonoBehaviour
     {
         this.PauseUIOff();
         InputManager.Instance.ReturnMenu();
-        SceneManager.LoadScene("main");
         this.Deactivate();
         this.ActiveMenuScreen();
         this.ActiveMainMenu();
@@ -305,5 +322,78 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("tuto");
         this.DeactivateMenuScreen();
         this.DeactivateMainMenu();
+    }
+    public void LaunchEndLevelAnimation()
+    {
+        endLevel = true;
+        premierePhase = true;
+        InputManager.Instance.pause = true;
+    }
+    public void EndLevelAnimation()
+    {
+        animArtefact.SetActive(true);
+        Vector2 anim1 = artAnimArmature.transform.position;
+        Vector2 anim2 = artAnimGear.transform.position;
+        Vector2 anim3 = artAnimCadran.transform.position;
+        Vector2 anim4 = artAnimAiguilles.transform.position;
+        if (premierePhase)
+        {
+            if (anim1.x < 1285)
+            {
+                anim1.x += Time.deltaTime * speedAnimEndLevel * 2;
+            }
+            if (anim2.x < 1085)
+            {
+                anim2.x += Time.deltaTime * speedAnimEndLevel;
+            }
+            if (anim3.x > 835)
+            {
+                anim3.x -= Time.deltaTime * speedAnimEndLevel;
+            }
+            if (anim4.x > 635)
+            {
+                anim4.x -= Time.deltaTime * speedAnimEndLevel * 2;
+            }
+            if(anim1.y < 700)
+            {
+                anim1.y += Time.deltaTime * speedAnimEndLevel * 3;
+                anim2.y += Time.deltaTime * speedAnimEndLevel * 3;
+                anim3.y += Time.deltaTime * speedAnimEndLevel * 3;
+                anim4.y += Time.deltaTime * speedAnimEndLevel * 3;
+            }
+        }
+        if (!premierePhase)
+        {
+            if (anim1.x > 960)
+            {
+                anim1.x -= Time.deltaTime * speedAnimEndLevel * 2;
+            }
+            if (anim2.x > 968)
+            {
+                anim2.x -= Time.deltaTime * speedAnimEndLevel;
+            }
+            if (anim3.x < 982)
+            {
+                anim3.x += Time.deltaTime * speedAnimEndLevel;
+            }
+            if (anim4.x < 989)
+            {
+                anim4.x += Time.deltaTime * speedAnimEndLevel * 2;
+            }
+        }
+        artAnimArmature.transform.position = anim1;
+        artAnimGear.transform.position = anim2;
+        artAnimCadran.transform.position = anim3;
+        artAnimAiguilles.transform.position = anim4;
+        if (anim1.x > 1285 && anim2.x > 1085 && anim3.x < 835 && anim4.x < 635)
+        {
+            premierePhase = false;
+        }
+        if (anim1.x < 960 && anim2.x < 968 && anim3.x > 982 && anim4.x > 989)
+        {
+            InputManager.Instance.pause = false;
+            endLevel = false;
+            animArtefact.SetActive(false);
+        }
     }
 }

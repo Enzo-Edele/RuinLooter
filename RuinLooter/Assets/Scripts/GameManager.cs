@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
 {
     public int coin = 0;
     public int artefact = 0;
-    public int health;
+    public int health = 5;
+    public string item;
     public enum GameState
     {
+        MainMenu,
         InGame,
         Pause,
         Death,
@@ -45,6 +47,9 @@ public class GameManager : MonoBehaviour
         _gameState = newState;
         switch(_gameState)
         {
+            case GameState.MainMenu:
+                this.MainScreen();
+                break;
             case GameState.InGame:
                 this.InGame();
                 break;
@@ -58,6 +63,14 @@ public class GameManager : MonoBehaviour
                 this.Victory();
                 break;
         }
+    }
+    void MainScreen()
+    {
+        health = 5;
+        coin = 0;
+        artefact = 0;
+        item = "Empty";
+        SceneManager.LoadScene("main");
     }
     void InGame()
     {
@@ -94,6 +107,10 @@ public class GameManager : MonoBehaviour
     {
         artefact = change;
         UIManager.Instance.UpdateArtefact(artefact);
+    }
+    public void UpdateItem(string newItem)
+    {
+        item = newItem;
     }
     public void NextLevel()
     {

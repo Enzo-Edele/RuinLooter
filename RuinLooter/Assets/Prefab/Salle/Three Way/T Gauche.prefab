@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5819241945257104925}
   - component: {fileID: 6203580487568693097}
   - component: {fileID: 2439866180598838725}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 3
+  isSpawn: 0
 --- !u!61 &6203580487568693097
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -105,7 +106,7 @@ GameObject:
   - component: {fileID: 4080279085805016587}
   - component: {fileID: 3713612468829417369}
   - component: {fileID: 6778052496104378962}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 1
+  isSpawn: 0
 --- !u!61 &3713612468829417369
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -199,6 +201,7 @@ GameObject:
   - component: {fileID: 6008745788300406002}
   - component: {fileID: 5539627396084682141}
   - component: {fileID: 9157189271934655304}
+  - component: {fileID: -3957153100289385059}
   m_Layer: 0
   m_Name: T Gauche
   m_TagString: Untagged
@@ -262,7 +265,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: df737c8fa46f11b41bee6cb1fd1ce2b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -352,6 +355,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5456014, y: 2.7879124}
   m_EdgeRadius: 0
+--- !u!50 &-3957153100289385059
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796860284196743558}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &8108725734021217211
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,7 +388,7 @@ GameObject:
   - component: {fileID: 4505198780510630115}
   - component: {fileID: 9207005048807912558}
   - component: {fileID: 3497432820401357444}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -398,6 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 4
+  isSpawn: 0
 --- !u!61 &9207005048807912558
 BoxCollider2D:
   m_ObjectHideFlags: 0
