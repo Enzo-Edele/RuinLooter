@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip soundHat;
     public AudioClip soundCoin;
     public AudioClip soundArtefact;
+    public AudioClip soundChest;
 
     public int artefact = 0;
     int coin = 0;
@@ -174,6 +175,7 @@ public class PlayerController : MonoBehaviour
     }
     public void ChestOpenning()
     {
+        AudioManager.Instance.Playsound(soundChest, 0.5f);
         int dice = Random.Range(1, 101);
         if (dice >= 1 && dice < 21)
         {
