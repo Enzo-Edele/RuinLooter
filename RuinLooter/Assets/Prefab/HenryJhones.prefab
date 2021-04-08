@@ -112,6 +112,7 @@ MonoBehaviour:
   soundHat: {fileID: 8300000, guid: 3db3026fe7b7f0d4cacad9ef9da80c90, type: 3}
   soundCoin: {fileID: 8300000, guid: 133c7bded410e89479ebdd9337cd7557, type: 3}
   soundArtefact: {fileID: 8300000, guid: 0db5e44b828357545b40cf8e39801692, type: 3}
+  soundChest: {fileID: 8300000, guid: 8008a126bcdc10449ad9b7fecaf4ebdc, type: 3}
   artefact: 0
   isCloak: 0
   isOnLadder: 0
