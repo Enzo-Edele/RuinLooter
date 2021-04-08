@@ -90,6 +90,9 @@ public class UIManager : MonoBehaviour
     bool premierePhase = false;
     float speedAnimEndLevel = 100.0f;
 
+    [SerializeField]
+    GameObject minimap;
+
     public readonly string tuto = "Rapporter 3 morceaux d'artefact à la machine.";
     public readonly string nextLevel = "Vous avez rassembler les artefact";
 
@@ -444,5 +447,13 @@ public class UIManager : MonoBehaviour
         artAnimGear.transform.position = anim2;
         artAnimCadran.transform.position = anim3;
         artAnimAiguilles.transform.position = anim4;
+    }
+    public void GenerateMinimap()
+    {
+        //Instantiate
+    }
+    public void DegenerateMinimap()
+    {
+
     }
 }
