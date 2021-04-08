@@ -35,9 +35,6 @@ public class ChestController : MonoBehaviour
                 }
                 anim.SetTrigger("Openning");
                 isOpen = true;
-                Vector2 position = transform.position;
-                position.y += 0.23f;
-                transform.position = position;
             }
             else
             {
