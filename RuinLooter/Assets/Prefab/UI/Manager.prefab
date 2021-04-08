@@ -1354,6 +1354,7 @@ MonoBehaviour:
   artAnimCadran: {fileID: 415048910}
   artAnimAiguilles: {fileID: 1098149349}
   animArtefact: {fileID: 860681904}
+  minimap: {fileID: 0}
 --- !u!1 &1518469067595085985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7397218758380181470, guid: 885848f63ec3be84d8b0eedd52581d9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -542.48096
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7397218758380181470, guid: 885848f63ec3be84d8b0eedd52581d9f, type: 3}
       propertyPath: m_LocalRotation.w
