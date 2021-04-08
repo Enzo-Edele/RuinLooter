@@ -312,6 +312,10 @@ public class PlayerController : MonoBehaviour
         position.x = coorX;
         position.y = coorY;
         transform.position = position;
+        isOnLadder = false;
+        anim.SetBool("IsLaddered", false);
+        rb2d.bodyType = RigidbodyType2D.Dynamic;
+        rb2d.gravityScale = 1;
         PV = 0;
         coin = 0;
         artefact = 0;
