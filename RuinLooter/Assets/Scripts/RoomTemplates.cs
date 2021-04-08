@@ -28,6 +28,15 @@ public class RoomTemplates : MonoBehaviour
     public int artefactCount;
     int spawnX;
     int spawnY;
+
+    bool miniBas = false;
+    bool miniHaut = false;
+    bool miniGauche = false;
+    bool miniDroit = false;
+    string testD = "d";
+    string testG = "g";
+    string testH = "h";
+    string testB = "b";
     private void Awake()
     {
         _instance = this;
@@ -40,7 +49,7 @@ public class RoomTemplates : MonoBehaviour
                 max[i, j] = null;
             }
         }
-        spawnX = Random.Range(5, size - 5);
+        spawnX = Random.Range(3, size - 3);
         spawnY = Random.Range(2, size - 2);
         Vector2 spawnPos;
         spawnPos.x = spawnX * 10;
@@ -48,7 +57,8 @@ public class RoomTemplates : MonoBehaviour
         Instantiate(start, spawnPos, Quaternion.identity);
         spawnPos.x = spawnX - 20;
         spawnPos.y = spawnY;
-        Instantiate(spawn, spawnPos, Quaternion.identity);
+        GameObject test = GameObject.Instantiate(spawn, spawnPos, Quaternion.identity);
+        test.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
         max[spawnX, spawnY] = "gd";
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
@@ -75,6 +85,51 @@ public class RoomTemplates : MonoBehaviour
                 if(max[i,j] == null)
                 {
                     Instantiate(remplis, new Vector2(i * 10, j * 10), Quaternion.identity);
+                }
+            }
+        }
+    }
+    public void Minimap()
+    {
+        for(int i = 0; i < size; i++)
+        {
+            for(int j = 0; j < size; j++)
+            {
+                if (max[i, j].Contains(testB))
+                {
+                    miniHaut = true;
+                }
+                if (max[i, j].Contains(testH))
+                {
+                    miniBas = true;
+                }
+                if (max[i, j].Contains(testD))
+                {
+                    miniGauche = true;
+                }
+                if (max[i, j].Contains(testG))
+                {
+                    miniDroit = true;
+                }
+                if(miniBas && miniDroit && miniHaut && miniGauche)
+                {
+
+                }
+                else if(miniBas && miniDroit && miniGauche)
+                {
+
+                }
+                else if (miniBas && miniDroit && miniHaut)
+                {
+
+                }
+                else if (miniBas && miniHaut && miniGauche)
+                {
+
+                }
+                else if (miniHaut && miniDroit && miniGauche)
+                {
+
                 }
             }
         }
