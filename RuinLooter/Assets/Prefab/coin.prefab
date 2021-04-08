@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ec26e95ce64d364b8b4ddf219b01933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundCoin: {fileID: 8300000, guid: 133c7bded410e89479ebdd9337cd7557, type: 3}
+  sound: {fileID: 8300000, guid: 133c7bded410e89479ebdd9337cd7557, type: 3}
 --- !u!61 &5246653576087789918
 BoxCollider2D:
   m_ObjectHideFlags: 0
