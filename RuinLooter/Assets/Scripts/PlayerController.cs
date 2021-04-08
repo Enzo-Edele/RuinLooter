@@ -18,7 +18,6 @@ public class PlayerController : MonoBehaviour
     public AudioClip soundBandage;
     public AudioClip soundPotion;
     public AudioClip soundHat;
-    public AudioClip soundCoin;
     public AudioClip soundArtefact;
     public AudioClip soundChest;
 
@@ -66,6 +65,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         AudioManager.Instance.Playsound(ambianceSound, 0.2f);
+        AudioManager.Instance.Playsound(music, 0.2f);
         if (Input.GetKeyDown("m"))
         {
             this.Damage(-1);
@@ -300,13 +300,11 @@ public class PlayerController : MonoBehaviour
     {
         coin += change;
         GameManager.Instance.UpdateCoin(coin);
-        AudioManager.Instance.Playsound(soundCoin, 0.2f);
     }
     public void ArtefactCollect(int change)
     {
         artefact += change;
         GameManager.Instance.UpdateArtefact(artefact);
-        AudioManager.Instance.Playsound(soundCoin, 0.2f);
     }
     public void PlacementNewLevel(float coorX, float coorY)
     {

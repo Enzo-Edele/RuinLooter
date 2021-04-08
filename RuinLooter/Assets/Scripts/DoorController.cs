@@ -9,6 +9,7 @@ public class DoorController : MonoBehaviour
     Animator animm;
     bool isOpen = false;
     bool isOn = false;
+    public AudioClip sound;
     private void Start()
     {
         bc2d = GetComponent<BoxCollider2D>();
@@ -35,6 +36,7 @@ public class DoorController : MonoBehaviour
     }
     void Openning()
     {
+        AudioManager.Instance.Playsound(sound, 0.5f);
         animm.SetTrigger("Openning");
         isOpen = true;
         player.CoinCollect(-5);

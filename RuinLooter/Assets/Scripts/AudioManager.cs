@@ -52,6 +52,16 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public void StopSound(AudioClip audio)
+    {
+        for (int i = 0; i < audios.Count; i++)
+        {
+            if (audios[i].clip == audio)
+            {
+                Destroy(audios[i]);
+            }
+        }
+    }
 
     public void StopAllSounds()
     {

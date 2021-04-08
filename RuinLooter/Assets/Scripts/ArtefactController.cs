@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ArtefactController : MonoBehaviour
 {
+    public AudioClip sound;
     [HideInInspector]
     public float x;
     [HideInInspector]
@@ -16,6 +17,7 @@ public class ArtefactController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
+        AudioManager.Instance.Playsound(sound, 0.2f);
         PlayerController player = other.GetComponent<PlayerController>();
         if (player != null)
         {
