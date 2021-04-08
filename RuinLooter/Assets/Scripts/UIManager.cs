@@ -457,6 +457,8 @@ public class UIManager : MonoBehaviour
         if (minimap == null)
         {
             minimap = Instantiate(minimapPrefab, positionMinimap, Quaternion.identity,GameObject.FindGameObjectWithTag("canvas").transform);
+            RoomTemplates scriptMap = FindObjectOfType(typeof(RoomTemplates)) as RoomTemplates;
+            scriptMap.Invoke("Minimap", 0.025f * 32);
         }
     }
     public void DegenerateMinimap()

@@ -10,6 +10,7 @@ TagManager:
   - spawn
   - rooms
   - canvas
+  - Minimap
   layers:
   - Default
   - TransparentFX

@@ -189,8 +189,7 @@ public class RoomTemplates : MonoBehaviour
                 {
                     minimap = r;
                 }
-                GameObject miniInstance = Instantiate(minimap, new Vector2(i, j), Quaternion.identity);
-                miniInstance.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
+                GameObject miniInstance = Instantiate(minimap, new Vector2(i, j), Quaternion.identity, GameObject.FindGameObjectWithTag("Minimap").transform);
                 miniBas = false;
                 miniDroit = false;
                 miniGauche = false;

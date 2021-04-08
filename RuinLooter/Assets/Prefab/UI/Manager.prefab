@@ -2025,30 +2025,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1666311764636181594, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1518469066728962555}
-    - target: {fileID: 1666311765635410350, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1518469066728962555}
-    - target: {fileID: 4622535802256100643, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1518469066728962555}
-    - target: {fileID: 4622535802256100643, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OptionButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6366806283655224527, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1518469066728962555}
-    - target: {fileID: 6366806283655224527, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: MainMenuButton
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
 --- !u!1 &1518469068003303993 stripped
