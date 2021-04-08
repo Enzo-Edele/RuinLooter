@@ -90,7 +90,7 @@ public class LaMontreController : MonoBehaviour
     }
     void EndingLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 15)
+        if (SceneManager.GetActiveScene().buildIndex == 16)
         {
             UIManager.Instance.VictoryUI();
         }
