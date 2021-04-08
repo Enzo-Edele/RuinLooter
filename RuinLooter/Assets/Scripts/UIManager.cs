@@ -267,11 +267,13 @@ public class UIManager : MonoBehaviour
     {
         deathScreen.SetActive(true);
         endMenu.SetActive(true);
+        this.DegenerateMinimap();
     }
     public void VictoryUI()
     {
         victoryScreen.SetActive(true);
         endMenu.SetActive(true);
+        this.DegenerateMinimap();
     }
     public void ActiveMenuScreen()
     {
