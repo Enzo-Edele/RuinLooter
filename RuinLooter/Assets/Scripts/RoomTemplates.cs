@@ -19,8 +19,9 @@ public class RoomTemplates : MonoBehaviour
     }
     public float speed;
     public GameObject remplis, start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
-    public GameObject spawn, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite;
+    public GameObject spawn, sg, sd, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite, r;
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
+    GameObject minimap;
 
     public int size;
     public string[,] max;
@@ -55,15 +56,15 @@ public class RoomTemplates : MonoBehaviour
         spawnPos.x = spawnX * 10;
         spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        spawnPos.x = spawnX - 20;
+        /*spawnPos.x = spawnX - 20;
         spawnPos.y = spawnY;
         GameObject test = GameObject.Instantiate(spawn, spawnPos, Quaternion.identity);
-        test.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
+        test.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);*/
         max[spawnX, spawnY] = "gd";
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
         Invoke("Reload", speed * 30);
-
+        Invoke("Minimap", speed * 32);
     }
     void Update()
     {
@@ -95,42 +96,105 @@ public class RoomTemplates : MonoBehaviour
         {
             for(int j = 0; j < size; j++)
             {
-                if (max[i, j].Contains(testB))
-                {
-                    miniHaut = true;
-                }
-                if (max[i, j].Contains(testH))
+                if (max[i, j] != null && max[i, j].Contains(testB))
                 {
                     miniBas = true;
                 }
-                if (max[i, j].Contains(testD))
+                if (max[i, j] != null && max[i, j].Contains(testH))
                 {
-                    miniGauche = true;
+                    miniHaut = true;
                 }
-                if (max[i, j].Contains(testG))
+                if (max[i, j] != null && max[i, j].Contains(testD))
                 {
                     miniDroit = true;
                 }
-                if(miniBas && miniDroit && miniHaut && miniGauche)
+                if (max[i, j] != null && max[i, j].Contains(testG))
                 {
-
+                    miniGauche = true;
                 }
-                else if(miniBas && miniDroit && miniGauche)
-                {
 
+                if (i == spawnX && j == spawnY)
+                {
+                    minimap = spawn;
+                }
+                else if (i == spawnX + 1 && j == spawnY)
+                {
+                    minimap = sd;
+                }
+                else if (i == spawnX - 1 && j == spawnY)
+                {
+                    minimap = sg;
+                }
+                else if (miniBas && miniDroit && miniHaut && miniGauche)
+                {
+                    minimap = xSprite;
+                }
+                else if (miniBas && miniDroit && miniGauche)
+                {
+                    minimap = tb;
                 }
                 else if (miniBas && miniDroit && miniHaut)
                 {
-
+                    minimap = td;
                 }
                 else if (miniBas && miniHaut && miniGauche)
                 {
-
+                    minimap = tg;
                 }
                 else if (miniHaut && miniDroit && miniGauche)
                 {
-
+                    minimap = th;
                 }
+                else if (miniBas && miniDroit)
+                {
+                    minimap = bd;
+                }
+                else if (miniBas && miniGauche)
+                {
+                    minimap = gb;
+                }
+                else if (miniBas && miniHaut)
+                {
+                    minimap = bh;
+                }
+                else if (miniHaut && miniDroit)
+                {
+                    minimap = hd;
+                }
+                else if (miniHaut && miniGauche)
+                {
+                    minimap = gh;
+                }
+                else if (miniGauche && miniDroit)
+                {
+                    minimap = gd;
+                }
+                else if (miniBas)
+                {
+                    minimap = b;
+                }
+                else if (miniDroit)
+                {
+                    minimap = d;
+                }
+                else if (miniGauche)
+                {
+                    minimap = g;
+                }
+                else if (miniHaut)
+                {
+                    minimap = h;
+                }
+                else
+                {
+                    minimap = r;
+                }
+                GameObject miniInstance = Instantiate(minimap, new Vector2(i, j), Quaternion.identity);
+                miniInstance.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);
+                miniBas = false;
+                miniDroit = false;
+                miniGauche = false;
+                miniHaut = false;
             }
         }
     }

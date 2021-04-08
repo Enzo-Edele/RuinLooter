@@ -7,7 +7,6 @@ public class RoomSpawner : MonoBehaviour
     public int direction;
     RoomTemplates templates;
     List<GameObject> limit = new List<GameObject>();
-    GameObject minimap;
     bool sansGauche = false;
     bool sansDroit = false;
     bool sansHaut = false;
@@ -237,81 +236,65 @@ public class RoomSpawner : MonoBehaviour
             if(limit[rand] == templates.bas)
             {
                 data = "b";
-                minimap = templates.b;
             }
             else if(limit[rand] == templates.haut)
             {
                 data = "h";
-                minimap = templates.h;
             }
             else if (limit[rand] == templates.droit)
             {
                 data = "d";
-                minimap = templates.d;
             }
             else if (limit[rand] == templates.gauche)
             {
                 data = "g";
-                minimap = templates.g;
             }
             else if (limit[rand] == templates.gaucheBas)
             {
                 data = "gb";
-                minimap = templates.gb;
             }
             else if (limit[rand] == templates.gaucheDroit)
             {
                 data = "gd";
-                minimap = templates.gd;
             }
             else if (limit[rand] == templates.gaucheHaut)
             {
                 data = "gh";
-                minimap = templates.gh;
             }
             else if (limit[rand] == templates.basDroit)
             {
                 data = "bd";
-                minimap = templates.bd;
             }
             else if (limit[rand] == templates.basHaut)
             {
                 data = "bh";
-                minimap = templates.bh;
             }
             else if (limit[rand] == templates.hautDroit)
             {
                 data = "hd";
-                minimap = templates.hd;
             }
             else if (limit[rand] == templates.tBas)
             {
                 data = "gbd";
-                minimap = templates.tb;
             }
             else if (limit[rand] == templates.tHaut)
             {
                 data = "ghd";
-                minimap = templates.th;
             }
             else if (limit[rand] == templates.tGauche)
             {
                 data = "ghb";
-                minimap = templates.tg;
             }
             else if (limit[rand] == templates.tDroit)
             {
                 data = "dhb";
-                minimap = templates.td;
             }
             else if (limit[rand] == templates.x)
             {
                 data = "hdbg";
-                minimap = templates.xSprite;
             }
             position.x = (int)this.transform.position.x / 10;
             position.y = (int)this.transform.position.y / 10;
-            Instantiate(minimap, new Vector2(position.x - 20, position.y), Quaternion.identity);
             RoomTemplates.Instance.max[(int)position.x, (int)position.y] = data;
             isSpawn = true;
         }   
@@ -348,67 +331,56 @@ public class RoomSpawner : MonoBehaviour
                 {
                     Instantiate(RoomTemplates.Instance.x, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "hdbg";
-                    Instantiate(templates.xSprite, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tGauche, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "hgb";
-                    Instantiate(templates.tg, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && bas && droit)
                 {
                     Instantiate(RoomTemplates.Instance.tDroit, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "dhb";
-                    Instantiate(templates.td, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && droit && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tHaut, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "ghd";
-                    Instantiate(templates.th, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (droit && bas && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.tBas, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "gbd";
-                    Instantiate(templates.tb, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basHaut, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "bh";
-                    Instantiate(templates.bh, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && gauche)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheHaut, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "gh";
-                    Instantiate(templates.gh, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (haut && droit)
                 {
                     Instantiate(RoomTemplates.Instance.hautDroit, transform.position, Quaternion.identity);
-                    RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "hd";
-                    Instantiate(templates.hd, new Vector2(position.x - 20, position.y), Quaternion.identity);
+                    RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "hd";;
                 }
                 else if (gauche && bas)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheBas, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "gb";
-                    Instantiate(templates.gb, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (gauche && droit)
                 {
                     Instantiate(RoomTemplates.Instance.gaucheDroit, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "gd";
-                    Instantiate(templates.gd, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
                 else if (droit && bas)
                 {
                     Instantiate(RoomTemplates.Instance.basDroit, transform.position, Quaternion.identity);
                     RoomTemplates.Instance.max[(int)position.x, (int)position.y] = "bd";
-                    Instantiate(templates.bd, new Vector2(position.x - 20, position.y), Quaternion.identity);
                 }
             }
             isSpawn = true;
