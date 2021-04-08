@@ -11,7 +11,7 @@ public class LaMontreController : MonoBehaviour
     bool canGoNextLevel = false;
     float timePopUp = 5.0f;
     float timerPopUp = 0;
-    float timeAnim = 2.0f;//3.7f;
+    float timeAnim = 2.0f;
     float timerAnim = 0;
     public float x;
     public float y;
@@ -24,6 +24,7 @@ public class LaMontreController : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.UpdateLevel();
+        UIManager.Instance.GenerateMinimap();
         Vector2 pos = transform.position;
         x = pos.x;
         y = pos.y;

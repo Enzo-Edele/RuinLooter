@@ -91,7 +91,9 @@ public class UIManager : MonoBehaviour
     float speedAnimEndLevel = 100.0f;
 
     [SerializeField]
+    GameObject minimapPrefab;
     GameObject minimap;
+    Vector2 positionMinimap = new Vector2(1580, 900);
 
     public readonly string tuto = "Rapporter 3 morceaux d'artefact à la machine.";
     public readonly string nextLevel = "Vous avez rassembler les artefact";
@@ -341,6 +343,7 @@ public class UIManager : MonoBehaviour
         this.Deactivate();
         this.ActiveMenuScreen();
         this.ActiveMainMenu();
+        this.DegenerateMinimap();
     }
     public void OptionButton()
     {
@@ -367,6 +370,7 @@ public class UIManager : MonoBehaviour
         endLevel = true;
         premierePhase = true;
         InputManager.Instance.pause = true;
+        this.DegenerateMinimap();
     }
     public void EndLevelAnimation()
     {
@@ -450,10 +454,16 @@ public class UIManager : MonoBehaviour
     }
     public void GenerateMinimap()
     {
-        //Instantiate
+        if (minimap == null)
+        {
+            minimap = Instantiate(minimapPrefab, positionMinimap, Quaternion.identity,GameObject.FindGameObjectWithTag("canvas").transform);
+        }
     }
     public void DegenerateMinimap()
     {
-
+        if (minimap != null)
+        {
+            Destroy(minimap);
+        }
     }
 }
