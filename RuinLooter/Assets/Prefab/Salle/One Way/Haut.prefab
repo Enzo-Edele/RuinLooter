@@ -200,8 +200,8 @@ MonoBehaviour:
   spawnables:
   - entity: {fileID: 3343439391913350577, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
     uneChanceSur: 1
-    xPos: -2.5
-    yPos: -3.2
+    xPos: -2.7
+    yPos: -3
 --- !u!1 &3377307408207826199
 GameObject:
   m_ObjectHideFlags: 0
