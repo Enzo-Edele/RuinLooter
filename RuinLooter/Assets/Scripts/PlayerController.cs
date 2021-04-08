@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     public int scenePlayer;
     public AudioClip ambianceSound;
     public AudioClip music;
+    public AudioClip soundTeleportation;
+    public AudioClip soundShield;
+    public AudioClip soundBandage;
+    public AudioClip soundPotion;
+    public AudioClip soundHat;
+    public AudioClip soundCoin;
+    public AudioClip soundArtefact;
 
     public int artefact = 0;
     int coin = 0;
@@ -233,13 +240,16 @@ public class PlayerController : MonoBehaviour
             case Item.Cloak:
                 timerCloak = timeCloak;
                 isCloak = true;
+                AudioManager.Instance.Playsound(soundHat, 0.2f);
                 break;
             case Item.Invincible:
                 timerInvincible = timeInvincible;
                 isInvincible = true;
+                AudioManager.Instance.Playsound(soundPotion, 0.5f);
                 break;
             case Item.Heal:
                 this.Damage(1);
+                AudioManager.Instance.Playsound(soundBandage, 0.2f);
                 break;
             case Item.TP:
                 ArtefactController anchor = FindObjectOfType(typeof(ArtefactController)) as ArtefactController;
@@ -254,9 +264,11 @@ public class PlayerController : MonoBehaviour
                     Vector2 positionTP = new Vector2(gate.x, gate.y);
                     transform.position = positionTP;
                 }
+                AudioManager.Instance.Playsound(soundTeleportation, 1);
                 break;
             case Item.Shield:
                 shieldOn = true;
+                AudioManager.Instance.Playsound(soundShield, 0.1f);
                 break;
         }
         slot = Item.Empty;
@@ -286,11 +298,13 @@ public class PlayerController : MonoBehaviour
     {
         coin += change;
         GameManager.Instance.UpdateCoin(coin);
+        AudioManager.Instance.Playsound(soundCoin, 0.2f);
     }
     public void ArtefactCollect(int change)
     {
         artefact += change;
         GameManager.Instance.UpdateArtefact(artefact);
+        AudioManager.Instance.Playsound(soundCoin, 0.2f);
     }
     public void PlacementNewLevel(float coorX, float coorY)
     {
@@ -311,6 +325,7 @@ public class PlayerController : MonoBehaviour
     {
         Physics2D.IgnoreLayerCollision(6, 7, false);
         Physics2D.IgnoreLayerCollision(7, 8, false);
+        AudioManager.Instance.Playsound(soundArtefact, 0.2f);
     }
     public IEnumerator TimeInvincible()
     {

@@ -100,6 +100,7 @@ MonoBehaviour:
   speed: 5
   moveZone: 10
   delay: 1
+  sound: {fileID: 8300000, guid: afa3761975a7dde4bba2d77528f2131b, type: 3}
 --- !u!50 &1531725292030187654
 Rigidbody2D:
   serializedVersion: 4

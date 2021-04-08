@@ -6,7 +6,6 @@ public class Tesla : Trap
 {
     private Transform player;
     public AudioClip shootSound;
-    public AudioClip charge;
 
     private float playerX;
     private float playerY;
@@ -61,7 +60,7 @@ public class Tesla : Trap
             GameObject projectileObject = Instantiate(projectilePrefab, spawn + Vector3.up * 0.5f, Quaternion.identity);
             TeslaBall projectile = projectileObject.GetComponent<TeslaBall>();
             projectile.Launch(dir, teslaBallSpeed);
-            AudioManager.Instance.Playsound(shootSound, 0.2f);
+            AudioManager.Instance.Playsound(shootSound, 0.1f);
         }
 
         teslaBallSpeed = defaultTeslaBallSpeed;

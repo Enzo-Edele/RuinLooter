@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public List<AudioSource> audios = new List<AudioSource>();
     private static AudioManager _instance;
+    public AudioClip sound;
     public static AudioManager Instance
     {
         get
@@ -51,22 +52,17 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SpacialSound(AudioClip audio, float distToPlayer)
-    {
-        for (int i = 0; i < audios.Count; i++)
-        {
-            if (audios[i].clip == audio)
-            {
-                audios[i].volume = 1 / distToPlayer;
-            }
-        }
-    }
 
-    public void StopSound()
+    public void StopAllSounds()
     {
         for (int i = 0; i < audios.Count; i++)
         {
             Destroy(audios[i]);
         }
+    }
+
+    public void SoundEndLevel()
+    {
+        AudioManager.Instance.Playsound(sound, 1);
     }
 }

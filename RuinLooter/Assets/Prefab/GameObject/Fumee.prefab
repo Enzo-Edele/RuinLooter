@@ -165,3 +165,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 3
+  sound: {fileID: 8300000, guid: df96f23cd582db94689f15e47a9c8c15, type: 3}

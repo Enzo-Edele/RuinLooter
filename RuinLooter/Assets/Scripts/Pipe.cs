@@ -11,6 +11,13 @@ public class Pipe : Trap
     private bool shoot = true;
     private Vector3 spawn;
     private float projectileScale;
+    private Transform player;
+    public AudioClip sound;
+
+    void Awake()
+    {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     private void Start()
     {
@@ -20,12 +27,14 @@ public class Pipe : Trap
 
     public override void LaunchProjectile()
     {
-        if (shoot == true)
+        float distToPlayer = Vector2.Distance(this.transform.position, player.position);
+        if (shoot == true && distToPlayer < 15)
         {
             StartCoroutine(Delay());
             GameObject projectileObject = Instantiate(Fumee, spawn + Vector3.up * 0.5f, Quaternion.identity);
             Smoke projectile = projectileObject.GetComponent<Smoke>();
             projectile.Launch(Vector2.up, 0);
+            AudioManager.Instance.Playsound(sound, 0.2f);
         }
     }
 

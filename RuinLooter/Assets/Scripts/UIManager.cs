@@ -130,6 +130,7 @@ public class UIManager : MonoBehaviour
         }
         if (endLevel)
         {
+            AudioManager.Instance.SoundEndLevel();
             this.EndLevelAnimation();
         }
     }

@@ -105,6 +105,13 @@ MonoBehaviour:
   scenePlayer: 0
   ambianceSound: {fileID: 8300000, guid: 779ef1e59a82ca64da8c1d08c2a376d8, type: 3}
   music: {fileID: 0}
+  soundTeleportation: {fileID: 8300000, guid: 6cf6c3effa1a9f042ac14248edc0687a, type: 3}
+  soundShield: {fileID: 8300000, guid: 8b398954761b5c94785e5a8235271c5d, type: 3}
+  soundBandage: {fileID: 8300000, guid: 931defd94fe572d4da89efd15199c081, type: 3}
+  soundPotion: {fileID: 8300000, guid: 62bfb4987a4687b4aa9dabd5bd94cd21, type: 3}
+  soundHat: {fileID: 8300000, guid: 3db3026fe7b7f0d4cacad9ef9da80c90, type: 3}
+  soundCoin: {fileID: 8300000, guid: 133c7bded410e89479ebdd9337cd7557, type: 3}
+  soundArtefact: {fileID: 8300000, guid: 0db5e44b828357545b40cf8e39801692, type: 3}
   artefact: 0
   isCloak: 0
   isOnLadder: 0

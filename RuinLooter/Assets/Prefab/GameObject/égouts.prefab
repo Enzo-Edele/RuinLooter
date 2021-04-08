@@ -114,3 +114,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   delay: 1
   projectilePrefab: {fileID: 392601197429813461, guid: 50859c2e5defa4f4a97ffe724327aef4, type: 3}
+  sound: {fileID: 8300000, guid: e250937bff1b6fb48b4bc94925f671d2, type: 3}

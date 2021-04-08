@@ -7,15 +7,24 @@ public class Dispenser : Trap
     public float delay = 1;
     public GameObject projectilePrefab;
     private bool shoot = true;
+    private Transform player;
+    public AudioClip sound;
+
+    void Awake()
+    {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     public override void LaunchProjectile()
     {
-        if (shoot == true)
+        float distToPlayer = Vector2.Distance(this.transform.position, player.position);
+        if (shoot == true && distToPlayer < 15)
         {
-            StartCoroutine(Delay());
-            GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.down * 0.5f, Quaternion.identity);
+            GameObject projectileObject = Instantiate(projectilePrefab, transform.position + Vector3.down, Quaternion.identity);
             Acid projectile = projectileObject.GetComponent<Acid>();
-            projectile.Launch(Vector2.down, 500);
+            projectile.Launch(Vector2.down, 400);
+            AudioManager.Instance.Playsound(sound, 0.2f);
+            StartCoroutine(Delay());
         }
     }
 

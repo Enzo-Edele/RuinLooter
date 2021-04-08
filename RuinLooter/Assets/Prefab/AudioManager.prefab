@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audios: []
+  sound: {fileID: 8300000, guid: b388cee5040975c4bb4f68de80ea03b5, type: 3}

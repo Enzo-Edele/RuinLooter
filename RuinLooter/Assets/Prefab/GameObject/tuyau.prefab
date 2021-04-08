@@ -98,6 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Fumee: {fileID: 6753771073643368713, guid: dcbaa7eedac7c2240abfc88c2fe4bdd1, type: 3}
   delay: 6
+  sound: {fileID: 8300000, guid: df96f23cd582db94689f15e47a9c8c15, type: 3}
 --- !u!61 &9007844830132932357
 BoxCollider2D:
   m_ObjectHideFlags: 0

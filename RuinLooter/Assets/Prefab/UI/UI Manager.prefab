@@ -43,9 +43,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b294c0e8be5cf4d9ceca43ceaf8d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: {fileID: 6852815642257090284, guid: 6cd71bdb00c71db449de5582a8a6f4c8, type: 3}
+  HP: {fileID: 0}
+  HPEgalUn: {fileID: 0}
+  HPEgalDeux: {fileID: 0}
+  HPEgalTrois: {fileID: 0}
+  HPEgalQuatre: {fileID: 0}
+  HPEgalCinq: {fileID: 0}
+  HPEgalSix: {fileID: 0}
   Coin: {fileID: 5871213753531889558, guid: c09ac15290ebf0f48b8ed91f73e98f16, type: 3}
-  Artefact: {fileID: 179882380081666029, guid: cd485b8dd9d37da4a89037bd5128b7df, type: 3}
-  Slot: {fileID: 3331761199659964820, guid: 903216407e135c245824c364d462fb43, type: 3}
+  laBanque: {fileID: 0}
+  artefactFragments: {fileID: 0}
+  artefactStep0: {fileID: 0}
+  artefactStep1: {fileID: 0}
+  artefactStep2: {fileID: 0}
+  artefactStep3: {fileID: 0}
+  Slot: {fileID: 0}
+  empty: {fileID: 0}
+  cape: {fileID: 0}
+  potion: {fileID: 0}
+  bandage: {fileID: 0}
+  pearl: {fileID: 0}
+  shield: {fileID: 0}
   Level: {fileID: 427910075451328783, guid: 685f540433add0d4ebb7b72458e66587, type: 3}
+  fullPopup: {fileID: 0}
+  mainMenu: {fileID: 0}
   pauseMenu: {fileID: 1666311764488557240, guid: 434be37f2853bb646b8ccc8b802fcf2c, type: 3}
+  endMenu: {fileID: 0}
+  menuScreen: {fileID: 0}
+  loadScreen: {fileID: 0}
+  deathScreen: {fileID: 0}
+  victoryScreen: {fileID: 0}
+  artAnimArmature: {fileID: 0}
+  artAnimGear: {fileID: 0}
+  artAnimCadran: {fileID: 0}
+  artAnimAiguilles: {fileID: 0}
+  animArtefact: {fileID: 0}
+  sound: {fileID: 8300000, guid: b388cee5040975c4bb4f68de80ea03b5, type: 3}
+  minimapPrefab: {fileID: 0}

@@ -12,6 +12,13 @@ public class Ghost : MonoBehaviour
     public float delay = 5;
     private bool ghostMove = true;
     Rigidbody2D rb2d;
+        private Transform player;
+    public AudioClip sound;
+
+    void Awake()
+    {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Start()
     {
@@ -42,12 +49,16 @@ public class Ghost : MonoBehaviour
         }
 
         Vector2 dir = new Vector2(ghostPositionX, ghostPositionY);
-
+        float distToPlayer = Vector2.Distance(this.transform.position, player.position);
         if (ghostMove == true)
         {
             rb2d.velocity = Vector3.zero;
             rb2d.AddForce(dir * 30);
             StartCoroutine(Move());
+            if (distToPlayer < 15)
+            {
+                AudioManager.Instance.Playsound(sound, 0.2f);
+            }
         }
     }
 

@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.Deactivate();
         SceneManager.LoadScene(18);
         InputManager.Instance.pause = true;
-        AudioManager.Instance.StopSound();
+        AudioManager.Instance.StopAllSounds();
     }
     void Victory()
     {
