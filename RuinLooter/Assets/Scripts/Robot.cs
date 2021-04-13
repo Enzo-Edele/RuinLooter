@@ -36,7 +36,7 @@ public class Robot : MonoBehaviour
             Vector3 robotScale = transform.localScale;
             transform.position = new Vector3(transform.position.x - speed * Time.timeScale, transform.position.y, transform.position.z);
 
-            if (distToPlayer <= agroRange)
+            if (distToPlayer <= agroRange && player.GetComponent<PlayerController>().isCloak == false)
             {
                 AudioManager.Instance.Playsound(bip, 0.2f);
                 if (transform.position.x < player.position.x)

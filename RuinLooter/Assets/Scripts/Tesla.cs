@@ -43,7 +43,7 @@ public class Tesla : Trap
         float distToPlayer = Vector2.Distance(this.transform.position, player.position);
         teslaBallSpeed = teslaBallSpeed / distToPlayer;
 
-        if (shoot == true && distToPlayer < agroRange && distToPlayer > 3)
+        if (shoot == true && distToPlayer < agroRange && distToPlayer > 3 && player.GetComponent<PlayerController>().isCloak == false)
         {
             playerX = player.transform.position.x;
             playerY = player.transform.position.y;
