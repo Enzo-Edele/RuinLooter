@@ -781,8 +781,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press "E" to open th chest
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -806,8 +806,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1150,8 +1150,8 @@ MonoBehaviour:
     Press "E" in front of the door to use 5 coin to
     open it'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1175,8 +1175,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1242,11 +1242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 67.38629
+      value: 67.46
       objectReference: {fileID: 0}
     - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.76361
+      value: -4.53
       objectReference: {fileID: 0}
     - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1502,8 +1502,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Use ladder :\n\u2191\r\nZ\nA\n\u2193"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1527,8 +1527,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1956,8 +1956,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u2190 Q - D \u2192"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1981,8 +1981,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2844,7 +2844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.26
+      value: 7.48
       objectReference: {fileID: 0}
     - target: {fileID: 3343439391913350580, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2943,8 +2943,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Space : Jump'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2968,8 +2968,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
