@@ -80,6 +80,7 @@ MonoBehaviour:
   tg: {fileID: 3035749521446982387, guid: 35275bf035a27414291bc567eaf13a7d, type: 3}
   xSprite: {fileID: 1053890170974624406, guid: 98fe03429486c3f43a309da8274f32d2, type: 3}
   r: {fileID: 2690854137657262516, guid: 7e9dac24fb0141c4ab4f14af39a082b6, type: 3}
+  pointeur: {fileID: 8524634992953796840, guid: 64a81e25f9480084096f768489447deb, type: 3}
   salleHaute:
   - {fileID: 1837258891938159562, guid: 6916a20d944f5c1438739f9624f1a540, type: 3}
   - {fileID: 2106872640254288952, guid: 51539f22fc5d84746a4d8280ca0fc5b2, type: 3}
@@ -114,3 +115,4 @@ MonoBehaviour:
   - {fileID: 8120102288209504451, guid: efc19923ccc7e194ebe1e36a5f72bc9e, type: 3}
   size: 11
   artefactCount: 0
+  playerPos: {x: 0, y: 0}

@@ -20,6 +20,7 @@ public class RoomTemplates : MonoBehaviour
     public float speed;
     public GameObject remplis, start, gauche, droit, haut, bas, gaucheBas, gaucheHaut, gaucheDroit, basHaut, basDroit, hautDroit, tHaut, tBas, tDroit, tGauche, x;
     public GameObject spawn, sg, sd, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite, r;
+    public GameObject pointeur;
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
     GameObject minimap;
 
@@ -27,6 +28,8 @@ public class RoomTemplates : MonoBehaviour
     public string[,] max;
     [HideInInspector]
     public int artefactCount;
+    [HideInInspector]
+    public Vector2 playerPos;
     int spawnX;
     int spawnY;
 
@@ -56,15 +59,12 @@ public class RoomTemplates : MonoBehaviour
         spawnPos.x = spawnX * 10;
         spawnPos.y = spawnY * 10;
         Instantiate(start, spawnPos, Quaternion.identity);
-        /*spawnPos.x = spawnX - 20;
-        spawnPos.y = spawnY;
-        GameObject test = GameObject.Instantiate(spawn, spawnPos, Quaternion.identity);
-        test.transform.SetParent(GameObject.FindGameObjectWithTag("canvas").transform, false);*/
         max[spawnX, spawnY] = "gd";
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
         Invoke("Reload", speed * 30);
         Invoke("Minimap", speed * 32);
+        GameObject p = Instantiate(pointeur, new Vector2(1480, 800), Quaternion.identity, GameObject.FindGameObjectWithTag("Minimap").transform);
     }
     void Update()
     {
@@ -72,6 +72,9 @@ public class RoomTemplates : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        playerPos.x = (int)playerPos.x / 10 + 1480;
+        playerPos.y = (int)playerPos.y / 10 + 800;
+        pointeur.transform.position = playerPos;
     }
     void Reload()
     {
