@@ -22,7 +22,7 @@ public class RoomTemplates : MonoBehaviour
     public GameObject spawn, sg, sd, g, d, h, b, gb, gh, gd, bh, bd, hd, th, tb, td, tg, xSprite, r;
     public GameObject pointeur;
     public List<GameObject> salleHaute, salleBasse, salleDroite, salleGauche;
-    GameObject minimap;
+    GameObject minimap, marqueur;
 
     public int size;
     public string[,] max;
@@ -63,8 +63,6 @@ public class RoomTemplates : MonoBehaviour
         max[spawnX + 1, spawnY] = "gd";
         max[spawnX - 1, spawnY] = "gd";
         Invoke("Reload", speed * 30);
-        Invoke("Minimap", speed * 32);
-        GameObject p = Instantiate(pointeur, new Vector2(1480, 800), Quaternion.identity, GameObject.FindGameObjectWithTag("Minimap").transform);
     }
     void Update()
     {
@@ -72,9 +70,12 @@ public class RoomTemplates : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        playerPos.x = (int)playerPos.x / 10 + 1480;
-        playerPos.y = (int)playerPos.y / 10 + 800;
-        pointeur.transform.position = playerPos;
+        if (playerPos != null && marqueur != null)
+        {
+            playerPos.x = playerPos.x / 10 * 20 + 1480;
+            playerPos.y = playerPos.y / 10 * 20 + 802;
+            marqueur.transform.position = playerPos;
+        }
     }
     void Reload()
     {
@@ -95,7 +96,7 @@ public class RoomTemplates : MonoBehaviour
     }
     public void Minimap()
     {
-        for(int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++)
         {
             for(int j = 0; j < size; j++)
             {
@@ -119,6 +120,8 @@ public class RoomTemplates : MonoBehaviour
                 if (i == spawnX && j == spawnY)
                 {
                     minimap = spawn;
+                    playerPos.x = i;
+                    playerPos.y = j;
                 }
                 else if (i == spawnX + 1 && j == spawnY)
                 {
@@ -199,5 +202,6 @@ public class RoomTemplates : MonoBehaviour
                 miniHaut = false;
             }
         }
+        marqueur = Instantiate(pointeur, new Vector2(playerPos.x * 20 + 1480, playerPos.y * 20 + 796), Quaternion.identity, GameObject.FindGameObjectWithTag("Minimap").transform);
     }
 }
