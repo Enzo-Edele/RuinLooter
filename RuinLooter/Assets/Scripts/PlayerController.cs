@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (FindObjectOfType<RoomTemplates>() && RoomTemplates.Instance.playerPos != null)
+        {
+            RoomTemplates.Instance.playerPos.x = transform.position.x;
+            RoomTemplates.Instance.playerPos.y = transform.position.y;
+        }
         AudioManager.Instance.Playsound(ambianceSound, 0.2f);
         AudioManager.Instance.Playsound(music, 0.2f);
         if (Input.GetKeyDown("m"))
