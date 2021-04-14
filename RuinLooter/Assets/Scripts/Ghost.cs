@@ -52,7 +52,6 @@ public class Ghost : MonoBehaviour
         float distToPlayer = Vector2.Distance(this.transform.position, player.position);
         if (ghostMove == true)
         {
-            rb2d.velocity = Vector3.zero;
             rb2d.AddForce(dir * 30);
             StartCoroutine(Move());
             if (distToPlayer < 15)
@@ -65,6 +64,8 @@ public class Ghost : MonoBehaviour
     IEnumerator Move()
     {
         ghostMove = false;
+        yield return new WaitForSeconds(delay);
+        rb2d.velocity = Vector3.zero;
         yield return new WaitForSeconds(delay);
         ghostMove = true;
     }

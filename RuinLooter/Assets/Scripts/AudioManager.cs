@@ -73,6 +73,6 @@ public class AudioManager : MonoBehaviour
 
     public void SoundEndLevel()
     {
-        AudioManager.Instance.Playsound(sound, 1);
+        AudioManager.Instance.Playsound(sound, 0.3f);
     }
 }
