@@ -95,8 +95,8 @@ public class UIManager : MonoBehaviour
     GameObject minimap;
     Vector2 positionMinimap = new Vector2(1580, 900);
 
-    public readonly string tuto = "Rapporter 3 morceaux d'artefact à la machine.";
-    public readonly string nextLevel = "Vous avez rassembler les artefact";
+    public readonly string tuto = "Rapporter les 3 morceaux de la montre dispersé dans le labyrinthe";
+    public readonly string nextLevel = "Vous avez rassemblez l'artefact félicitation";
 
     private static UIManager _instance;
     public static UIManager Instance

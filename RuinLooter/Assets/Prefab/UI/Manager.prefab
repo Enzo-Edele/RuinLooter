@@ -1473,7 +1473,7 @@ MonoBehaviour:
   potion: {fileID: 21300000, guid: 01534128aa9d0cb4e878b5591a9e39da, type: 3}
   bandage: {fileID: 21300000, guid: 79c799be9a385474db5c77e77c348587, type: 3}
   pearl: {fileID: 21300000, guid: b4f4a92cc57321f408e453e827dba44e, type: 3}
-  shield: {fileID: 21300000, guid: 10d33c00d3e4a4a44870446fc0dcecb3, type: 3}
+  shield: {fileID: 21300000, guid: 9b1aa8541e879d843b62e5f8a6696500, type: 3}
   Level: {fileID: 1518469066958899279}
   fullPopup: {fileID: 203234257}
   mainMenu: {fileID: 6171917518624334108}

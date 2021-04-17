@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     float timeInvincible = 10.0f;
     float timerInvincible;
     bool isInvincible = false;
+    [SerializeField]
+    GameObject energyShield;
     bool shieldOn = false;
     float timeCloak = 15.0f;
     float timerCloak;
@@ -34,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     float horizontal;
     float vertical;
+    Vector3 rightScale = new Vector3(1, 1, 1);
+    Vector3 leftScale = new Vector3(-1, 1, 1);
     Vector2 jump = new Vector2(0, 2);
     float jumpforce = 2.0f;
     public bool isOnLadder = false;
@@ -89,6 +93,11 @@ public class PlayerController : MonoBehaviour
             if (isOnLadder)
             {
                 this.UsingLadder();
+                anim.SetBool("IsLaddered", true);
+            }
+            else
+            {
+                anim.SetBool("IsLaddered", false);
             }
             if (Input.GetKeyDown("c") && isGrounded && !isCrouching)
             {
@@ -127,6 +136,14 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         horizontal = Input.GetAxis("Horizontal");
+        if(horizontal == 1)
+        {
+            transform.localScale = rightScale;
+        }
+        else if(horizontal == -1)
+        {
+            transform.localScale = leftScale;
+        }
         anim.SetFloat("Mouv", Mathf.Abs(horizontal));
         Vector2 position = transform.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
@@ -168,14 +185,14 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 box = bc2d.size;
         speed /= 2;
-        box.y -= box.y / 2;
+        box.y -= box.y / 1.5f;
         bc2d.size = box;
     }
     void UnCrouch()
     {
         Vector2 box = bc2d.size;
         speed *= 2;
-        box.y *= 2;
+        box.y *= 3;
         bc2d.size = box;
     }
     public void ChestOpenning()
@@ -275,6 +292,7 @@ public class PlayerController : MonoBehaviour
                 break;
             case Item.Shield:
                 shieldOn = true;
+                energyShield.SetActive(true);
                 AudioManager.Instance.Playsound(soundShield, 0.1f);
                 break;
         }
@@ -290,6 +308,7 @@ public class PlayerController : MonoBehaviour
         else if(degat < 0 && shieldOn && !isInvincible)
         {
             shieldOn = false;
+            energyShield.SetActive(false);
         }
         else if(degat < 0 && !shieldOn && !isInvincible)
         {
