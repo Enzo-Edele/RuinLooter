@@ -130,38 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: sound
-      value: 
-      objectReference: {fileID: 8300000, guid: b388cee5040975c4bb4f68de80ea03b5, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: sound2
-      value: 
-      objectReference: {fileID: 8300000, guid: 6cf6c3effa1a9f042ac14248edc0687a, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundHat
-      value: 
-      objectReference: {fileID: 8300000, guid: 3db3026fe7b7f0d4cacad9ef9da80c90, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundCoin
-      value: 
-      objectReference: {fileID: 8300000, guid: 133c7bded410e89479ebdd9337cd7557, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundPotion
-      value: 
-      objectReference: {fileID: 8300000, guid: 62bfb4987a4687b4aa9dabd5bd94cd21, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundShield
-      value: 
-      objectReference: {fileID: 8300000, guid: 8b398954761b5c94785e5a8235271c5d, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundBandage
-      value: 
-      objectReference: {fileID: 8300000, guid: 931defd94fe572d4da89efd15199c081, type: 3}
-    - target: {fileID: 5545486521608269593, guid: 38ea03849b9018845b8136a407150c44, type: 3}
-      propertyPath: soundTeleportation
-      value: 
-      objectReference: {fileID: 8300000, guid: 6cf6c3effa1a9f042ac14248edc0687a, type: 3}
     - target: {fileID: 5545486521608269595, guid: 38ea03849b9018845b8136a407150c44, type: 3}
       propertyPath: m_RootOrder
       value: 0
