@@ -13,8 +13,9 @@ public class EntitySpawn : MonoBehaviour
         artefact = Random.Range(0, 5);
         if (gousset != null && artefact == 0 && RoomTemplates.Instance.artefactCount < 3)
         {
-            Instantiate(gousset, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            GameObject ordreArtefact = Instantiate(gousset, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
             RoomTemplates.Instance.artefactCount += 1;
+            ordreArtefact.GetComponent<ArtefactController>().part = RoomTemplates.Instance.artefactCount;
         }
         else
         {
