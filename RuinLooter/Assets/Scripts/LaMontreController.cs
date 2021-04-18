@@ -16,6 +16,9 @@ public class LaMontreController : MonoBehaviour
     public float x;
     public float y;
 
+    SpriteRenderer inUse;
+    [SerializeField]
+    Sprite repair;
     [SerializeField]
     GameObject machineDialogue;
     [SerializeField]
@@ -25,6 +28,7 @@ public class LaMontreController : MonoBehaviour
     {
         UIManager.Instance.UpdateLevel();
         UIManager.Instance.GenerateMinimap();
+        inUse = GetComponent<SpriteRenderer>();
         Vector2 pos = transform.position;
         x = pos.x;
         y = pos.y;
@@ -77,6 +81,7 @@ public class LaMontreController : MonoBehaviour
                 player.ArtefactCollect(-3);
                 player.PrepareNewLevel();
                 canGoNextLevel = true;
+                inUse.sprite = repair;
             }
             else if(canGoNextLevel)
             {
