@@ -9,7 +9,7 @@ public class ArtefactController : MonoBehaviour
     public Sprite armature;
     public Sprite engrenage;
     public Sprite cadran;
-    public int part;
+    public int part = 1;
     SpriteRenderer inUse;
     [HideInInspector]
     public float x;
@@ -21,7 +21,6 @@ public class ArtefactController : MonoBehaviour
         x = pos.x;
         y = pos.y;
         inUse = GetComponent<SpriteRenderer>();
-        part = Random.Range(1, 4);
         this.Apparence();
     }
     void Apparence()

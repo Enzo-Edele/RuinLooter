@@ -73,6 +73,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject loadScreen;
     [SerializeField]
+    GameObject introScreen;
+    [SerializeField]
     GameObject deathScreen;
     [SerializeField]
     GameObject victoryScreen;
@@ -89,6 +91,7 @@ public class UIManager : MonoBehaviour
     bool endLevel = false;
     bool premierePhase = false;
     float speedAnimEndLevel = 100.0f;
+    bool intro = false;
 
     [SerializeField]
     GameObject minimapPrefab;
@@ -132,6 +135,13 @@ public class UIManager : MonoBehaviour
         {
             AudioManager.Instance.SoundEndLevel();
             this.EndLevelAnimation();
+        }
+        if(intro && Input.anyKey)
+        {
+            InputManager.Instance.UnpauseState();
+            InputManager.Instance.StartGame();
+            intro = false;
+            introScreen.SetActive(false);
         }
     }
     public void UpdateAll(int health, int coin, int artefact, string item)
@@ -356,10 +366,10 @@ public class UIManager : MonoBehaviour
     }
     public void StartButton()
     {
-        InputManager.Instance.UnpauseState();
-        InputManager.Instance.StartGame();
         this.DeactivateMenuScreen();
         this.DeactivateMainMenu();
+        intro = true;
+        introScreen.SetActive(true);
     }
     public void TutoButton()
     {
