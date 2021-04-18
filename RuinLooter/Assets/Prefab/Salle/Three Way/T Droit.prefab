@@ -293,12 +293,12 @@ GameObject:
   - component: {fileID: 6961494912859319488}
   - component: {fileID: 6420100118330086637}
   - component: {fileID: 387312170956228866}
-  - component: {fileID: 639732858159340280}
   - component: {fileID: 5433007379010319363}
   - component: {fileID: 164478655294004961}
   - component: {fileID: 1079548215768806688}
   - component: {fileID: 3991943531095978705}
   - component: {fileID: 7121065443755973776}
+  - component: {fileID: 7766150076577602351}
   m_Layer: 0
   m_Name: T Droit
   m_TagString: Untagged
@@ -363,7 +363,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 42190fbab5702f54bb0e3d5750aca473, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 242280c23ed53d24192b7fb98fd0e69a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -396,32 +396,6 @@ MonoBehaviour:
     uneChanceSur: 6
     xPos: 3.5
     yPos: -2
---- !u!61 &639732858159340280
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3672167417305154560}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -3.2412307, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
-    newSize: {x: 10, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 3.5175385, y: 10}
-  m_EdgeRadius: 0
 --- !u!61 &5433007379010319363
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -435,7 +409,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.2833245, y: 3.6060438}
+  m_Offset: {x: 3, y: 3.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -446,7 +420,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.433351, y: 2.7879124}
+  m_Size: {x: 4, y: 3}
   m_EdgeRadius: 0
 --- !u!61 &164478655294004961
 BoxCollider2D:
@@ -461,7 +435,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.255262, y: -3.620075}
+  m_Offset: {x: 3, y: -3.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -472,7 +446,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.4894762, y: 2.75985}
+  m_Size: {x: 4, y: 3}
   m_EdgeRadius: 0
 --- !u!50 &1079548215768806688
 Rigidbody2D:
@@ -508,7 +482,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.08418763, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -519,7 +493,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9843504, y: 10}
+  m_Size: {x: 0.7, y: 10}
   m_EdgeRadius: 0
 --- !u!114 &7121065443755973776
 MonoBehaviour:
@@ -533,3 +507,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c346ae4f30274f46a4ed91de8adfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!60 &7766150076577602351
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3672167417305154560}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10, y: 10}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -5, y: 5}
+      - {x: -5, y: -5}
+      - {x: -1, y: -5}
+      - {x: -1, y: -2}
+      - {x: -2, y: -2}
+      - {x: -2, y: 2}
+      - {x: -1, y: 2}
+      - {x: -1, y: 5}

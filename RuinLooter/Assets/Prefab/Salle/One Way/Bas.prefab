@@ -171,7 +171,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -10
-  m_Sprite: {fileID: 21300000, guid: 5454eb4b77bf00a4ba4421d455f2b84e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2ccdf07cecdb5404082740cb9797ddbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,14 +209,14 @@ PolygonCollider2D:
     m_Paths:
     - - {x: -5, y: 5}
       - {x: -5, y: -5}
-      - {x: -1.550142, y: -4.950495}
-      - {x: -1.5092278, y: -4.0491962}
-      - {x: -4.0467963, y: -3.9920056}
-      - {x: -3.9784744, y: 3.9792624}
-      - {x: 3.9870799, y: 4.0409193}
-      - {x: 4.0461006, y: -3.9962444}
-      - {x: 1.5973969, y: -4.0716257}
-      - {x: 1.6422534, y: -4.987096}
+      - {x: -1, y: -5}
+      - {x: -1, y: -3}
+      - {x: -3, y: -3}
+      - {x: -3, y: 3}
+      - {x: 3, y: 3}
+      - {x: 3, y: -3}
+      - {x: 1, y: -3}
+      - {x: 1, y: -5}
       - {x: 5, y: -5}
       - {x: 5, y: 5}
 --- !u!50 &-6663394623166785615
@@ -253,7 +253,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06757355, y: -4.476715}
+  m_Offset: {x: 0, y: -4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -264,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.9724026, y: 1.0465698}
+  m_Size: {x: 0.7, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &9076843514933946960
 MonoBehaviour:
@@ -294,5 +294,5 @@ MonoBehaviour:
   spawnables:
   - entity: {fileID: 3343439391913350577, guid: cf0e6cc9bdd817c41a91e4ff83e17a5c, type: 3}
     uneChanceSur: 1
-    xPos: -2.7
-    yPos: -3
+    xPos: 1.7
+    yPos: -2
