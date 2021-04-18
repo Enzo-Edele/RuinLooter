@@ -34,10 +34,10 @@ public class PlayerController : MonoBehaviour
     public bool isCloak = false;
     GameObject artefactTP;
 
-    float horizontal;
+    public float horizontal;
     float vertical;
-    Vector3 rightScale = new Vector3(1, 1, 1);
-    Vector3 leftScale = new Vector3(-1, 1, 1);
+    Vector3 rightScale = new Vector3(0.65f, 0.65f, 1);
+    Vector3 leftScale = new Vector3(-0.65f, 0.65f, 1);
     Vector2 jump = new Vector2(0, 2);
     float jumpforce = 2.0f;
     public bool isOnLadder = false;
@@ -136,11 +136,11 @@ public class PlayerController : MonoBehaviour
     void Move()
     {
         horizontal = Input.GetAxis("Horizontal");
-        if(horizontal == 1)
+        if(horizontal > 0)
         {
             transform.localScale = rightScale;
         }
-        else if(horizontal == -1)
+        else if(horizontal < 0)
         {
             transform.localScale = leftScale;
         }
