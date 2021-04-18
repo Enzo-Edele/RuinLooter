@@ -24,13 +24,13 @@ public class DoorController : MonoBehaviour
         if(isOpen && bc2d.size.y > 0.2f)
         {
             Vector2 porte = bc2d.size;
-            porte.y -= Time.deltaTime;
+            porte.y -= Time.deltaTime * 2;
             bc2d.size = porte;
         }
-        if (isOpen && bc2d.offset.y > -1.5f)
+        if (isOpen && bc2d.offset.y > -2.1f)
         {
             Vector2 centre = bc2d.offset;
-            centre.y -= Time.deltaTime;
+            centre.y -= Time.deltaTime * 2;
             bc2d.offset = centre;
         }
     }

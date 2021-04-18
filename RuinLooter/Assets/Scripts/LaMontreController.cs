@@ -99,6 +99,10 @@ public class LaMontreController : MonoBehaviour
         {
             UIManager.Instance.VictoryUI();
         }
+        else if (SceneManager.GetActiveScene().buildIndex == 17)
+        {
+            UIManager.Instance.MainMenuButton();
+        }
         else
         {
             UIManager.Instance.LaunchEndLevelAnimation();
