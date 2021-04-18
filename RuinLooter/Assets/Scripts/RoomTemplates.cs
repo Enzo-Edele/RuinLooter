@@ -66,10 +66,12 @@ public class RoomTemplates : MonoBehaviour
     }
     void Update()
     {
+        /*
         if (Input.GetKeyDown("r"))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        */
         if (playerPos != null && marqueur != null)
         {
             playerPos.x = playerPos.x / 10 * 20 + 1480;

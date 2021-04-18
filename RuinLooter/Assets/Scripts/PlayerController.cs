@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
         }
         AudioManager.Instance.Playsound(ambianceSound, 0.2f);
         AudioManager.Instance.Playsound(music, 0.2f);
+        /*
         if (Input.GetKeyDown("m"))
         {
             this.Damage(-1);
@@ -83,6 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             this.Damage(1);
         }
+        */
         if (!InputManager.Instance.pause)
         {
             this.Move();
