@@ -222,8 +222,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u2191\nFull"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
+  m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &232682896
@@ -1508,7 +1508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1518469067595085986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2194,11 +2194,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Henriette a pour objectif de remonter le temps vers une epoque plus paissible.
-    Pour se faire elle doit traverser les 15 niveaux des ruines et ramener 3 morceaux
-    d'un artefact, une montre a gousset etant la cle reparant chaque machine se trouvant
-    chacune se trouvant a un niveaux des ruines. Un fois la machine reparer Henriette
-    passe au niveau suivant
+  m_text: Henriette has the objective of going back in time to a more peacefull era.
+    To Do so she will go through 15 level in the ruins and find the 3 pieces of an
+    artefact, an old pocket watch that is the missing key of a mysterious device
+    that you find at the start of every level. Once the device is activated Henriette
+    can go to the next level.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
@@ -2708,8 +2708,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -458.7, y: 289.85547}
-  m_SizeDelta: {x: 334.2038, y: 500.2867}
+  m_AnchoredPosition: {x: -485.69, y: 383.12}
+  m_SizeDelta: {x: 280.22, y: 313.7552}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7519856188106932795
 CanvasRenderer:
@@ -2750,15 +2750,7 @@ MonoBehaviour:
     Jade
     Robert
 
-    Kilian Lefevre
-
-    Laura Michel
-
-    Jade Robert
-
-    Jonas Suhard
-
-    Mathilde'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
@@ -4009,7 +4001,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322.77, y: -328}
+  m_AnchoredPosition: {x: 461, y: -304}
   m_SizeDelta: {x: 645.5489, y: 225.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6989799947552800753
@@ -4049,7 +4041,7 @@ MonoBehaviour:
     Quentin
     Boulet-Benac
 
-    
+
 
 '
   m_isRightToLeft: 0
@@ -4709,7 +4701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0036621094, y: -311.7367}
+  m_AnchoredPosition: {x: -0.000061035156, y: -415}
   m_SizeDelta: {x: -1552.4111, y: -884.5354}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3117944450004499203
