@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     }
     public Item slot = Item.Empty;
 
-    void Awake()
+    private void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         bc2d = GetComponent<BoxCollider2D>();

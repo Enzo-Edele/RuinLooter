@@ -138,8 +138,6 @@ public class UIManager : MonoBehaviour
         }
         if(intro && Input.anyKey)
         {
-            InputManager.Instance.UnpauseState();
-            InputManager.Instance.StartGame();
             intro = false;
             introScreen.SetActive(false);
         }
@@ -370,6 +368,8 @@ public class UIManager : MonoBehaviour
         this.DeactivateMainMenu();
         intro = true;
         introScreen.SetActive(true);
+        InputManager.Instance.UnpauseState();
+        InputManager.Instance.StartGame();
     }
     public void TutoButton()
     {
