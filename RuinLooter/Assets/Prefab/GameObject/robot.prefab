@@ -145,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agroRange: 5
-  defaultSpeed: 0.003
+  defaultSpeed: 0.03
   agroSpeed: 1.8
   distance: 4
   bip: {fileID: 8300000, guid: 0575706736a13b9418b10e98adfedb73, type: 3}
