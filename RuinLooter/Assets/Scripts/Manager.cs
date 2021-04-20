@@ -9,12 +9,14 @@ public class Manager : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
         UIManager.Instance.MainMenuButton();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
     private void Update()
     {
         if(SceneManager.GetActiveScene().buildIndex == 0)
         {
             UIManager.Instance.MainMenuButton();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
