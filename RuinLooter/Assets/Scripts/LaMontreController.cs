@@ -27,7 +27,6 @@ public class LaMontreController : MonoBehaviour
     private void Start()
     {
         UIManager.Instance.UpdateLevel();
-        UIManager.Instance.GenerateMinimap();
         inUse = GetComponent<SpriteRenderer>();
         Vector2 pos = transform.position;
         x = pos.x;
