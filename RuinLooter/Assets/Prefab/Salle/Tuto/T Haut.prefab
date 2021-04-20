@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5000343474032082707}
   - component: {fileID: 4046481831832986514}
   - component: {fileID: 758513248819085239}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: T Haut
   m_TagString: Untagged
   m_Icon: {fileID: 0}

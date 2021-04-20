@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5819241945257104925}
   - component: {fileID: 6203580487568693097}
   - component: {fileID: 2439866180598838725}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4080279085805016587}
   - component: {fileID: 3713612468829417369}
   - component: {fileID: 6778052496104378962}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: 6362448768937756521}
   - component: {fileID: 592659264334367715}
   - component: {fileID: 2486497619411698535}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: T Gauche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -458,7 +458,7 @@ GameObject:
   - component: {fileID: 4505198780510630115}
   - component: {fileID: 9207005048807912558}
   - component: {fileID: 3497432820401357444}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

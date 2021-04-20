@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5587675345740772427}
   - component: {fileID: -5541604732978942612}
   - component: {fileID: -7942129057584753510}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Droite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1946938534781788112}
   - component: {fileID: 543445888988042803}
   - component: {fileID: 2534868159213005827}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -307,6 +307,10 @@ PrefabInstance:
     - target: {fileID: 8693351519573397115, guid: 564463634efce874d8450faa2d49c68f, type: 3}
       propertyPath: m_Name
       value: porte
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693351519573397115, guid: 564463634efce874d8450faa2d49c68f, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 564463634efce874d8450faa2d49c68f, type: 3}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3254066816567400742}
   - component: {fileID: 8512698433790695829}
   - component: {fileID: 8789262499689035357}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 570921878069739767}
   - component: {fileID: 8728903589628864259}
   - component: {fileID: 5723986151093322033}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 8013511287452967976}
   - component: {fileID: 7771200800948336089}
   - component: {fileID: 3496755157173083285}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner (3)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -291,7 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3117388065714533175}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Salle Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 4300056105483561657}
   - component: {fileID: 590200438935524578}
   - component: {fileID: 5190509978888930249}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 7761831219771727952}
   - component: {fileID: 8671858745006799418}
   - component: {fileID: 1269144056147185864}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner (4)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -578,9 +578,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3117388065714533175}
     m_Modifications:
+    - target: {fileID: 7567304500198693218, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567304501596796573, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567304501990901180, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7567304501998056754, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
       propertyPath: m_Name
       value: machine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7567304501998056754, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7567304501998056759, guid: bb14df0dfd5ec404896a2b21a0b8b1b5, type: 3}
       propertyPath: m_RootOrder

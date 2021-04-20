@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8639652057746253140}
   - component: {fileID: 319604888203699141}
   - component: {fileID: 1428323494701375757}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 616766580673167201}
   - component: {fileID: 9046650571113515431}
   - component: {fileID: 1386840714648787321}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -205,7 +205,7 @@ GameObject:
   - component: {fileID: -154380093289449432}
   - component: {fileID: 42991125835998377}
   - component: {fileID: 3619071376394107020}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: T Haut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.5}
+  m_Offset: {x: 0, y: 2.048275}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -437,7 +437,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.7, y: 7}
+  m_Size: {x: 0.7, y: 5.90345}
   m_EdgeRadius: 0
 --- !u!114 &3619071376394107020
 MonoBehaviour:
@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 2974948984338086783}
   - component: {fileID: 3109986478661994855}
   - component: {fileID: 8386094175557014344}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

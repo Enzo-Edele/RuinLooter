@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3430092167044709927}
   - component: {fileID: 4566643287553060457}
   - component: {fileID: 6760076144196995632}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Haut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 5796946160742199741}
   - component: {fileID: 7280419877144686367}
   - component: {fileID: 6290942338317221492}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

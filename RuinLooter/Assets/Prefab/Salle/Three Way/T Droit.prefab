@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8754697481043945890}
   - component: {fileID: 4925371751955300208}
   - component: {fileID: 3498970828982096996}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 872170069654191429}
   - component: {fileID: 5259342188492549800}
   - component: {fileID: 2990557753490343182}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 3469873423678632118}
   - component: {fileID: 4143899843755374556}
   - component: {fileID: 5819485658166580913}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -298,8 +298,8 @@ GameObject:
   - component: {fileID: 1079548215768806688}
   - component: {fileID: 3991943531095978705}
   - component: {fileID: 7121065443755973776}
-  - component: {fileID: 7766150076577602351}
-  m_Layer: 0
+  - component: {fileID: 3331646785228670465}
+  m_Layer: 10
   m_Name: T Droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c346ae4f30274f46a4ed91de8adfd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!60 &7766150076577602351
+--- !u!60 &3331646785228670465
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -532,11 +532,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -5, y: 5}
+    - - {x: -5, y: 5.0460205}
       - {x: -5, y: -5}
-      - {x: -1, y: -5}
-      - {x: -1, y: -2}
-      - {x: -2, y: -2}
-      - {x: -2, y: 2}
-      - {x: -1, y: 2}
-      - {x: -1, y: 5}
+      - {x: -1.9979981, y: -4.982642}
+      - {x: -1.0279422, y: -4.9804068}
+      - {x: -1.0435961, y: -1.9947813}
+      - {x: -1.9969224, y: -1.9959924}
+      - {x: -2.0057447, y: 2.0577388}
+      - {x: -1.0334477, y: 2.0565128}
+      - {x: -1.0035311, y: 5.009549}
+      - {x: -2.0171523, y: 5.0457892}

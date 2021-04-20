@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8050982213470940496}
   - component: {fileID: 5648732111287046707}
   - component: {fileID: 4396039640487462646}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bas-Droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

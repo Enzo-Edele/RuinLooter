@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2382434499020225320}
   - component: {fileID: 231642912376137133}
   - component: {fileID: 4829853376883671165}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 495272623462015560}
   - component: {fileID: 6342861560206423739}
   - component: {fileID: 5894883216408052446}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 5033866140822163744}
   - component: {fileID: 3441889761248995414}
   - component: {fileID: 7284962040281707698}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (2)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: -8473200520018355950}
   - component: {fileID: 8534520875415728885}
   - component: {fileID: 349784814646462489}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: T Bas
   m_TagString: Untagged
   m_Icon: {fileID: 0}

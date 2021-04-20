@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7348534499674787399}
   - component: {fileID: 6446624796692773800}
   - component: {fileID: 8301899718588452440}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 517934141062367839}
   - component: {fileID: 9076843514933946960}
   - component: {fileID: -4092935982938128354}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,10 +208,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: -5, y: 5}
-      - {x: -5, y: -5}
+      - {x: -4.9819, y: -5.0180993}
       - {x: -1, y: -5}
       - {x: -1, y: -3}
-      - {x: -3, y: -3}
+      - {x: -3.0093603, y: -2.9859593}
       - {x: -3, y: 3}
       - {x: 3, y: 3}
       - {x: 3, y: -3}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7334128403032325140}
   - component: {fileID: 7334128403032325141}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Room Template
   m_TagString: rooms
   m_Icon: {fileID: 0}

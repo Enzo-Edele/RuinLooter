@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2682064657648194327}
   - component: {fileID: 5260810560789106052}
   - component: {fileID: 7201521928596032971}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8006582390061132326}
   - component: {fileID: 5039356002486179613}
   - component: {fileID: 5765987471668398725}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Haut-Droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 5737562818583373037}
   - component: {fileID: 5806983722006970188}
   - component: {fileID: 4106933275406184831}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}

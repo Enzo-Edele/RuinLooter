@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3180289267029274081}
   - component: {fileID: 1007731520530764418}
   - component: {fileID: 9122502104733353543}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bas-Droit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 3479565119995636061}
   - component: {fileID: 2909575986416221969}
   - component: {fileID: 936994311862557094}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -336,7 +336,7 @@ GameObject:
   - component: {fileID: 1034611350826897447}
   - component: {fileID: 1070054714123255739}
   - component: {fileID: 461811914389215615}
-  m_Layer: 2
+  m_Layer: 10
   m_Name: Spawner (1)
   m_TagString: spawn
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
