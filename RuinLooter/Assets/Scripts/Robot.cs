@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Robot : MonoBehaviour
 {
+    private int collide = 1;
     private Transform player;
     public float agroRange;
     private float spawnPoint;
@@ -37,17 +38,17 @@ public class Robot : MonoBehaviour
             RaycastHit2D hitRight = Physics2D.Raycast(transform.position, Vector2.right, 0.3f, roomLayer);
             RaycastHit2D hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.3f, roomLayer);
             Vector3 robotScale = transform.localScale;
-            transform.position = new Vector3(transform.position.x - speed * Time.timeScale, transform.position.y, transform.position.z);
+            transform.position = new Vector3(transform.position.x - speed * Time.timeScale * collide, transform.position.y, transform.position.z);
 
             if (distToPlayer <= agroRange && player.GetComponent<PlayerController>().isCloak == false)
             {
                 AudioManager.Instance.Playsound(bip, 0.2f);
-                if (transform.position.x < player.position.x || hitRight.collider != null)
+                if (transform.position.x < player.position.x)
                 {
                     robotScale.x = -defaultSize;
                     speed = -defaultSpeed * agroSpeed;
                 }
-                else if (transform.position.x >= player.position.x || hitLeft.collider != null)
+                else if (transform.position.x >= player.position.x)
                 {
                     robotScale.x = defaultSize;
                     speed = defaultSpeed * agroSpeed;
@@ -56,13 +57,13 @@ public class Robot : MonoBehaviour
 
             else 
             {
-                if (transform.position.x < spawnPoint - distance || hitLeft.collider != null)
+                if (transform.position.x < spawnPoint - distance)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = -defaultSize;
                     speed = -defaultSpeed;
                 }
-                else if (transform.position.x > spawnPoint + distance || hitRight.collider != null)
+                else if (transform.position.x > spawnPoint + distance)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = defaultSize;
@@ -71,6 +72,15 @@ public class Robot : MonoBehaviour
             }
 
             transform.localScale = robotScale;
+
+            if (hitLeft.collider != null || hitRight.collider != null)
+            {
+                collide = 0;
+            }
+            else
+            {
+                collide = 1;
+            }
         }
     }
 }
