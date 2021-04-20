@@ -10,4 +10,11 @@ public class Manager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         UIManager.Instance.MainMenuButton();
     }
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            UIManager.Instance.MainMenuButton();
+        }
+    }
 }
