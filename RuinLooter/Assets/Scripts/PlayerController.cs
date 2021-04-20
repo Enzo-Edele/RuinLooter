@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     float vertical;
     Vector3 rightScale = new Vector3(0.65f, 0.65f, 1);
     Vector3 leftScale = new Vector3(-0.65f, 0.65f, 1);
-    Vector2 jump = new Vector2(0, 2);
+    Vector2 jump = new Vector2(0, 3);
     float jumpforce = 2.0f;
     public bool isOnLadder = false;
     [SerializeField]

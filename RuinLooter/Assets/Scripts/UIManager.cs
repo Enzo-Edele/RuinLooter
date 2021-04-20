@@ -98,8 +98,8 @@ public class UIManager : MonoBehaviour
     GameObject minimap;
     Vector2 positionMinimap = new Vector2(1580, 900);
 
-    public readonly string tuto = "Rapporter les 3 morceaux de la montre dispersé dans le labyrinthe";
-    public readonly string nextLevel = "Vous avez rassemblez l'artefact félicitation";
+    public readonly string tuto = "Gather the 3 pieces of the pocket watch scatter in the level";
+    public readonly string nextLevel = "You gather all the pieces congratulation. Interract again to access next level";
 
     private static UIManager _instance;
     public static UIManager Instance
@@ -467,14 +467,11 @@ public class UIManager : MonoBehaviour
     }
     public void GenerateMinimap()
     {
-        if (minimap == null)
+        minimap = Instantiate(minimapPrefab, positionMinimap, Quaternion.identity, GameObject.FindGameObjectWithTag("canvas").transform);
+        RoomTemplates scriptMap = FindObjectOfType(typeof(RoomTemplates)) as RoomTemplates;
+        if (scriptMap != null)
         {
-            minimap = Instantiate(minimapPrefab, positionMinimap, Quaternion.identity,GameObject.FindGameObjectWithTag("canvas").transform);
-            RoomTemplates scriptMap = FindObjectOfType(typeof(RoomTemplates)) as RoomTemplates;
-            if (scriptMap != null)
-            {
-                scriptMap.Invoke("Minimap", 0.025f * 32);
-            }
+            scriptMap.Minimap();
         }
     }
     public void DegenerateMinimap()
