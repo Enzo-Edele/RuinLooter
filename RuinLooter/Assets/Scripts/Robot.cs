@@ -56,13 +56,13 @@ public class Robot : MonoBehaviour
 
             else 
             {
-                if (transform.position.x < spawnPoint - distance || hitRight.collider != null)
+                if (transform.position.x < spawnPoint - distance || hitLeft.collider != null)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = -defaultSize;
                     speed = -defaultSpeed;
                 }
-                else if (transform.position.x > spawnPoint + distance || hitLeft.collider != null)
+                else if (transform.position.x > spawnPoint + distance || hitRight.collider != null)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = defaultSize;
