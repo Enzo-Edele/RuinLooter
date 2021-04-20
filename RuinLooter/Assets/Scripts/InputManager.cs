@@ -18,7 +18,7 @@ public class InputManager : MonoBehaviour
             return _instance;
         }
     }
-    void Awake()
+    private void Awake()
     {
         _instance = this;
     }
