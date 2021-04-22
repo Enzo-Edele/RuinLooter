@@ -235,5 +235,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3969390153654901914, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
+      propertyPath: m_text
+      value: Henriette has the objective of going back in time to a more peaceful
+        era. To do so she will go through 15 level in the ruins and find the 3 pieces
+        of an artefact, an old pocket watch that is the missing key of a mysterious
+        device that you find at the start of every level. Once the device is activated
+        Henriette can go to the next level.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6701426165024040345, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
