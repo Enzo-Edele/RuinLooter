@@ -208,6 +208,10 @@ MonoBehaviour:
     uneChanceSur: 2
     xPos: 0
     yPos: 0
+  - entity: {fileID: 7461662508479132256, guid: cad243040a59c584ba08e47f49718b91, type: 3}
+    uneChanceSur: 2
+    xPos: 0
+    yPos: 0
 --- !u!61 &5843191693591687513
 BoxCollider2D:
   m_ObjectHideFlags: 0
