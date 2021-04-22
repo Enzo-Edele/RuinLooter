@@ -2434,7 +2434,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -652.79, y: -424.3}
+  m_AnchoredPosition: {x: -652.79, y: -375}
   m_SizeDelta: {x: 614.4143, y: 231.3979}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6307558368896222553
@@ -2471,7 +2471,9 @@ MonoBehaviour:
 
     https://tabletopaudio.com/
 
-    MEISHT'
+    MEISHT
+
+    S3C'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
@@ -3418,9 +3420,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GRAPHISMES\r\nRayan Dauliac\r\nJulie Fernandez\r\nAlexandra P\r\nJohanna\r\nAlix
-    Kim\r\nC\xE9cile Koa\r\nC\xE9cile Denave\r\nEmma Mautrot\r\nKilian Lefevre\r\nLaura
-    Michel\r\nJade Robert\r\nJonas Suhard\r\nMathilde"
+  m_text: 'GRAPHISMES
+
+    Rayan Dauliac
+
+    Julie Fernandez
+
+    Alexandra P
+
+    Johanna
+
+    Alix
+    Kim
+
+    Cecile Koa
+
+    Cecile Denave
+
+    Emma Mautrot
+
+    Kilian Lefevre
+
+    Laura
+    Michel
+
+    Jade Robert
+
+    Jonas Suhard
+
+    Mathilde'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
