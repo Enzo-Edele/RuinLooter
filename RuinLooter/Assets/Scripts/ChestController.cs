@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour
 {
+    // Cloup Enzo
+
     bool isOpen = false;
     bool isOn = false;
     PlayerController player;

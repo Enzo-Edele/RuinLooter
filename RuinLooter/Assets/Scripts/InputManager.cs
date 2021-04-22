@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    // Cloup Enzo
+
     public bool pause = false;
     public bool begin = false;
     private static InputManager _instance;

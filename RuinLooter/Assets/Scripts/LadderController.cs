@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LadderController : MonoBehaviour
 {
+    // Cloup Enzo
     private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.GetComponent<PlayerController>();

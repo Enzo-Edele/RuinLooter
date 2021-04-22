@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoinController : MonoBehaviour
 {
+    // Cloup Enzo
+
     public AudioClip sound;
     private void OnTriggerEnter2D(Collider2D other)
     {

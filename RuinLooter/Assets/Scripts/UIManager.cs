@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    // Cloup Enzo
+
     HealthBarController HealthBar;
     [SerializeField]
     GameObject HP;

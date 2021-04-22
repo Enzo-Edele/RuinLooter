@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    // Cloup Enzo
+
     public Rigidbody2D rb2d;
     BoxCollider2D bc2d;
     public Animator anim;

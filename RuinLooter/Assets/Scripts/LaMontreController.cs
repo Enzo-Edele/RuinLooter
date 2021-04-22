@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LaMontreController : MonoBehaviour
 {
+    // Cloup Enzo
+
     bool isOn = false;
     bool popUpOn = false;
     bool canGoNextLevel = false;

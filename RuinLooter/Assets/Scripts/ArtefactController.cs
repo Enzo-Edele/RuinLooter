@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class ArtefactController : MonoBehaviour
 {
+    // Cloup Enzo
+
     public AudioClip sound;
     public Sprite armature;
     public Sprite engrenage;

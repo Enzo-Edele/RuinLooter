@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    // Cloup Enzo
+
     public int coin;
     public int artefact;
     public int health;
