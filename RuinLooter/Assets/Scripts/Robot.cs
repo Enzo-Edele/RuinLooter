@@ -36,9 +36,7 @@ public class Robot : MonoBehaviour
         float distToPlayer = Vector2.Distance(transform.position, player.position);
         if (transform.position.x.ToString("0000.00") != player.transform.position.x.ToString("0000.00"))
         {
-            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 0.3f, roomLayer);
-            RaycastHit2D hitColliderRight = Physics2D.Raycast(transform.position, Vector2.right, 0.1f, roomLayer);
-            RaycastHit2D hitColliderLeft = Physics2D.Raycast(transform.position, Vector2.left, 0.1f, roomLayer);
+            RaycastHit2D hitDown = Physics2D.Raycast(transform.position, Vector2.down, 1, roomLayer);
             if (hitDown.collider == null)
             {
                 raycastSize = 0.3f;
@@ -56,12 +54,12 @@ public class Robot : MonoBehaviour
             if (distToPlayer <= agroRange && player.GetComponent<PlayerController>().isCloak == false)
             {
                 AudioManager.Instance.Playsound(bip, 0.2f);
-                if (transform.position.x < player.position.x || hitColliderLeft.collider != null)
+                if (transform.position.x < player.position.x)
                 {
                     robotScale.x = -defaultSize;
                     speed = -defaultSpeed * agroSpeed;
                 }
-                else if (transform.position.x >= player.position.x || hitColliderRight.collider != null)
+                else if (transform.position.x >= player.position.x)
                 {
                     robotScale.x = defaultSize;
                     speed = defaultSpeed * agroSpeed;
@@ -70,13 +68,13 @@ public class Robot : MonoBehaviour
 
             else 
             {
-                if (transform.position.x < spawnPoint - distance || hitColliderLeft.collider != null)
+                if (transform.position.x < spawnPoint - distance)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = -defaultSize;
                     speed = -defaultSpeed;
                 }
-                else if (transform.position.x > spawnPoint + distance || hitColliderRight.collider != null)
+                else if (transform.position.x > spawnPoint + distance)
                 {
                     spawnPoint = transform.position.x;
                     robotScale.x = defaultSize;
