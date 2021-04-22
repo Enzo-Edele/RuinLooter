@@ -247,5 +247,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7598126639366829778, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
+      propertyPath: m_text
+      value: 'AIDES
+
+        David Duriot
+
+        Eponine Jacquet
+
+        Lucile
+        Cacciuttolo'
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
