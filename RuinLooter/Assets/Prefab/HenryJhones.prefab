@@ -207,7 +207,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   scenePlayer: 0
   ambianceSound: {fileID: 8300000, guid: 779ef1e59a82ca64da8c1d08c2a376d8, type: 3}
-  music: {fileID: 8300000, guid: d95ea4be3aa4e6d4394b76891cb52257, type: 3}
+  musicMenu: {fileID: 8300000, guid: d95ea4be3aa4e6d4394b76891cb52257, type: 3}
+  musicGame: {fileID: 8300000, guid: 81d9555a83aa0424686eda40c13aef8f, type: 3}
   soundTeleportation: {fileID: 8300000, guid: 6cf6c3effa1a9f042ac14248edc0687a, type: 3}
   soundShield: {fileID: 8300000, guid: 8b398954761b5c94785e5a8235271c5d, type: 3}
   soundBandage: {fileID: 8300000, guid: 931defd94fe572d4da89efd15199c081, type: 3}
@@ -215,6 +216,7 @@ MonoBehaviour:
   soundHat: {fileID: 8300000, guid: 3db3026fe7b7f0d4cacad9ef9da80c90, type: 3}
   soundArtefact: {fileID: 8300000, guid: 0db5e44b828357545b40cf8e39801692, type: 3}
   soundChest: {fileID: 8300000, guid: 8008a126bcdc10449ad9b7fecaf4ebdc, type: 3}
+  hit: {fileID: 8300000, guid: f393b62c0f0661b4b9168a73bf34fa07, type: 3}
   artefact: 0
   energyShield: {fileID: 1501229967058320308}
   isCloak: 0

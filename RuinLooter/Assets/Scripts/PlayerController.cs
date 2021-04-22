@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     bool isCrouching = false;
     public int scenePlayer;
     public AudioClip ambianceSound;
-    public AudioClip music;
+    public AudioClip musicMenu;
+    public AudioClip musicGame;
     public AudioClip soundTeleportation;
     public AudioClip soundShield;
     public AudioClip soundBandage;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip soundHat;
     public AudioClip soundArtefact;
     public AudioClip soundChest;
+    public AudioClip hit;
 
     public int artefact = 0;
     int coin = 0;
@@ -76,7 +78,8 @@ public class PlayerController : MonoBehaviour
             RoomTemplates.Instance.playerPos.y = transform.position.y;
         }
         AudioManager.Instance.Playsound(ambianceSound, 0.2f);
-        AudioManager.Instance.Playsound(music, 0.2f);
+        AudioManager.Instance.Playsound(musicMenu, 0.2f);
+        AudioManager.Instance.Playsound(musicGame, 0.2f);
         /*
         if (Input.GetKeyDown("m"))
         {
@@ -135,6 +138,17 @@ public class PlayerController : MonoBehaviour
             {
                 isCloak = false;
             }
+        }
+
+        if (GameManager.Instance._GameState == GameManager.GameState.InGame)
+        {
+            AudioManager.Instance.StopSound(musicMenu);
+            AudioManager.Instance.Playsound(musicGame, 0.2f);
+        }
+        else
+        {
+            AudioManager.Instance.StopSound(musicGame);
+            AudioManager.Instance.Playsound(musicMenu, 0.2f);
         }
     }
     void Move()
@@ -308,6 +322,7 @@ public class PlayerController : MonoBehaviour
         if(degat > 0 && PV < 5)
         {
             PV += degat;
+            AudioManager.Instance.Playsound(hit, 0.4f);
         }
         else if(degat < 0 && shieldOn && !isInvincible)
         {
@@ -317,6 +332,7 @@ public class PlayerController : MonoBehaviour
         else if(degat < 0 && !shieldOn && !isInvincible)
         {
             PV += degat;
+            AudioManager.Instance.Playsound(hit, 0.4f);
         }
         if(PV < 1)
         {
