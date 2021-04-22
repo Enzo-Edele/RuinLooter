@@ -322,7 +322,6 @@ public class PlayerController : MonoBehaviour
         if(degat > 0 && PV < 5)
         {
             PV += degat;
-            AudioManager.Instance.Playsound(hit, 0.4f);
         }
         else if(degat < 0 && shieldOn && !isInvincible)
         {
@@ -332,6 +331,7 @@ public class PlayerController : MonoBehaviour
         else if(degat < 0 && !shieldOn && !isInvincible)
         {
             PV += degat;
+            AudioManager.Instance.Playsound(hit, 0.4f);
         }
         if(PV < 1)
         {
