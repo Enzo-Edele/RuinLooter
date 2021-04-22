@@ -253,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6543555237860653954, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
       propertyPath: m_text
-      value: "GRAPHISMES\r\nRayan Dauliac\r\nJulie Fernandez\r\nAlexandra P\r\nJohanna
+      value: "GRAPHISMES\r\nRayan Dauliac\r\nJulie Fernandez\r\nAlexandra P\rasquali\nJohanna
         De Lijster\nAlix Kim\r\nC\xE9cile Koa\r\nC\xE9cile Denave\r\nEmma Mautrot\r\nKilian
         Lefevre\r\nLaura Michel\r\nJade Robert\r\nJonas Suhard\r\nMathilde"
       objectReference: {fileID: 0}
