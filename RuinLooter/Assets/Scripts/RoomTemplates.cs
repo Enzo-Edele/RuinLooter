@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//Script par Quentin Boulet-Benac
 public class RoomTemplates : MonoBehaviour
 {
     private static RoomTemplates _instance;
@@ -66,12 +66,6 @@ public class RoomTemplates : MonoBehaviour
     }
     void Update()
     {
-        /*
-        if (Input.GetKeyDown("r"))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        */
         if (playerPos != null && marqueur != null)
         {
             playerPos.x = playerPos.x / 10 * 20 + 1480;

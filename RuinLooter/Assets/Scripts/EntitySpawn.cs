@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Script par Quentin Boulet-Benac
 public class EntitySpawn : MonoBehaviour
 {
     public GameObject gousset;
