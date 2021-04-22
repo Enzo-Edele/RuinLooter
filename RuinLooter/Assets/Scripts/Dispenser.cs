@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Dispenser : Trap
 {
+    //Le Bacquer Alexandre
+
     public float delay = 1;
     public GameObject projectilePrefab;
     private bool shoot = true;

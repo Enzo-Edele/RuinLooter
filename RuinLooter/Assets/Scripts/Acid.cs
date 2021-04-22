@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Acid : Projectile
 {
+    //Le Bacquer Alexandre
+
     Rigidbody2D rigidbody2d;
 
     void Awake()

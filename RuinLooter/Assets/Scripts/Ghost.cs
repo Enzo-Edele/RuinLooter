@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+    //Le Bacquer Alexandre
+
     Vector2 spawnPoint;
     public float speed = 2f;
     public float moveZone = 10;

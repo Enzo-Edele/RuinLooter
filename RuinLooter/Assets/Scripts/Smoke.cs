@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Smoke : MonoBehaviour
 {
+    //Le Bacquer Alexandre
+
     Rigidbody2D rigidbody2d;
     public float delay = 3f;
 

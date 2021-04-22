@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pipe : Trap
 {
+    //Le Bacquer Alexandre
+
     [SerializeField]
     GameObject Fumee;
 

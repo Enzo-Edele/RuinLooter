@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-
+    //Le Bacquer Alexandre
     public virtual void Launch(Vector2 direction, float force)
     {
         if (transform.position.magnitude > 60)

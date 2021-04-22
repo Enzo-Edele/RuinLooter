@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    //Le Bacquer Alexandre
+
     public List<AudioSource> audios = new List<AudioSource>();
     private static AudioManager _instance;
     public AudioClip sound;
