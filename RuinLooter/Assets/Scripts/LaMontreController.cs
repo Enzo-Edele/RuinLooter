@@ -17,6 +17,7 @@ public class LaMontreController : MonoBehaviour
     float timerAnim = 0;
     public float x;
     public float y;
+    int endLevel = 15;
 
     SpriteRenderer inUse;
     [SerializeField]
@@ -96,7 +97,7 @@ public class LaMontreController : MonoBehaviour
     }
     void EndingLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 16)
+        if (SceneManager.GetActiveScene().buildIndex == endLevel + 1)
         {
             UIManager.Instance.VictoryUI();
         }
