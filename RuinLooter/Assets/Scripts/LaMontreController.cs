@@ -17,7 +17,7 @@ public class LaMontreController : MonoBehaviour
     float timerAnim = 0;
     public float x;
     public float y;
-    int endLevel = 15;
+    int endLevel = 2;
 
     SpriteRenderer inUse;
     [SerializeField]

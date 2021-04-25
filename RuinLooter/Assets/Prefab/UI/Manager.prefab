@@ -1508,7 +1508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1518469067595085986
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2711,8 +2711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -485.69, y: 230.82}
-  m_SizeDelta: {x: 280.22, y: 313.7552}
+  m_AnchoredPosition: {x: -485.69, y: 219.97961}
+  m_SizeDelta: {x: 280.22, y: 335.436}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7519856188106932795
 CanvasRenderer:
@@ -2753,7 +2753,7 @@ MonoBehaviour:
     Jade
     Robert
 
-'
+    Mathilde Lechene'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
@@ -3421,9 +3421,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "GRAPHISMES\nRayan Dauliac\nJulie Fernandez\nAlexandra P\nAlix Kim\nCecile
-    Koa\nCecile Denave\nEmma Mautrot\nKilian Lefevre\nLaura Michel\nJade Robert\nJonas
-    Suhard\nMathilde Lech\xEAne\nJohanna"
+  m_text: 'GRAPHISMES
+
+    Rayan Dauliac
+
+    Julie Fernandez
+
+    Alexandra Pasquali
+
+    Johanna
+    De Lijster
+
+    Cecile Koa
+
+    Cecile Denave
+
+    Emma Mautrot
+
+    Kilian Lefevre
+
+    Laura
+    Michel
+
+    Jade Robert
+
+    Jonas Suhard
+
+    Mathilde Lechene
+
+    Alix Kim'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
   m_sharedMaterial: {fileID: -2204983536328577891, guid: a321f1d015d25bc4799a9f50172a4de2, type: 2}
