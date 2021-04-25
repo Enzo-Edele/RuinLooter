@@ -187,10 +187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1518469067595085985, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1518469068019906653, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
       propertyPath: m_Name
       value: Manager
@@ -237,47 +233,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1518469068019906654, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3969390153654901914, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_text
-      value: Henriette has the objective of going back in time to a more peaceful
-        era. To do so she will go through 15 level in the ruins and find the 3 pieces
-        of an artefact, an old pocket watch that is the missing key of a mysterious
-        device that you find at the start of every level. Once the device is activated
-        Henriette can go to the next level.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6171917518624334108, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6543555237860653954, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_text
-      value: "GRAPHISMES\r\nRayan Dauliac\r\nJulie Fernandez\r\nAlexandra P\rasquali\nJohanna
-        De Lijster\nAlix Kim\r\nC\xE9cile Koa\r\nC\xE9cile Denave\r\nEmma Mautrot\r\nKilian
-        Lefevre\r\nLaura Michel\r\nJade Robert\r\nJonas Suhard\r\nMathilde"
-      objectReference: {fileID: 0}
-    - target: {fileID: 6701426165024040345, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7395435011026307087, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7598126639366829778, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_text
-      value: 'AIDES
-
-        David Duriot
-
-        Eponine Jacquet
-
-        Lucile
-        Cacciuttolo'
-      objectReference: {fileID: 0}
-    - target: {fileID: 8082272282034278839, guid: 79e67a9573972d7418f15f2d082a968a, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
