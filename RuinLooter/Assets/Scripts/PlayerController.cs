@@ -334,7 +334,7 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("Hit");
             AudioManager.Instance.Playsound(hit, 0.4f);
         }
-        if(PV < 1)
+        if(PV < 1 && SceneManager.GetActiveScene().buildIndex != 18)
         {
             GameManager.Instance.StateChange(GameManager.GameState.Death);
         }

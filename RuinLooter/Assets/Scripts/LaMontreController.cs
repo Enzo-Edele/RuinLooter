@@ -17,7 +17,7 @@ public class LaMontreController : MonoBehaviour
     float timerAnim = 0;
     public float x;
     public float y;
-    int endLevel = 2;
+    int endLevel = 15;
 
     SpriteRenderer inUse;
     [SerializeField]
@@ -40,6 +40,12 @@ public class LaMontreController : MonoBehaviour
     }
     private void Update()
     {
+        /*
+        if (Input.GetKeyDown("n"))
+        {
+            this.EndingLevel();
+        }
+        */
         if (Input.GetKeyDown("e") && popUpOn && isOn && canGoNextLevel)
         {
             this.EndingLevel();
